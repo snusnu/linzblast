@@ -17,6 +17,9 @@ end
  
 Merb::BootLoader.before_app_loads do
   # This will get executed after dependencies have been loaded but before your app's classes have loaded.
+  
+  # include support for "delegate" a la rails
+  require Merb.root / "lib" / "delegation"
 end
  
 Merb::BootLoader.after_app_loads do

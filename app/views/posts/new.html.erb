@@ -1,0 +1,17 @@
+<h1>New Post</h1>
+ 
+<%= form_for(@post, :action => resource(:posts) ) do %>
+ 
+  <p><%= select :post_type_id, :collection => PostType.all, :text_method => :name, :value_method => :id %></p>
+  <p><%= text_field :body, :label => "Body" %></p>
+  <p><%= text_field :background_color, :label => "Background Color" %></p>
+  <p><%= text_field :text_color, :label => "Text Color" %></p>
+ 
+  <p>
+    <%= submit "Create" %>
+  </p>
+  
+<% end =%>
+ 
+<%= link_to 'All Posts', resource(:posts) %>
+

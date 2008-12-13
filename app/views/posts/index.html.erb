@@ -1,0 +1,25 @@
+<h1>Listing Posts</h1>
+ 
+<table>
+  <tr>
+    <th>Body</th>
+    <th>PostType</th>
+    <th>Background Color</th>
+    <th>Text Color</th>
+    <th>Created At</th>
+  </tr>
+ 
+<% @posts.each do |post| %>
+  <tr>
+    <td><%=h post.body %></td>
+    <td><%=h post.post_type_name %></td>
+    <td><%=h post.background_color %></td>
+    <td><%=h post.text_color %></td>
+    <td><%=h post.created_at %></td>
+ 
+    <td><%= link_to 'Show', resource(post) %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<%= link_to 'New Post', resource(:posts, :new) %>

@@ -1,0 +1,19 @@
+<h1>Showing Post</h1>
+
+<label>Body</label>
+<p><%=h @post.body %></p>
+
+<label>Background Color</label>
+<p><%=h @post.background_color %></p>
+
+<label>Text Color</label>
+<p><%=h @post.text_color %></p>
+
+<label>PostType</label>
+<p><%=h @post.post_type_name %></p>
+
+<label>PostType Description</label>
+<p><%=h @post.post_type_description %></p>
+ 
+<%= link_to 'All Posts', resource(:posts) %>
+

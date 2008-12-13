@@ -1,0 +1,21 @@
+<h1>Listing PostTypes</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Impact</th>
+    <th>Time To Live</th>
+  </tr>
+ 
+<% @post_types.each do |post_type| %>
+  <tr>
+    <td><%=h post_type.name %></td>
+    <td><%=h post_type.description %></td>
+    <td><%=h post_type.impact %></td>
+    <td><%=h post_type.ttl %></td>
+    
+    <td><%= link_to 'Show Posts', resource(post_type, :posts) %></td>
+  </tr>
+<% end %>
+</table>
