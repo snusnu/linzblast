@@ -29,15 +29,15 @@ Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
 
   resources :posts
-  
   resources :post_types do
     resources :posts
   end
   
-  resources :codes
-  
-  resources :code_generations do
+  authenticate do
     resources :codes
+    resources :code_generations do
+      resources :codes
+    end
   end
   
   # Adds the required routes for merb-auth using the password slice

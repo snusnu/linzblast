@@ -2,10 +2,7 @@
  
 <%= form_for(@post, :action => resource(:posts) ) do %>
  
-  <p><%= select :post_type_id, :collection => PostType.all, :text_method => :name, :value_method => :id %></p>
-  <p><%= text_field :body, :label => "Body" %></p>
-  <p><%= text_field :background_color, :label => "Background Color" %></p>
-  <p><%= text_field :text_color, :label => "Text Color" %></p>
+  <p><%= text_field :invitation_code, :label => "Code" %></p>
  
   <p>
     <%= submit "Create" %>
