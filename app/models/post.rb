@@ -1,5 +1,6 @@
 class Post
   
+  include BulletHole
   include DataMapper::Resource
   
   property :id,               Serial
@@ -13,6 +14,11 @@ class Post
   property :created_at,       DateTime
   property :updated_at,       DateTime
   
+  property :x_coord, Integer, :nullable => false
+  property :y_coord, Integer, :nullable => false
+  
+  property :polygon, Object,  :nullable => false
+  
   
   belongs_to :post_type
   
@@ -21,6 +27,10 @@ class Post
   delegate :description, :to => :post_type, :prefix => true
   delegate :impact,      :to => :post_type, :prefix => true
   delegate :ttl,         :to => :post_type, :prefix => true
+  
+  
+  before :save, :check_invitation_code!
+  before :save, :initialize_polygon!
   
   
   def valid_invitation_code?
@@ -40,10 +50,12 @@ class Post
   
   protected
   
-  before :save, :check_invitation_code!
-  
   def check_invitation_code!(*post)
     throw :halt if new_record? && !self.valid_invitation_code?
+  end
+  
+  def initialize_polygon!
+    self.polygon = random_polygon  
   end
   
 end
