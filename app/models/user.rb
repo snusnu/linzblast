@@ -9,6 +9,7 @@
 # 
 # You will need to setup your database and create a user.
 class User
+  
   include DataMapper::Resource
   
   property :id,     Serial

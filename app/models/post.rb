@@ -1,6 +1,5 @@
 class Post
   
-  include BulletHole
   include DataMapper::Resource
   
   property :id,               Serial
@@ -14,10 +13,10 @@ class Post
   property :created_at,       DateTime
   property :updated_at,       DateTime
   
-  property :x_coord, Integer, :nullable => false
-  property :y_coord, Integer, :nullable => false
+  property :x_coord,          Integer
+  property :y_coord,          Integer
   
-  property :polygon, Object,  :nullable => false
+  property :polygon,          Object
   
   
   belongs_to :post_type
@@ -30,16 +29,24 @@ class Post
   
   
   before :save, :check_invitation_code!
-  before :save, :initialize_polygon!
+  after  :save, :destroy_invitation_code!
   
+  
+  def ready?
+    !new_record? && valid_invitation_code? && valid_coordinates?
+  end
+  
+  def valid_coordinates?
+    !self.x_coord.nil? && !self.y_coord.nil?
+  end
   
   def valid_invitation_code?
-    !invitation_code.nil?
+    !@invitation_code.nil?
   end
   
   def invitation_code=(code)
     @invitation_code = Code.first(:secret => code)
-    self.post_type_id = invitation_code.post_type.id if @invitation_code
+    initialize_post_type_container! if @invitation_code
     @invitation_code
   end
   
@@ -50,12 +57,24 @@ class Post
   
   protected
   
-  def check_invitation_code!(*post)
-    throw :halt if new_record? && !self.valid_invitation_code?
+  # before filter
+  def check_invitation_code!(*args)
+    throw :halt  if new_record? && !valid_invitation_code?
+  end
+    
+  # after filter
+  def destroy_invitation_code!(*args)
+    invitation_code.destroy if ready?
   end
   
-  def initialize_polygon!
-    self.polygon = random_polygon  
+  
+  private
+  
+  def initialize_post_type_container!
+    if new_record? && valid_invitation_code?
+      self.post_type = invitation_code.post_type
+      self.polygon = post_type.generate_container
+    end
   end
   
 end

@@ -2,27 +2,27 @@ module BulletHole
 
   include Math
   
-  def random_polygon(min_radius, max_radius)
+  def random_polygon(radius, impact, distortion)
     rad, poly = 0, []
     while rad <= 2 * PI
-      poly << random_point(min_radius, max_radius, rad)
-      rad += random_stepsize(min_radius, max_radius, rad)
+      poly << random_point(radius, impact, distortion, rad)
+      rad += random_stepsize(radius, impact, distortion, rad)
     end
     poly
   end
     
-  def random_point(min_radius, max_radius, rad)
-    x = x_coordinate(rad) * min_radius + random_scatter(min_radius, max_radius, rad)
-    y = y_coordinate(rad) * min_radius + random_scatter(min_radius, max_radius, rad)
+  def random_point(radius, impact, distortion, rad)
+    x = x_coordinate(rad) * radius + random_scatter(radius, impact, distortion, rad)
+    y = y_coordinate(rad) * radius + random_scatter(radius, impact, distortion, rad)
     [ x, y ]
   end
   
-  def random_stepsize(min_radius, max_radius, rad)
-    0.324
+  def random_stepsize(radius, impact, distortion, rad)
+    0.324 * (1 + rand)
   end
     
-  def random_scatter(min_radius, max_radius, rad)
-    (rand * 1000) % (max_radius - min_radius)
+  def random_scatter(radius, impact, distortion, rad)
+    (rand * 1000) % (rand * distortion) * (rand(2) == 0 ? -1 : 1)
   end
   
   def x_coordinate(rad)
