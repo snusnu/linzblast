@@ -1,5 +1,5 @@
-merb_gems_version = "~>1.0.4"
-dm_gems_version   = "~>0.9.8"
+merb_gems_version  = "~>1.0.11"
+dm_gems_version    = "~>0.9.11"
 
 dependency "merb-assets", merb_gems_version  
 dependency "merb-cache", merb_gems_version   
@@ -19,4 +19,4 @@ dependency "dm-constraints", dm_gems_version
 dependency "dm-serializer", dm_gems_version
 dependency "dm-sweatshop", dm_gems_version
 
-dependency 'merb_resource_controller', "0.1.0"
+dependency 'merb_resource_controller', "0.2.0"
