@@ -1,11 +1,11 @@
-class PostType
+class Style
   
   include BulletHole
   include DataMapper::Resource
   
   property :id,          Serial
   
-  property :name,        String, :nullable => false, :length => 80
+  property :name,        String, :nullable => false, :length => (1..80)
   property :description, Text
   
   property :impact,      Integer, :nullable => false

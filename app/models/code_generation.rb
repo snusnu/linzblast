@@ -2,26 +2,20 @@ class CodeGeneration
   
   include DataMapper::Resource
   
-  property :id,           Serial
-  property :user_id,      Integer #, :nullable => false
-  property :post_type_id, Integer, :nullable => false
+  property :id,                  Serial
+  property :user_id,             Integer, :nullable => false
+  property :style_collection_id, Integer, :nullable => false
   
-  property :amount,       Integer, :nullable => false
-  
-  property :created_at,   DateTime
-  property :updated_at,   DateTime
+  property :amount,              Integer, :nullable => false
+                                 
+  property :created_at,          DateTime
+  property :updated_at,          DateTime
   
   
   belongs_to :user
-  belongs_to :post_type
+  belongs_to :style_collection
   
   has n, :codes
-  
-  
-  delegate :name,        :to => :post_type, :prefix => true
-  delegate :description, :to => :post_type, :prefix => true
-  delegate :impact,      :to => :post_type, :prefix => true
-  delegate :ttl,         :to => :post_type, :prefix => true
   
   
   def self.random_secret

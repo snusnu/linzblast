@@ -15,11 +15,11 @@ class Code
   
   delegate :created_at, :to => :code_generation
   
-  delegate :post_type,             :to => :code_generation
-  delegate :post_type_name,        :to => :code_generation
-  delegate :post_type_description, :to => :code_generation
-  delegate :post_type_impact,      :to => :code_generation
-  delegate :post_type_ttl,         :to => :code_generation
+  delegate :style,             :to => :code_generation
+  delegate :style_name,        :to => :code_generation
+  delegate :style_description, :to => :code_generation
+  delegate :style_impact,      :to => :code_generation
+  delegate :style_ttl,         :to => :code_generation
   
   
   def generator_name

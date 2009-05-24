@@ -23,6 +23,28 @@ namespace :db do
       :salt                  => '4d0a6015f1638ae1500122a3205b9439a601e04f'
     )
     
+    # styles
+    
+    domblasta = Style.create(
+      :name        => 'domblasta',
+      :description => 'domblasta',
+      :impact      => 10,
+      :distortion  => 10,
+      :ttl         => 3600
+    )
+    
+    # style_collections
+    
+    all_styles = StyleCollection.create(
+      :name        => 'all we got',
+      :description => 'all we got'
+    )
+    
+    StyleCollectionMembership.create(
+      :style_collection => all_styles,
+      :style => domblasta
+    )
+    
   end
   
 end

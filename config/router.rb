@@ -29,7 +29,7 @@ Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
 
   resources :posts
-  resources :post_types do
+  resources :styles do
     resources :posts
   end
   

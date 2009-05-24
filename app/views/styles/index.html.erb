@@ -1,0 +1,23 @@
+<h1>All Styles</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Impact</th>
+    <th>Distortion</th>
+    <th>Time To Live</th>
+  </tr>
+ 
+<% @styles.each do |style| %>
+  <tr>
+    <td><%=h style.name %></td>
+    <td><%=h style.description %></td>
+    <td><%=h style.impact %></td>
+    <td><%=h style.distortion %></td>
+    <td><%=h style.ttl %></td>
+    
+    <td><%= link_to 'Show Posts', resource(style, :posts) %></td>
+  </tr>
+<% end %>
+</table>

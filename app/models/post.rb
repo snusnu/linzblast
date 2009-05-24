@@ -3,9 +3,9 @@ class Post
   include DataMapper::Resource
   
   property :id,               Serial
-  property :post_type_id,     Integer, :nullable => false
+  property :style_id,         Integer, :nullable => false
   
-  property :body,             String,  :length => 255
+  property :body,             String,  :nullable => false, :length => (1..160)
   
   property :text_color,       String,  :length => 6, :default => "FFFFFF"
   property :background_color, String,  :length => 6, :default => "FFFFFF"
@@ -19,13 +19,13 @@ class Post
   property :polygon,          Object
   
   
-  belongs_to :post_type
+  belongs_to :style
   
   
-  delegate :name,        :to => :post_type, :prefix => true
-  delegate :description, :to => :post_type, :prefix => true
-  delegate :impact,      :to => :post_type, :prefix => true
-  delegate :ttl,         :to => :post_type, :prefix => true
+  delegate :name,        :to => :style, :prefix => true
+  delegate :description, :to => :style, :prefix => true
+  delegate :impact,      :to => :style, :prefix => true
+  delegate :ttl,         :to => :style, :prefix => true
   
   
   before :save, :check_invitation_code!
@@ -46,7 +46,7 @@ class Post
   
   def invitation_code=(code)
     @invitation_code = Code.first(:secret => code)
-    initialize_post_type_container! if @invitation_code
+    initialize_style_container! if @invitation_code
     @invitation_code
   end
   
@@ -70,10 +70,10 @@ class Post
   
   private
   
-  def initialize_post_type_container!
+  def initialize_style_container!
     if new_record? && valid_invitation_code?
-      self.post_type = invitation_code.post_type
-      self.polygon = post_type.generate_container
+      self.style = invitation_code.style
+      self.polygon = style.generate_container
     end
   end
   
