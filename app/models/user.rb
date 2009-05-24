@@ -13,6 +13,6 @@ class User
   include DataMapper::Resource
   
   property :id,     Serial
-  property :login,  String
+  property :email,  String, :nullable => false, :length => (3..50), :unique => true, :unique_index => true
   
 end
