@@ -19,5 +19,3 @@ dependency "dm-validations",           dm_gems_version
 dependency "dm-serializer",            dm_gems_version
 dependency "dm-sweatshop",             dm_gems_version
 #dependency "dm-constraints",           dm_gems_version
-
-dependency 'merb_resource_controller', "0.2.0"

@@ -1,23 +1,15 @@
 class Posts < Application
-  
-  controlling :posts do |p|
-    p.actions :index, :new, :create
-  end
-  
-  def redirect_on_successful_create
-    resource(member, :edit)
-  end
-  
-end
 
-
-class CodeGenerations < Application
-
-  layout :dashboard
-  
   def index
+    provides :html, :json
     @posts = Post.all
     display @posts
+  end
+  
+  def show
+    provides :html, :json
+    @post = Post.get params[:id]
+    display @post
   end
 
   def new
@@ -28,7 +20,7 @@ class CodeGenerations < Application
   def create
     @post = Post.new(params[:post])
     if @post.save
-      redirect resource(:admin, :posts)
+      redirect resource(@post)
     else
       render :new
     end
