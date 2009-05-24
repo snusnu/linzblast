@@ -1,0 +1,15 @@
+<h1>New CodeGeneration</h1>
+ 
+<%= form_for(@code_generation, :action => resource(:admin, :code_generations) ) do %>
+ 
+  <p><%= select :style_collection_id, :collection => StyleCollection.all, :text_method => :name, :value_method => :id %></p>
+  <p><%= text_field :amount, :label => "Amount" %></p>
+ 
+  <p>
+    <%= submit "Create" %>
+  </p>
+  
+<% end =%>
+ 
+<%= link_to 'All CodeGenerations', resource(:admin, :code_generations) %>
+

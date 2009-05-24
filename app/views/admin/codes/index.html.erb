@@ -1,9 +1,9 @@
-<h1>Listing Codes</h1>
+<h1>Codes</h1>
  
 <table>
   <tr>
     <th>Generator</th>
-    <th>PostType</th>
+    <th>Style</th>
     <th>Secret</th>
     <th>Created At</th>
     <th>Used On</th>
@@ -12,7 +12,7 @@
 <% @codes.each do |code| %>
   <tr>
     <td><%=h code.generator_name %></td>
-    <td><%=h code.post_type_name %></td>
+    <td><%=h code.style_collection_name %></td>
     <td><%=h code.secret %></td>
     <td><%=h code.created_at %></td>
     <td><%=h code.deleted_at %></td>
@@ -20,5 +20,6 @@
 <% end %>
 </table>
  
-<%= link_to 'Generate New Codes', resource(:code_generations, :new) %>
+<%= link_to 'Generate New Codes', resource(:admin, :code_generations, :new) %>
+<%= link_to 'All Code Generations', resource(:admin, :code_generations) %>
 

@@ -12,18 +12,14 @@ class Code
   
   belongs_to :code_generation
   
-  
   delegate :created_at, :to => :code_generation
-  
-  delegate :style,             :to => :code_generation
-  delegate :style_name,        :to => :code_generation
-  delegate :style_description, :to => :code_generation
-  delegate :style_impact,      :to => :code_generation
-  delegate :style_ttl,         :to => :code_generation
-  
   
   def generator_name
     code_generation.user_name
+  end
+  
+  def style_collection_name
+    code_generation.style_collection_name
   end
   
 end

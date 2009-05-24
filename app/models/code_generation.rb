@@ -17,20 +17,22 @@ class CodeGeneration
   
   has n, :codes
   
+  delegate :name,             :to => :style_collection, :prefix => true
+  
   
   def self.random_secret
     /[:word:]/.gen
   end
   
   def user_name
-    user ? user.login : "Anonymous"  
+    user.email  
   end
   
   protected
   
-  after :save, :generate_codes!
+  after :save, :generate_codes
   
-  def generate_codes!(saved)
+  def generate_codes(saved)
     return unless saved
     self.amount.times do
       Code.create(:code_generation_id => self.id, :secret => self.class.random_secret)
