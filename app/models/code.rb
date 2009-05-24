@@ -12,7 +12,8 @@ class Code
   
   belongs_to :code_generation
   
-  delegate :created_at, :to => :code_generation
+  delegate :created_at,  :to => :code_generation
+  delegate :nr_of_posts, :to => :code_generation
   
   def generator_name
     code_generation.user_name

@@ -7,6 +7,7 @@ class CodeGeneration
   property :style_collection_id, Integer, :nullable => false
   
   property :amount,              Integer, :nullable => false
+  property :nr_of_posts,         Integer, :nullable => false
                                  
   property :created_at,          DateTime
   property :updated_at,          DateTime
