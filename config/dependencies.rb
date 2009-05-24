@@ -15,7 +15,7 @@ dependency "dm-aggregates", dm_gems_version
 dependency "dm-timestamps", dm_gems_version   
 dependency "dm-types", dm_gems_version        
 dependency "dm-validations", dm_gems_version
-dependency "dm-constraints", dm_gems_version
 dependency "dm-serializer", dm_gems_version
+#dependency "dm-constraints", dm_gems_version
 
 dependency 'merb_resource_controller', "0.2.0"
