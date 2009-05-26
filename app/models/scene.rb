@@ -11,6 +11,9 @@ class Scene
   
   property :uri,         URI,    :nullable => false, :length => (1..255)
   
+  property :created_at, DateTime
+  property :updated_at, DateTime
+  
   # associations
   
   has n, :posts
