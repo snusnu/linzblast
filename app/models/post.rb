@@ -12,13 +12,13 @@ class Post
   property :text_color,       String,  :length => 6, :default => "FFFFFF"
   property :background_color, String,  :length => 6, :default => "FFFFFF"
   
-  property :created_at,       DateTime
-  property :updated_at,       DateTime
-  
   property :x_coord,          Integer
   property :y_coord,          Integer
   
   property :polygon,          Object
+  
+  property :created_at,       DateTime
+  property :updated_at,       DateTime
   
   
   belongs_to :scene
