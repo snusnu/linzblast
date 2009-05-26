@@ -1,0 +1,15 @@
+<h1>All Scenes</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+ 
+<% @scenes.each do |scene| %>
+  <tr>
+    <td><%=h scene.name %></td>
+    <td><%=h scene.description %></td>
+  </tr>
+<% end %>
+</table>

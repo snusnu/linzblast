@@ -3,6 +3,8 @@ class Post
   include DataMapper::Resource
   
   property :id,               Serial
+  
+  property :scene_id,         Integer, :nullable => false
   property :style_id,         Integer, :nullable => false
   
   property :body,             String,  :nullable => false, :length => (1..160)
@@ -19,6 +21,7 @@ class Post
   property :polygon,          Object
   
   
+  belongs_to :scene
   belongs_to :style
   
   

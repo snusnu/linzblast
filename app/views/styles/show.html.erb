@@ -1,0 +1,18 @@
+<h1>Showing Style</h1>
+
+<label>Name</label>
+<p><%=h @style.name %></p>
+
+<label>Description</label>
+<p><%=h @style.description %></p>
+
+<label>Impact</label>
+<p><%=h @style.impact %></p>
+
+<label>Distortion</label>
+<p><%=h @style.distortion %></p>
+
+<label>Time to live</label>
+<p><%=h @style.ttl %></p>
+ 
+<%= link_to 'All Styles', resource(:styles) %>
