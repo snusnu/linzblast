@@ -17,7 +17,7 @@
     <td><%=h scene.created_at %></td>
     <td><%=h scene.updated_at %></td>
  
-    <td><%= link_to 'Show Scene', resource(scene) %></td>
+    <td><%= link_to 'Show Scene', resource(:admin, scene) %></td>
   </tr>
 <% end %>
 </table>
