@@ -1,0 +1,17 @@
+<h1>Games</h1>
+ 
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Created At</th>
+    <th>Used On</th>
+  </tr>
+ 
+<% @games.each do |game| %>
+  <tr>
+    <td><%=h game.code.secret %></td>
+    <td><%=h game.created_at %></td>
+    <td><%=h game.deleted_at %></td>
+  </tr>
+<% end %>
+</table>
