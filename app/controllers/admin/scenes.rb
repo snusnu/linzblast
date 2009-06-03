@@ -15,7 +15,7 @@ module Admin
     end
     
     def create
-      @scene = Scene.new(params[:scene].merge(:user => session.user))
+      @scene = Scene.new(params[:scene])
       if @scene.save
         redirect resource(:admin, :scenes)
       else

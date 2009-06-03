@@ -12,14 +12,14 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%=h post.body %></td>
-    <td><%=h post.post_type_name %></td>
+    <td><%=h post.style_name %></td>
     <td><%=h post.background_color %></td>
     <td><%=h post.text_color %></td>
     <td><%=h post.created_at %></td>
  
-    <td><%= link_to 'Show', resource(post) %></td>
+    <td><%= link_to 'Show', resource(:admin, post) %></td>
   </tr>
 <% end %>
 </table>
  
-<%= link_to 'New Post', resource(:posts, :new) %>
+<%= link_to 'New Post', resource(:admin, :posts, :new) %>

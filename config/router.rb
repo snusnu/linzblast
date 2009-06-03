@@ -31,6 +31,7 @@ Merb::Router.prepare do
   resources :games
   resources :scenes
   resources :styles
+  resources :posts
   
   namespace :admin do
   

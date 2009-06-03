@@ -1,0 +1,29 @@
+<h3>Add a Scene</h3>
+
+<div id="form-container">
+
+  <%= form_for(@scene, :action => resource(:admin, :scenes)) do %>
+    
+    <fieldset>
+
+      <legend><span>Details</span></legend>
+
+      <p>
+        <%= text_area :name, :label => "Name" %>
+      </p>
+
+      <p>
+        <%= text_field :description, :label => "Description" %>
+      </p>
+
+      <p>
+        <%= text_field :uri, :label => "URI" %>
+      </p>
+
+    </fieldset>
+    
+    <%= submit "Add" %>
+
+  <% end =%>
+  
+</div>

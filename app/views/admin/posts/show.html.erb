@@ -10,10 +10,10 @@
 <p><%=h @post.text_color %></p>
 
 <label>PostType</label>
-<p><%=h @post.post_type_name %></p>
+<p><%=h @post.style_name %></p>
 
 <label>PostType Description</label>
-<p><%=h @post.post_type_description %></p>
+<p><%=h @post.style_description %></p>
  
-<%= link_to 'All Posts', resource(:posts) %>
+<%= link_to 'All Posts', resource(:admin, :posts) %>
 

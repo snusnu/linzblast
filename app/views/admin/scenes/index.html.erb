@@ -1,0 +1,25 @@
+<h1>Listing Scenes</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>URI</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+  </tr>
+ 
+<% @scenes.each do |scene| %>
+  <tr>
+    <td><%=h scene.name %></td>
+    <td><%=h scene.description %></td>
+    <td><%=h scene.uri %></td>
+    <td><%=h scene.created_at %></td>
+    <td><%=h scene.updated_at %></td>
+ 
+    <td><%= link_to 'Show Scene', resource(scene) %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<%= link_to 'New Scene', resource(:admin, :scenes, :new) %>

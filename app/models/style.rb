@@ -17,7 +17,7 @@ class Style
   BASE_RADIUS = 10
   
   def generate_container
-    random_polygon(BASE_RADIUS * impact, self.distortion)
+    random_polygon(BASE_RADIUS, self.impact, self.distortion)
   end
   
 end

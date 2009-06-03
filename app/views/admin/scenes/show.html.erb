@@ -1,0 +1,13 @@
+<h1>Showing Scene</h1>
+
+<label>Name</label>
+<p><%=h @scene.name %></p>
+
+<label>Description</label>
+<p><%=h @scene.description %></p>
+
+<label>URI</label>
+<p><%=h @scene.uri %></p>
+ 
+<%= link_to 'All Scenes', resource(:admin, :scenes) %>
+

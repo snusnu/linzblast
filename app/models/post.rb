@@ -36,7 +36,7 @@ class Post
   
   
   def ready?
-    !new_record? && valid_invitation_code? && valid_coordinates?
+    !new? && valid_invitation_code? && valid_coordinates?
   end
   
   def valid_coordinates?
@@ -62,7 +62,7 @@ class Post
   
   # before filter
   def check_invitation_code!(*args)
-    throw :halt  if new_record? && !valid_invitation_code?
+    throw :halt  if new? && !valid_invitation_code?
   end
     
   # after filter
@@ -74,8 +74,7 @@ class Post
   private
   
   def initialize_style_container!
-    if new_record? && valid_invitation_code?
-      self.style = invitation_code.style
+    if new? && valid_invitation_code?
       self.polygon = style.generate_container
     end
   end

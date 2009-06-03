@@ -1,0 +1,55 @@
+<h3>Place a shot</h3>
+
+<div id="form-container">
+
+  <%= form_for(@post, :action => resource(:admin, :posts)) do %>
+
+    <fieldset>
+
+      <legend><span>Game</span></legend>
+
+      <p>
+        <%= select :scene_id, :label => 'Scene', :collection => Scene.all, :text_method => :name, :value_method => :id %>
+      </p>
+    
+      <p>
+        <%= select :style_id, :label => 'Weapon', :collection => Style.all, :text_method => :name, :value_method => :id %>
+      </p>
+      
+      <p>
+        <%= text_field :invitation_code, :label => "Code" %>
+      </p>
+      
+    </fieldset>
+    
+    <fieldset>
+
+      <legend><span>Details</span></legend>
+
+      <p>
+        <%= text_area :body, :label => "Text" %>
+      </p>
+
+      <p>
+        <%= text_field :text_color, :label => "Text color" %>
+      </p>
+
+      <p>
+        <%= text_field :background_color, :label => "Background color" %>
+      </p>
+    
+      <p>
+        <%= text_field :x_coord, :label => "X-Coordinate" %>
+      </p>
+
+      <p>
+        <%= text_field :y_coord, :label => "Y-Coordinate" %>
+      </p>
+
+    </fieldset>
+    
+    <%= submit "Shoot" %>
+
+  <% end =%>
+  
+</div>
