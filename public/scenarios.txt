@@ -1,0 +1,1 @@
+﻿[{"id":"1", "label":"Linz", "description":"Die europäische Kulturhaupstadt 2009","background":"poestlingberg_bg.jpg"}]

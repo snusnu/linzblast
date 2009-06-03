@@ -1,0 +1,1 @@
+﻿[{"id":"1","x":"200","y":"250","color":"F2BC1B","body":"Message 1 Body", "container":""},{"id":"2","x":"600","y":"300","color":"F28705","body":"Message 2 Body"},{"id":"3","x":"450","y":"500","color":"D96704","body":"Message 3 Body"}]
