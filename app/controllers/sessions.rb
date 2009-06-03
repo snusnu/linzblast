@@ -7,7 +7,7 @@ class MerbAuthSlicePassword::Sessions < MerbAuthSlicePassword::Application
   def redirect_after_login
     message[:auth_status] = 'success logged-in'
     if session.user
-      redirect_back_or "/admin/games", :message => message, :ignore => [slice_url(:login), slice_url(:logout)]
+      redirect_back_or "/admin/dashboard", :message => message, :ignore => [slice_url(:login), slice_url(:logout)]
     else
       redirect initialized_game
     end

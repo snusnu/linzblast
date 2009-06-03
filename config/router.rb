@@ -36,6 +36,9 @@ Merb::Router.prepare do
   namespace :admin do
   
     authenticate do
+
+      resource  :dashboard
+
       resources :games
       resources :posts
       resources :codes
@@ -44,6 +47,7 @@ Merb::Router.prepare do
       resources :code_generations do
         resources :codes
       end
+
     end
     
   end
