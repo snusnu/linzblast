@@ -28,12 +28,14 @@
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
 
+  resources :games
   resources :scenes
   resources :styles
   
   namespace :admin do
   
     authenticate do
+      resources :games
       resources :posts
       resources :codes
       resources :styles
