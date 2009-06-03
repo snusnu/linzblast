@@ -2,6 +2,8 @@ class CodeGeneration
   
   include DataMapper::Resource
   
+  # properties
+  
   property :id,                  Serial
   property :user_id,             Integer, :nullable => false
   property :style_collection_id, Integer, :nullable => false
@@ -12,14 +14,15 @@ class CodeGeneration
   property :created_at,          DateTime
   property :updated_at,          DateTime
   
+  # associations
   
   belongs_to :user
   belongs_to :style_collection
   
   has n, :codes
   
-  delegate :name,             :to => :style_collection, :prefix => true
   
+  delegate :name, :to => :style_collection, :prefix => true
   
   def self.random_secret
     /[:word:]/.gen
@@ -36,7 +39,12 @@ class CodeGeneration
   def generate_codes(saved)
     return unless saved
     self.amount.times do
-      Code.create(:code_generation_id => self.id, :secret => self.class.random_secret)
+      Code.create(
+        :code_generation_id  => self.id,
+        :style_collection_id => self.style_collection.id,
+        :secret              => self.class.random_secret, 
+        :nr_of_posts         => self.nr_of_posts
+      )
     end
   end
   
