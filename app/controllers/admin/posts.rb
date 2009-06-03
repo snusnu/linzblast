@@ -24,9 +24,6 @@ module Admin
       if @post.save
         redirect resource(:admin, @post)
       else
-        puts "X" * 80
-        puts @post.errors.inspect
-        puts "X" * 80
         render :new
       end
     end
