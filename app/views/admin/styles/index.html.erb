@@ -1,0 +1,25 @@
+<h1>Listing Styles</h1>
+ 
+<table>
+  <tr>
+    <th>name</th>
+    <th>description</th>
+    <th>impact</th>
+    <th>distortion</th>
+    <th>ttl</th>
+  </tr>
+ 
+<% @styles.each do |style| %>
+  <tr>
+    <td><%=h style.name %></td>
+    <td><%=h style.description %></td>
+    <td><%=h style.impact %></td>
+    <td><%=h style.distortion %></td>
+    <td><%=h style.ttl %></td>
+ 
+    <td><%= link_to 'Show Style', resource(:admin, style) %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<%= link_to 'New Style', resource(:admin, :styles, :new) %>

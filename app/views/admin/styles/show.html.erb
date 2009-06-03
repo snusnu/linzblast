@@ -1,0 +1,18 @@
+<h1>Showing Style</h1>
+
+<label>name</label>
+<p><%=h @style.name %></p>
+
+<label>description</label>
+<p><%=h @style.description %></p>
+
+<label>impact</label>
+<p><%=h @style.impact %></p>
+
+<label>distortion</label>
+<p><%=h @style.distortion %></p>
+
+<label>ttl</label>
+<p><%=h @style.ttl %></p>
+ 
+<%= link_to 'All Styles', resource(:admin, :styles) %>

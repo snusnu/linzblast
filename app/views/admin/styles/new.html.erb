@@ -1,0 +1,37 @@
+<h3>Add a Style</h3>
+
+<div id="form-container">
+
+  <%= form_for(@style, :action => resource(:admin, :styles)) do %>
+    
+    <fieldset>
+
+      <legend><span>Details</span></legend>
+
+      <p>
+        <%= text_field :name, :label => "name" %>
+      </p>
+
+      <p>
+        <%= text_area :description, :label => "description" %>
+      </p>
+
+      <p>
+        <%= text_field :impact, :label => "impact" %>
+      </p>
+      
+      <p>
+        <%= text_field :distortion, :label => "distortion" %>
+      </p>
+      
+      <p>
+        <%= text_field :ttl, :label => "ttl" %>
+      </p>
+
+    </fieldset>
+    
+    <%= submit "Add" %>
+
+  <% end =%>
+  
+</div>
