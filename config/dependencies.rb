@@ -1,4 +1,4 @@
-merb_gems_version  = "1.0.11"
+merb_gems_version  = "1.1"
 dm_gems_version    = "0.10.0"
 
 dependency "merb-assets",              merb_gems_version  
@@ -18,4 +18,4 @@ dependency "dm-types",                 dm_gems_version
 dependency "dm-validations",           dm_gems_version
 dependency "dm-serializer",            dm_gems_version
 dependency "dm-sweatshop",             dm_gems_version
-#dependency "dm-constraints",           dm_gems_version
+dependency "dm-constraints",           dm_gems_version
