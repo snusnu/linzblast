@@ -22,7 +22,9 @@ Merb::Slices::config[:"merb-auth-slice-password"][:no_default_strategies] = true
 class InvitationCode < Merb::Authentication::Strategy
   
   def run!
-    (code = request.params[:invitation_code]) && Code.first(:secret => code)
+    if (code = request.params[:invitation_code]) && Code.first(:secret => code)
+      request.params[:code_id] = code.id # speed up lookup after redirect
+    end
   end
   
   def strategy_error_message
