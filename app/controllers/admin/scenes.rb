@@ -14,6 +14,11 @@ module Admin
       display @scene
     end
     
+    def show
+      @scene = Scene.get params[:id]
+      display @scene
+    end
+    
     def create
       @scene = Scene.new(params[:scene])
       if @scene.save
