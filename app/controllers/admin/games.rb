@@ -2,7 +2,7 @@ module Admin
   
   class Games < Application
 
-    layout :application
+    layout :dashboard
 
     provides :html, :json
 
