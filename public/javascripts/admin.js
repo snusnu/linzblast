@@ -11,8 +11,9 @@ $(document).ready(function(){
   
 	// Colorize Tables
 	$('table.resources tbody').colorize({
-    altColor:'#2e2e2e',
-		bgColor: '#000000',
+    // clashes with tablesorting
+		altColor:'#2e2e2e',
+		bgColor: '#2e2e2e',
 		hoverColor: '#1281A9',
 		hiliteClass: 'ui-state-active'
   });
