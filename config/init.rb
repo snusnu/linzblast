@@ -20,6 +20,12 @@ Merb::BootLoader.before_app_loads do
   
   # include support for "delegate" a la rails
   require Merb.root / "lib" / "delegation"
+  
+  # commonly used date formats
+  Date.add_format(:hm,  "%H:%M")
+  Date.add_format(:dmy, "%d/%m/%Y")
+  Date.add_format(:dmyhm, "%d/%m/%Y-%H:%M")
+  
 end
  
 Merb::BootLoader.after_app_loads do
