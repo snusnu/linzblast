@@ -21,11 +21,11 @@
       	<div id="header">
           <a id="sidebar-toggle" href="#"></a>
           <h1><span>linzblast</span></h1>
-          <h2><a href="/admin/dashboard">Dashboard</a> [<a href="/logout">Abmelden</a>]</h2>
+          <h2><a href="/admin/dashboard">Dashboard</a> [<a href="/logout">Sign out</a>]</h2>
         
           <dl>
-            <dt>Angemeldet als</dt>
-            <dd>Username</dd>
+            <dt>Signed in as</dt>
+            <dd><%= session.user.email %></dd>
           </dl>
         </div>
 				
