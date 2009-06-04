@@ -9,6 +9,11 @@ class Games < Application
     display @games
   end
   
+  def new
+    @game = Game.new
+    display @game
+  end
+
   def show
     @game = Game.get params[:id]
     raise NotFound unless @game
