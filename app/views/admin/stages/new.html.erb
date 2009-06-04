@@ -21,9 +21,9 @@
       <p>
         <%= text_area :description, :label => "description" %>
       </p>
-
+      
       <p>
-        <%= text_field :uri, :label => "uri" %>
+        <%= check_box :access_restricted, :label => "access restricted" %>
       </p>
 
       <%= partial 'admin/shared/forms/image', :upload_allowed => true %>
