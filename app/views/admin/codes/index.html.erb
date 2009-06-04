@@ -1,25 +1,33 @@
-<h1>codes</h1>
+<h3>codes</h3>
  
-<table>
-  <tr>
-    <th>generator</th>
-    <th>styles</th>
-    <th>secret</th>
-    <th>nr of posts</th>
-    <th>created at</th>
-    <th>used on</th>
-  </tr>
- 
-<% @codes.each do |code| %>
-  <tr>
-    <td><%=h code.generator_name %></td>
-    <td><%= style_links(code) %></td>
-    <td><%=h code.secret %></td>
-    <td><%=h code.nr_of_posts %></td>
-    <td><%=h code.created_at %></td>
-    <td><%=h code.deleted_at %></td>
-  </tr>
-<% end %>
+<table class="resources">
+  <thead>
+		<tr>
+	    <th>generator</th>
+	    <th>styles</th>
+	    <th>secret</th>
+	    <th>nr of posts</th>
+	    <th>created at</th>
+	    <th>used on</th>
+	  </tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td></td>
+		</tr>
+	</tfoot>
+  <tbody>
+	<% @codes.each do |code| %>
+	  <tr>
+	    <td><%=h code.generator_name %></td>
+	    <td><%= style_links(code) %></td>
+	    <td><%=h code.secret %></td>
+	    <td class="number"><%=h code.nr_of_posts %></td>
+	    <td class="date"><%=h code.created_at %></td>
+	    <td class="date"><%=h code.deleted_at %></td>
+	  </tr>
+	<% end %>
+	</tbody>
 </table>
  
 <%= link_to 'generate new codes', resource(:admin, :code_generations, :new) %>
