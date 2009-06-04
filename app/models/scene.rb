@@ -27,7 +27,6 @@ class Scene
 
   # support file uploads using dm-paperclip
 
-  include DataMapper::Validate # TODO find out if this is really necessary
   include Paperclip::Resource
 
   has_attached_file :image,
