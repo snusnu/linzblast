@@ -1,25 +1,34 @@
-<h1>styles</h1>
+<h3>styles</h3>
  
-<table>
-  <tr>
-    <th>name</th>
-    <th>description</th>
-    <th>impact</th>
-    <th>distortion</th>
-    <th>ttl</th>
-  </tr>
- 
-<% @styles.each do |style| %>
-  <tr>
-    <td><%=h style.name %></td>
-    <td><%=h style.description %></td>
-    <td><%=h style.impact %></td>
-    <td><%=h style.distortion %></td>
-    <td><%=h style.ttl %></td>
- 
-    <td><%= link_to 'show', resource(:admin, style) %></td>
-  </tr>
-<% end %>
+<table class="resources">
+  <thead>
+		<tr>
+	    <th>name</th>
+	    <th>description</th>
+	    <th>impact</th>
+	    <th>distortion</th>
+	    <th>ttl</th>
+			<th>action</th>
+	  </tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td></td>
+		</tr>
+	</tfoot>
+	<tbody>
+ 	<% @styles.each do |style| %>
+	  <tr>
+	    <td><%=h style.name %></td>
+	    <td><%=h style.description %></td>
+	    <td class="number"><%=h style.impact %></td>
+	    <td class="number"><%=h style.distortion %></td>
+	    <td class="number"><%=h style.ttl %></td>
+	 
+	    <td class="action"><%= link_to 'show', resource(:admin, style) %></td>
+	  </tr>
+	<% end %>
+	</tbody>
 </table>
  
 <%= link_to 'new style', resource(:admin, :styles, :new) %>

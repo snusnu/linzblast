@@ -1,25 +1,34 @@
-<h1>scenes</h1>
+<h3>scenes</h3>
  
-<table>
-  <tr>
-    <th>name</th>
-    <th>description</th>
-    <th>uri</th>
-    <th>created at</th>
-    <th>updated at</th>
-  </tr>
- 
-<% @scenes.each do |scene| %>
-  <tr>
-    <td><%=h scene.name %></td>
-    <td><%=h scene.description %></td>
-    <td><%=h scene.uri %></td>
-    <td><%=h scene.created_at %></td>
-    <td><%=h scene.updated_at %></td>
- 
-    <td><%= link_to 'show', resource(:admin, scene) %></td>
-  </tr>
-<% end %>
+<table class="resources">
+	<thead>
+	  <tr>
+	    <th>name</th>
+	    <th>description</th>
+	    <th>uri</th>
+	    <th>created at</th>
+	    <th>updated at</th>
+			<th>action</th>
+	  </tr>
+	</thead>
+  <tfoot>
+  	<tr>
+  		<td></td>
+  	</tr>
+  </tfoot>
+	<tbody>
+	<% @scenes.each do |scene| %>
+	  <tr>
+	    <td><%=h scene.name %></td>
+	    <td><%=h scene.description %></td>
+	    <td><%=h scene.uri %></td>
+	    <td class="date"><%=h scene.created_at %></td>
+	    <td class="date"><%=h scene.updated_at %></td>
+	 
+	    <td class="action"><%= link_to 'show', resource(:admin, scene) %></td>
+	  </tr>
+	<% end %>
+	</tbody>
 </table>
  
 <%= link_to 'new scene', resource(:admin, :scenes, :new) %>

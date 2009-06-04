@@ -1,21 +1,29 @@
-<h1>All Styles</h1>
+<h3>All Styles</h3>
  
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Impact</th>
-    <th>Distortion</th>
-    <th>Time To Live</th>
-  </tr>
- 
-<% @styles.each do |style| %>
-  <tr>
-    <td><%=h style.name %></td>
-    <td><%=h style.description %></td>
-    <td><%=h style.impact %></td>
-    <td><%=h style.distortion %></td>
-    <td><%=h style.ttl %></td>
-  </tr>
-<% end %>
+<table class="resources">
+	<thead>
+	  <tr>
+	    <th>Name</th>
+	    <th>Description</th>
+	    <th>Impact</th>
+	    <th>Distortion</th>
+	    <th>Time To Live</th>
+	  </tr>
+	</thead>
+  <tfoot>
+  	<tr>
+  		<td></td>
+  	</tr>
+  </tfoot>
+	<tbody>
+	<% @styles.each do |style| %>
+	  <tr>
+	    <td><%=h style.name %></td>
+	    <td><%=h style.description %></td>
+	    <td class="number"><%=h style.impact %></td>
+	    <td class="number"><%=h style.distortion %></td>
+	    <td class="number"><%=h style.ttl %></td>
+	  </tr>
+	<% end %>
+	</tbody>
 </table>
