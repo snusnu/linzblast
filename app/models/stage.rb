@@ -35,4 +35,25 @@ class Stage
     :path => ":merb_root/public/uploads/images/:id/:style/:basename.:extension",
     :styles => {:small => "90x90#" }
 
+
+  # JSON export
+
+  DEFAULT_TO_JSON_OPTIONS = {
+    :only => [ :name, :description, :access_restricted ],
+    :methods => [ :image_url ],
+    :relationships => { :posts => {} }
+  }
+
+  def to_json(*args)
+    if args.empty?
+      super(DEFAULT_TO_JSON_OPTIONS)
+    else
+      super
+    end
+  end
+  
+  def image_url
+    image.url
+  end
+
 end
