@@ -1,10 +1,10 @@
-<h3>All Scenes</h3>
+<h3>all stages</h3>
  
 <table class="resources">
 	<thead>
 	  <tr>
-	    <th>Name</th>
-	    <th>Description</th>
+	    <th>name</th>
+	    <th>description</th>
 	  </tr>
 	</thead>
 	<tfoot>
@@ -13,10 +13,10 @@
 		</tr>
 	</tfoot>
 	<tbody>
-	<% @scenes.each do |scene| %>
+	<% @stages.each do |stage| %>
 	  <tr>
-	    <td><%=h scene.name %></td>
-	    <td><%=h scene.description %></td>
+	    <td><%=h stage.name %></td>
+	    <td><%=h stage.description %></td>
 	  </tr>
 	<% end %>
 	</tbody>

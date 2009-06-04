@@ -1,0 +1,34 @@
+<h3>stages</h3>
+ 
+<table class="resources">
+	<thead>
+	  <tr>
+	    <th>name</th>
+	    <th>description</th>
+	    <th>uri</th>
+	    <th>created at</th>
+	    <th>updated at</th>
+			<th>action</th>
+	  </tr>
+	</thead>
+  <tfoot>
+  	<tr>
+  		<td></td>
+  	</tr>
+  </tfoot>
+	<tbody>
+	<% @stages.each do |stage| %>
+	  <tr>
+	    <td><%=h stage.name %></td>
+	    <td><%=h stage.description %></td>
+	    <td><%=h stage.uri %></td>
+	    <td class="date"><%=h stage.created_at %></td>
+	    <td class="date"><%=h stage.updated_at %></td>
+	 
+	    <td class="action"><%= link_to 'show', resource(:admin, stage) %></td>
+	  </tr>
+	<% end %>
+	</tbody>
+</table>
+ 
+<%= link_to 'new stage', resource(:admin, :stages, :new) %>

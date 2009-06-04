@@ -1,15 +1,15 @@
-class Scene
+class Stage
   
   include DataMapper::Resource
   
   # properties
   
-  property :id,          Serial
-  
-  property :name,        String, :nullable => false, :length => (1..255)
-  property :description, Text,   :nullable => false
-  
-  property :uri,         URI,    :nullable => false, :length => (1..255)
+  property :id,                 Serial
+
+  property :name,               String, :nullable => false, :length => (1..255)
+  property :description,        Text,   :nullable => false
+
+  property :uri,                URI,    :nullable => false, :length => (1..255)
 
   # dm-paperclip properties
 
@@ -18,8 +18,8 @@ class Scene
   property :image_file_size,    Integer
   property :image_updated_at,   DateTime
 
-  property :created_at, DateTime
-  property :updated_at, DateTime
+  property :created_at,         DateTime
+  property :updated_at,         DateTime
 
   # associations
   

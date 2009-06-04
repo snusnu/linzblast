@@ -1,28 +1,28 @@
 module Admin
   
-  class Scenes < Application
+  class Stages < Application
 
     layout :dashboard
     
     def index
-      @scenes = Scene.all
-      display @scenes
+      @stages = Stage.all
+      display @stages
     end
 
     def new
-      @scene = Scene.new
-      display @scene
+      @stage = Stage.new
+      display @stage
     end
     
     def show
-      @scene = Scene.get params[:id]
-      display @scene
+      @stage = Stage.get params[:id]
+      display @stage
     end
     
     def create
-      @scene = Scene.new(params[:scene])
-      if @scene.save
-        redirect resource(:admin, :scenes)
+      @stage = Stage.new(params[:stage])
+      if @stage.save
+        redirect resource(:admin, :stages)
       else
         render :new
       end
@@ -30,11 +30,11 @@ module Admin
 
     def upload
       only_provides :html
-      @scene = Scene.new(params[:scene])
-      @scene.image = params[:fileData]
+      @stage = Stage.new(params[:stage])
+      @stage.image = params[:fileData]
       ## If the image belongs to a user, uncomment this line
       ## @image.user_id = session.user.id
-      if @scene.save
+      if @stage.save
         return 'success'
       else
         return ''

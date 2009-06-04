@@ -1,0 +1,14 @@
+<h3>showing stage</h3>
+
+<label>name</label>
+<p><%=h @stage.name %></p>
+
+<label>description</label>
+<p><%=h @stage.description %></p>
+
+<label>uri</label>
+<p><%=h @stage.uri %></p>
+
+<img src="<%= @stage.image.url %>" alt="<%= @stage.name %>" />
+ 
+<%= link_to 'all stages', resource(:admin, :stages) %>

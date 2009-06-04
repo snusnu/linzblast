@@ -1,14 +1,14 @@
 <% require_js(
   'jquery-uploadify/jquery.uploadify',
-  'scenes/upload'
+  'stages/upload'
 )
 %>
 
-<h3>add a scene</h3>
+<h3>add a stage</h3>
 
 <div id="form-container">
 
-  <%= form_for(@scene, :action => resource(:admin, :scenes)) do %>
+  <%= form_for(@stage, :action => resource(:admin, :stages)) do %>
     
     <fieldset>
 
