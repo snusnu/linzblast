@@ -28,6 +28,19 @@ module Admin
       end
     end
 
+    def upload
+      only_provides :html
+      @scene = Scene.new(params[:scene])
+      @scene.image = params[:fileData]
+      ## If the image belongs to a user, uncomment this line
+      ## @image.user_id = session.user.id
+      if @scene.save
+        return 'success'
+      else
+        return ''
+      end
+    end
+
   end
   
 end

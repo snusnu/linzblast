@@ -1,0 +1,7 @@
+<% if upload_allowed %>
+  <p>
+    <label for="image-file">file</label>
+    <input id="image-file" type="file"/>
+  </p>
+  <input type="hidden" name="session_id" id="session-id" value="<%= session.session_id %>" />
+<% end %>

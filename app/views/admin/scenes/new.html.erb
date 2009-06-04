@@ -1,3 +1,9 @@
+<% require_js(
+  'jquery-uploadify/jquery.uploadify',
+  'scenes/upload'
+)
+%>
+
 <h3>add a scene</h3>
 
 <div id="form-container">
@@ -20,8 +26,10 @@
         <%= text_field :uri, :label => "uri" %>
       </p>
 
+      <%= partial 'admin/shared/forms/image', :upload_allowed => true %>
+
     </fieldset>
-    
+
     <%= submit "add" %>
 
   <% end =%>

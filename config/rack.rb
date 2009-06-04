@@ -7,5 +7,8 @@ end
 # that serves static files
 use Merb::Rack::Static, Merb.dir_for(:public)
 
+require 'rack/flash_upload'
+use Merb::Rack::SetSessionCookieFromFlash, Merb::Config[:session_id_key]
+
 # this is our main merb application
 run Merb::Rack::Application.new

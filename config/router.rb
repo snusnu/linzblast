@@ -33,9 +33,15 @@ Merb::Router.prepare do
   resources :styles
   resources :posts
   
-  namespace :admin do
-  
-    authenticate do
+  authenticate do
+
+    # support multiple file uploads to the images controller
+
+    with(:controller => "admin/scenes") do
+      match('/admin/scenes/upload').to(:action => "upload").fixatable
+    end
+
+    namespace :admin do
 
       resource  :dashboard
 
@@ -49,7 +55,7 @@ Merb::Router.prepare do
       end
 
     end
-    
+
   end
   
   # Adds the required routes for merb-auth using the password slice
