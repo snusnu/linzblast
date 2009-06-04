@@ -1,19 +1,26 @@
-<h1>games</h1>
+<h3>games</h3>
  
-<table>
-  <tr>
-    <th>code</th>
-    <th>created at</th>
-    <th>used on</th>
-  </tr>
- 
-<% @games.each do |game| %>
-  <tr>
-    <td><%=h game.code.secret %></td>
-    <td><%=h game.created_at %></td>
-    <td><%=h game.deleted_at %></td>
-
-    <td><%= link_to 'show', resource(:admin, game) %></td>
-  </tr>
-<% end %>
+<table class="resources">
+ 	<thead>
+		<tr>
+	    <th>code</th>
+	    <th>created at</th>
+	    <th>used on</th>
+			<th>action</th>
+	  </tr>
+	</thead>
+  <tfoot>
+		<tr><td></td></tr>
+  </tfoot>
+	<tbody>
+	<% @games.each do |game| %>
+	  <tr>
+	    <td><%=h game.code.secret %></td>
+	    <td class="date"><%=h game.created_at %></td>
+	    <td class="date"><%=h game.deleted_at %></td>
+	
+	    <td class="action"><%= link_to 'show', resource(:admin, game) %></td>
+	  </tr>
+	<% end %>
+	</tbody>
 </table>

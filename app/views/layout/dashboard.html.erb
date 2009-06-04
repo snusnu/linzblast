@@ -5,17 +5,49 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="/stylesheets/yui/reset-fonts.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="/stylesheets/yui/base-min.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="/javascripts/jquery-ui/css/ui-darkness/jquery-ui-1.7.2.custom.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="/stylesheets/admin.css" type="text/css" media="screen" charset="utf-8" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" />
-    <script type="text/javascript">
-      
-    </script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+		<script type="text/javascript" src="/javascripts/jquery-ui/js/jquery-ui-1.7.2.custom.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.colorize-1.4.0.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.tablesorter.min.js"></script>
+		<script type="text/javascript" src="/javascripts/admin.js"></script>
     <%= include_required_js %>
   </head>
   <body>
     <%#= message[:notice] %>
     <div id="wrapper">
       <div id="sidebar">
+      	<div id="header">
+          <a id="sidebar-toggle" href="#"></a>
+          <h1><span>linzblast</span></h1>
+          <h2><a href="/admin/dashboard">Dashboard</a> [<a href="/logout">Abmelden</a>]</h2>
+        
+          <dl>
+            <dt>Angemeldet als</dt>
+            <dd>Username</dd>
+          </dl>
+        </div>
+				
+				<div id="actions-container">
+				  <div id="pane-company">
+				    <h3><a href="#pane-actions">Actions</a></h3>
+				    <dl>
+				      <dt>Listings</dt>
+							<dd><%= link_to 'code generations', resource(:admin, :code_generations) %></dd>
+							<dd><%= link_to 'codes', resource(:admin, :codes) %></dd>
+							<dd><%= link_to 'games', resource(:admin, :games) %></dd>
+							<dd><%= link_to 'scenes', resource(:admin, :scenes) %></dd>
+							<dd><%= link_to 'posts', resource(:admin, :posts) %></dd>
+							<dd><%= link_to 'styles', resource(:admin, :styles) %></dd>
+							<dt>new stuff</dt>
+							<dd><%= link_to 'code generation', resource(:admin, :code_generations, :new) %></dd>
+							<dd><%= link_to 'scene', resource(:admin, :scenes, :new) %></dd>
+							<dd><%= link_to 'style', resource(:admin, :styles, :new) %></dd>
+							<dd><%= link_to 'post', resource(:admin, :posts, :new) %></dd>
+				    </dl>
+				  </div>
+				</div>
       </div>
       <div id="content">
         <%= catch_content :for_layout %>

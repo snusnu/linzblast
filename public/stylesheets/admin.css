@@ -1,7 +1,11 @@
+html, body {
+	background-color: #2e2e2e;
+	color: #fff; 
+}
+
 body {
   padding-left: 15px;
   padding-right: 15px;
-	
 }
 
 #wrapper {
@@ -16,5 +20,254 @@ body {
 
 #sidebar {
   position: absolute;
-  width: 250px;
+  width: 220px;
 }
+
+#header {
+  background: #555555 repeat-x scroll 50% 50%;
+  width: 190px;
+  padding: 15px;
+  margin-bottom: 20px;
+  
+} 
+
+#header h1 {
+  background-image: url(/images/admin/lbl_admin_logo.png);
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 39px;
+  margin-top: 0px;
+}
+
+#header h2 {
+  margin-bottom:10px;
+  margin-top:0;
+  color: #F58605;
+}
+
+#header h2 a {
+  color: inherit;
+}
+
+#header h1 span {
+  margin-left: -20000px;
+}
+
+
+#header dl, #header dl dt, #header dl dd {
+  margin: 0;
+  padding: 0;
+} 
+
+#header dl {
+  overflow: auto;
+}
+
+#header dl dt {
+  float: left;
+  margin-right: 5px;
+}
+
+h3 {
+  color:#fff;
+  font-size:170%;
+  font-weight:normal;
+}
+
+h4 {
+  color:#2FA4EE;
+  font-size:120%;
+}
+
+a {
+	color: #F58605;
+}
+
+#actions-container dl {
+  margin: 0;
+}
+
+#actions-container dl dt {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 104%;
+}
+
+#actions-container dl dd {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+#actions-container a.new-link {
+  display:inline-block;
+  margin-bottom:-4px;
+}
+
+button, input[type=submit] {
+	cursor:pointer;
+	float:right;
+	line-height:1.4em;
+	margin:0.5em 0.4em 0.5em 0;
+	overflow:visible;
+	padding:0.2em 0.6em 0.3em;
+	width:auto;
+	font-size: inherit;
+	background:#555555 url(/javascripts/jquery-ui/css/ui-darkness/images/ui-bg_glass_20_555555_1x400.png) repeat-x scroll 50% 50%;
+	border:1px solid #666666;
+	color:#EEEEEE;
+	font-weight:bold;
+	outline-color:-moz-use-text-color;
+	outline-style:none;
+	outline-width:medium;
+}
+
+button:hover, input[type=submit]:hover {
+	background:#0078A3 url(/javascripts/jquery-ui/css/ui-darkness/images/ui-bg_glass_40_0078a3_1x400.png) repeat-x scroll 50% 50%;
+	border:1px solid #59B4D4;
+	color:#FFFFFF;
+}
+
+
+fieldset {
+  width: 400px;
+  border: #555555 10px solid;
+  padding: 10px;
+  position: relative
+}
+
+fieldset.small-fields p, p.small-field {
+  float:left;
+  width:100px;
+}
+
+fieldset.small-fields p.label_checkbox_pair {
+  float: none;
+  width:auto;
+}
+
+fieldset legend span {
+  display:block;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding:0 5px;
+  color:#fff;
+}
+
+label {
+  font-weight: bold;
+  color: #d8d8d8;
+  display: block;
+  margin-top: 5px;
+}
+
+input, textarea, select {
+  margin-bottom: 5px;
+}
+ 
+textarea {
+  width: 96%;
+}
+ 
+input.integer {
+  width: 7em;
+  text-align: right;
+}
+ 
+p.label_checkbox_pair {
+  clear: both;
+  float: none;
+  position: relative;
+}
+
+p.label_checkbox_pair input {
+  left: 0px;
+  position: absolute;
+  top: 1px;
+}
+
+p.label_checkbox_pair label {
+  display: block;
+  margin-left: 20px;
+  width: 200px;
+}
+
+input[type=submit], button.upload {
+  display: block;
+  margin-top: 10px;
+  padding:3px;
+} 
+
+button.upload {
+  margin: 0;
+}
+
+#image-fileQueue div.cancel {
+  float:left;
+  margin-right:5px;
+}
+
+
+fieldset.big {
+	width: 860px;
+  border-color:#fce4aa;
+}
+
+table.resources {
+  width: 700px;
+}
+
+table.resources tr, table.resources tr th, table.resources tr td {
+  border: none;
+}
+
+table.resources thead {
+  background-color: #555555;
+  color:#fff;
+}
+
+table.resources thead th {
+  border: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+table.resources tbody tr {
+	background-color: #000000;
+}
+
+table.resources tbody tr.ui-state-active {
+	font-weight: normal;
+	background: #F58400 url(/javascripts/jquery-ui/css/ui-darkness/images/ui-bg_inset-soft_30_f58400_1x100.png) repeat-x scroll 50% 50%
+}
+
+table.resources tbody tr.ui-state-active a {
+	text-decoration: underline;
+}
+
+table.resources tbody td {
+  border-bottom: 1px solid #F58605;
+}
+
+table.resources tbody td.number, table.resources tbody td.date, table.resources tbody td.action {
+	padding-right: 15px;
+  text-align: right;
+}
+
+
+table.resources thead tr .header {
+  background-image: url(/images/admin/icons/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+  cursor: pointer;
+  padding-right: 20px;
+}
+
+table.resources thead tr .headerSortUp {
+  background-image: url(/images/admin/icons/asc.gif);
+}
+table.resources thead tr .headerSortDown {
+  background-image: url(/images/admin/icons/desc.gif);
+}
+
+
