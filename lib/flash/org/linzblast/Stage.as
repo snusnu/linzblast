@@ -14,7 +14,7 @@
 	// as3corelib json inlcude
 	import com.adobe.serialization.json.*; 
 
-	public class Scenario extends Sprite {
+	public class Stage extends Sprite {
 	
 		public var id:String;
 		public var label:String;
@@ -22,7 +22,7 @@
 		public var posts:Object;
 		
 		// Constructor
-		public function Scenario(
+		public function Stage(
 			id:String = "",
 			label:String = "",
 			description:String = ""
@@ -40,7 +40,7 @@
 			
 			init();
 
-			trace("Scenario " + label + ", Beschreibung: " + description);
+			trace("Stage " + label + ", Beschreibung: " + description);
 		}
 		
 		private function init():void {

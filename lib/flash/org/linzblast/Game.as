@@ -14,8 +14,8 @@
 		public function Game() {
 			trace("Game called");
 			
-			var scenario:Scenario = new Scenario("1","Linz","Die europäische Kulturhaupstadt 2009");
-			addChild(scenario);
+			var stage:Stage = new Stage("1","Linz","Die europäische Kulturhaupstadt 2009");
+			addChild(stage);
 		}
 	}
 }
