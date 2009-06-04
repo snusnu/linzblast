@@ -15,7 +15,7 @@ Merb::Config.use do |c|
   c[:session_id_key] = '_linzblast_session_id' # cookie session id key, defaults to "_session_id"
 
   # set to false if the game shouldn't be protected with invitation codes
-  c[:require_authentication] = true
+  c[:require_game_authentication] = true
 end
  
 Merb::BootLoader.before_app_loads do
