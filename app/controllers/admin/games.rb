@@ -13,6 +13,7 @@ module Admin
 
     def show
       @game = Game.get params[:id]
+      raise NotFound unless @game
       display @game
     end
 
