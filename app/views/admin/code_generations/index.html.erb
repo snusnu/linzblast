@@ -2,16 +2,16 @@
  
 <table>
   <tr>
-    <th>User</th>
-    <th>StyleCollection</th>
-    <th>Amount</th>
-    <th>Created At</th>
+    <th>user</th>
+    <th>styles</th>
+    <th>amount</th>
+    <th>created at</th>
   </tr>
  
 <% @code_generations.each do |code_generation| %>
   <tr>
     <td><%=h code_generation.user_name %></td>
-    <td><%=h code_generation.style_collection_name %></td>
+    <td><%=h code_generation.style_names.join(',') %></td>
     <td><%=h code_generation.amount %></td>
     <td><%=h code_generation.created_at %></td>
     

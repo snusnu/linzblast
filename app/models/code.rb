@@ -20,6 +20,7 @@ class Code
   belongs_to :code_generation
   belongs_to :style_collection
   
+  delegate :style_names, :to => :style_collection
   
   def generator_name
     code_generation.user_name

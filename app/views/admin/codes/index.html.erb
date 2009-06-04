@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Generator</th>
-    <th>Style</th>
+    <th>Styles</th>
     <th>Secret</th>
     <th>Nr of posts</th>
     <th>Created At</th>
@@ -13,7 +13,7 @@
 <% @codes.each do |code| %>
   <tr>
     <td><%=h code.generator_name %></td>
-    <td><%=h code.style_collection_name %></td>
+    <td><%=h code.style_names.join(',') %></td>
     <td><%=h code.secret %></td>
     <td><%=h code.nr_of_posts %></td>
     <td><%=h code.created_at %></td>

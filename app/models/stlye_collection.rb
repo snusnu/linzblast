@@ -10,4 +10,8 @@ class StyleCollection
   has n, :style_collection_memberships
   has n, :styles, :through => :style_collection_memberships
   
+  def style_names
+    styles.map { |style| style.name }
+  end
+  
 end

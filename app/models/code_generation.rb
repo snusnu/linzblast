@@ -22,7 +22,9 @@ class CodeGeneration
   has n, :codes
   
   
-  delegate :name, :to => :style_collection, :prefix => true
+  delegate :name,        :to => :style_collection, :prefix => true
+  delegate :style_names, :to => :style_collection
+  
   
   def self.random_secret
     /[:word:]/.gen
