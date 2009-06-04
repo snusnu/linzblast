@@ -1,0 +1,13 @@
+html, body {
+	background-color: #2e2e2e;
+	color: #fff; 
+}
+
+body {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#wrapper {
+  position: absolute;
+}

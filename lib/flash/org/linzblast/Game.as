@@ -12,9 +12,6 @@
 	public class Game extends Sprite {
 	
 		public function Game() {
-
-			[SWF(width="1000", height="645", frameRate="25", backgroundColor="FFFFFF")]
-			
 			trace("Game called");
 			
 			var scenario:Scenario = new Scenario("1","Linz","Die europäische Kulturhaupstadt 2009");
