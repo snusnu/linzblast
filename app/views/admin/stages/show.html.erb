@@ -6,8 +6,8 @@
 <label>description</label>
 <p><%=h @stage.description %></p>
 
-<label>uri</label>
-<p><%=h @stage.uri %></p>
+<label>access restricted</label>
+<p><%=h @stage.access_restricted.inspect %></p>
 
 <img src="<%= @stage.image.url %>" alt="<%= @stage.name %>" />
  

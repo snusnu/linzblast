@@ -5,7 +5,7 @@
 	  <tr>
 	    <th>name</th>
 	    <th>description</th>
-	    <th>uri</th>
+	    <th>access restricted</th>
 	    <th>created at</th>
 	    <th>updated at</th>
 			<th>action</th>
@@ -21,7 +21,7 @@
 	  <tr>
 	    <td><%=h stage.name %></td>
 	    <td><%=h stage.description %></td>
-	    <td><%=h stage.uri %></td>
+	    <td><%=h stage.access_restricted.inspect %></td>
 	    <td class="date"><%=h stage.created_at %></td>
 	    <td class="date"><%=h stage.updated_at %></td>
 	 

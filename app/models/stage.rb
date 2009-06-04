@@ -6,10 +6,10 @@ class Stage
   
   property :id,                 Serial
 
-  property :name,               String, :nullable => false, :length => (1..255)
-  property :description,        Text,   :nullable => false
-
-  property :uri,                URI,    :nullable => false, :length => (1..255)
+  property :name,               String,  :nullable => false, :length => (1..255)
+  property :description,        Text,    :nullable => false
+  
+  property :access_restricted,  Boolean, :nullable => false
 
   # dm-paperclip properties
 
