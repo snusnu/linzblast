@@ -12,6 +12,8 @@
     <td><%=h game.code.secret %></td>
     <td><%=h game.created_at %></td>
     <td><%=h game.deleted_at %></td>
+
+    <td><%= link_to 'show', resource(:admin, game) %></td>
   </tr>
 <% end %>
 </table>
