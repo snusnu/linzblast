@@ -2,6 +2,8 @@ class Stages < Application
 
   layout :application
   
+  provides :html, :json
+  
   def index
     @stages = Stage.all
     display @stages
