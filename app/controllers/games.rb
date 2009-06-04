@@ -38,10 +38,7 @@ class Games < Application
   def update
     @game = Game.get(params[:id])
     raise NotFound unless @game
-    # allow to call before :save hooks
-    # by not calling update explicitly
-    @game.attributes = params[:game]
-    if @game.save
+    if @game.update(params[:game])
       redirect resource(@game, :edit)
     else
       render :new
