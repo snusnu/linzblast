@@ -15,9 +15,9 @@
 	<tbody>
 	<% @games.each do |game| %>
 	  <tr>
-	    <td><%=h game.code.secret %></td>
+	    <td><%=h game.code %></td>
 	    <td class="date"><%=h game.created_at %></td>
-	    <td class="date"><%=h game.deleted_at %></td>
+	    <td class="date"><%=h game.updated_at %></td>
 	
 	    <td class="action"><%= link_to 'show', resource(:admin, game) %></td>
 	  </tr>
