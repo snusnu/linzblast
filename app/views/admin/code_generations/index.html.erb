@@ -11,7 +11,7 @@
 <% @code_generations.each do |code_generation| %>
   <tr>
     <td><%=h code_generation.user_name %></td>
-    <td><%=h code_generation.style_names.join(',') %></td>
+    <td><%= style_links(code_generation) %></td>
     <td><%=h code_generation.amount %></td>
     <td><%=h code_generation.created_at %></td>
     

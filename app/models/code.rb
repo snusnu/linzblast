@@ -20,6 +20,11 @@ class Code
   belongs_to :code_generation
   belongs_to :style_collection
   
+  # TODO find out why this does strange things
+  # has n, :styles, :through => :style_collection
+
+  delegate :name,        :to => :style_collection, :prefix => true
+  delegate :styles,      :to => :style_collection
   delegate :style_names, :to => :style_collection
   
   def generator_name
