@@ -2,6 +2,7 @@
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.display.Shape;
+	import flash.display.Loader;
 	import flash.filters.*;
   import flash.text.TextField;
   import flash.text.TextFieldAutoSize;
@@ -20,15 +21,19 @@
 		public var label:String;
 		public var description:String;
 		public var posts:Object;
+		public var backgroundImage:String;
 		
 		// Constructor
 		public function Stage(
 			id:String = "",
 			label:String = "",
-			description:String = ""
+			description:String = "",
+			backgroundImage:String = ""
 		) {
+			trace(backgroundImage);
 			this.label = label;
 			this.description = description;
+			this.backgroundImage = backgroundImage;
 
 			// Set Position and Scaling
 			this.x = 0;
@@ -44,12 +49,18 @@
 		}
 		
 		private function init():void {
+			trace(backgroundImage);
+			loadBackgroundImage(backgroundImage);
 			loadPosts();
-			var backgroundImagePath:String = "poestlingberg_bg.jpg";
-			trace(backgroundImagePath);
 		}
 		
-		public function loadPosts():Boolean {
+		private function loadBackgroundImage(backgroundImage:String) {
+			var loader:Loader = new Loader();
+			addChild(loader);
+			loader.load(new URLRequest(backgroundImage));
+		}
+		
+		private function loadPosts():Boolean {
 			var request:URLRequest = new URLRequest("http://192.168.178.60:4000/posts.txt");
 			request.method = URLRequestMethod.GET;
 			var loader:URLLoader = new URLLoader();
