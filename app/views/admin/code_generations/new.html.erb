@@ -1,14 +1,13 @@
 <h1>new code generation</h1>
  
 <%= form_for(@code_generation, :action => resource(:admin, :code_generations) ) do %>
- 
-  <p><%= select :style_collection_id, :collection => StyleCollection.all, :text_method => :name, :value_method => :id %></p>
-  <p><%= text_field :amount, :label => "amount" %></p>
-  <p><%= text_field :nr_of_posts, :label => "nr of posts" %></p>
- 
-  <p>
-    <%= submit "create" %>
-  </p>
+  <fieldset>
+	  <legend><span>details</span></legend>
+	  <p><%= select :style_collection_id, :collection => StyleCollection.all, :text_method => :name, :value_method => :id %></p>
+	  <p><%= text_field :amount, :label => "amount" %></p>
+	  <p><%= text_field :nr_of_posts, :label => "nr of posts" %></p>
+	</fieldset> 
+  <%= submit "create" %>
   
 <% end =%>
  
