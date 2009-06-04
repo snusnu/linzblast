@@ -55,7 +55,7 @@ class Game
   end
   
   def no_posts_left?
-    nr_of_posts == code.nr_of_posts
+    code ? nr_of_posts == code.nr_of_posts : false
   end
   
 end
