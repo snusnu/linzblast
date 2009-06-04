@@ -1,4 +1,4 @@
-<h1>All CodeGenerations</h1>
+<h1>code generations</h1>
  
 <table>
   <tr>
@@ -15,10 +15,10 @@
     <td><%=h code_generation.amount %></td>
     <td><%=h code_generation.created_at %></td>
     
-    <td><%= link_to 'Show Codes', resource(:admin, code_generation, :codes) %></td>
+    <td><%= link_to 'show codes', resource(:admin, code_generation, :codes) %></td>
   </tr>
 <% end %>
 </table>
  
-<%= link_to 'Generate New Codes', resource(:admin, :code_generations, :new) %>
+<%= link_to 'generate new codes', resource(:admin, :code_generations, :new) %>
 

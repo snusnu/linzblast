@@ -1,13 +1,13 @@
-<h1>Codes</h1>
+<h1>codes</h1>
  
 <table>
   <tr>
-    <th>Generator</th>
-    <th>Styles</th>
-    <th>Secret</th>
-    <th>Nr of posts</th>
-    <th>Created At</th>
-    <th>Used On</th>
+    <th>generator</th>
+    <th>styles</th>
+    <th>secret</th>
+    <th>nr of posts</th>
+    <th>created at</th>
+    <th>used on</th>
   </tr>
  
 <% @codes.each do |code| %>
@@ -22,6 +22,6 @@
 <% end %>
 </table>
  
-<%= link_to 'Generate New Codes', resource(:admin, :code_generations, :new) %>
-<%= link_to 'All Code Generations', resource(:admin, :code_generations) %>
+<%= link_to 'generate new codes', resource(:admin, :code_generations, :new) %>
+<%= link_to 'all code generations', resource(:admin, :code_generations) %>
 

@@ -1,19 +1,19 @@
-<h1>Showing Post</h1>
+<h1>post</h1>
 
-<label>Body</label>
+<label>body</label>
 <p><%=h @post.body %></p>
 
-<label>Background Color</label>
+<label>background color</label>
 <p><%=h @post.background_color %></p>
 
-<label>Text Color</label>
+<label>text color</label>
 <p><%=h @post.text_color %></p>
 
-<label>PostType</label>
+<label>style</label>
 <p><%=h @post.style_name %></p>
 
-<label>PostType Description</label>
+<label>stylde description</label>
 <p><%=h @post.style_description %></p>
  
-<%= link_to 'All Posts', resource(:admin, :posts) %>
+<%= link_to 'all posts', resource(:admin, :posts) %>
 

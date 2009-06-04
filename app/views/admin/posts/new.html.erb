@@ -1,4 +1,4 @@
-<h3>Place a shot</h3>
+<h3>place a shot</h3>
 
 <div id="form-container">
 
@@ -6,49 +6,49 @@
 
     <fieldset>
 
-      <legend><span>Game</span></legend>
+      <legend><span>game</span></legend>
 
       <p>
-        <%= select :scene_id, :label => 'Scene', :collection => Scene.all, :text_method => :name, :value_method => :id %>
+        <%= select :scene_id, :label => 'scene', :collection => Scene.all, :text_method => :name, :value_method => :id %>
       </p>
     
       <p>
-        <%= select :style_id, :label => 'Weapon', :collection => Style.all, :text_method => :name, :value_method => :id %>
+        <%= select :style_id, :label => 'style', :collection => Style.all, :text_method => :name, :value_method => :id %>
       </p>
       
       <p>
-        <%= text_field :invitation_code, :label => "Code" %>
+        <%= text_field :invitation_code, :label => "code" %>
       </p>
       
     </fieldset>
     
     <fieldset>
 
-      <legend><span>Details</span></legend>
+      <legend><span>details</span></legend>
 
       <p>
-        <%= text_area :body, :label => "Text" %>
+        <%= text_area :body, :label => "text" %>
       </p>
 
       <p>
-        <%= text_field :text_color, :label => "Text color" %>
+        <%= text_field :text_color, :label => "text color" %>
       </p>
 
       <p>
-        <%= text_field :background_color, :label => "Background color" %>
+        <%= text_field :background_color, :label => "background color" %>
       </p>
     
       <p>
-        <%= text_field :x_coord, :label => "X-Coordinate" %>
+        <%= text_field :x_coord, :label => "x-coordinate" %>
       </p>
 
       <p>
-        <%= text_field :y_coord, :label => "Y-Coordinate" %>
+        <%= text_field :y_coord, :label => "y-coordinate" %>
       </p>
 
     </fieldset>
     
-    <%= submit "Shoot" %>
+    <%= submit "shoot" %>
 
   <% end =%>
   
