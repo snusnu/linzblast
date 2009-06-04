@@ -22,4 +22,4 @@ gems/specifications/*
 coverage/
 */coverage/
 *.diff
-
+public/uploads/images/*
