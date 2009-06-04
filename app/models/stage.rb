@@ -44,12 +44,8 @@ class Stage
     :relationships => { :posts => {} }
   }
 
-  def to_json(*args)
-    if args.empty?
-      super(DEFAULT_TO_JSON_OPTIONS)
-    else
-      super
-    end
+  def to_json(*)
+    super(DEFAULT_TO_JSON_OPTIONS)
   end
   
   def image_url
