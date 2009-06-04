@@ -8,5 +8,7 @@
 
 <label>uri</label>
 <p><%=h @scene.uri %></p>
+
+<img src="<%= @scene.image.url(:small) %>" alt="<%= @scene.name %>" />
  
 <%= link_to 'all scenes', resource(:admin, :scenes) %>
