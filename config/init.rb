@@ -24,7 +24,7 @@ Merb::BootLoader.before_app_loads do
   # commonly used date formats
   Date.add_format(:hm,  "%H:%M")
   Date.add_format(:dmy, "%d/%m/%Y")
-  Date.add_format(:dmyhm, "%d/%m/%Y-%H:%M")
+  Date.add_format(:dmyhm, "%d/%m/%Y :: %H:%M")
   
 end
  

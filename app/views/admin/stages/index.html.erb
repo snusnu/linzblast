@@ -3,11 +3,12 @@
 <table class="resources">
 	<thead>
 	  <tr>
+	    <th>id</th>
 	    <th>name</th>
 	    <th>description</th>
 	    <th>access restricted</th>
-	    <th>created at</th>
-	    <th>updated at</th>
+	    <th>created</th>
+	    <th>updated</th>
 			<th>action</th>
 	  </tr>
 	</thead>
@@ -19,11 +20,12 @@
 	<tbody>
 	<% @stages.each do |stage| %>
 	  <tr>
+	    <td><%=h stage.id %></td>
 	    <td><%=h stage.name %></td>
 	    <td><%=h stage.description %></td>
 	    <td><%=h stage.access_restricted.inspect %></td>
-	    <td class="date"><%=h stage.created_at %></td>
-	    <td class="date"><%=h stage.updated_at %></td>
+	    <td class="date"><%=h stage.created_at.formatted(:dmy) %></td>
+	    <td class="date"><%=h stage.updated_at.formatted(:dmy) %></td>
 	 
 	    <td class="action"><%= link_to 'show', resource(:admin, stage) %></td>
 	  </tr>

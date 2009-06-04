@@ -12,7 +12,11 @@ class User
   
   include DataMapper::Resource
   
-  property :id,     Serial
-  property :email,  String, :nullable => false, :length => (3..50), :unique => true, :unique_index => true
+  property :id,         Serial
+  property :email,      String, :nullable => false, :length => (3..50), :unique => true, :unique_index => true
+  
+  property :created_at, DateTime
+  property :updated_at, DateTime
+  property :deleted_at, ParanoidDateTime
   
 end

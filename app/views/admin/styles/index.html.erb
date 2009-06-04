@@ -3,11 +3,14 @@
 <table class="resources">
   <thead>
 		<tr>
+	    <th>id</th>
 	    <th>name</th>
 	    <th>description</th>
 	    <th>impact</th>
 	    <th>distortion</th>
 	    <th>ttl</th>
+			<th>created</th>
+			<th>updated</th>
 			<th>action</th>
 	  </tr>
 	</thead>
@@ -19,11 +22,14 @@
 	<tbody>
  	<% @styles.each do |style| %>
 	  <tr>
+	    <td><%=h style.id %></td>
 	    <td><%=h style.name %></td>
 	    <td><%=h style.description %></td>
 	    <td class="number"><%=h style.impact %></td>
 	    <td class="number"><%=h style.distortion %></td>
 	    <td class="number"><%=h style.ttl %></td>
+	    <td class="date"><%=h style.created_at.formatted(:dmy) %></td>
+	    <td class="date"><%=h style.updated_at.formatted(:dmy) %></td>
 	 
 	    <td class="action"><%= link_to 'show', resource(:admin, style) %></td>
 	  </tr>

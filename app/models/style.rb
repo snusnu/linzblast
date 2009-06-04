@@ -11,6 +11,10 @@ class Style
   property :impact,      Integer, :nullable => false
   property :distortion,  Integer, :nullable => false
   property :ttl,         Integer, :nullable => false
+
+  property :created_at,  DateTime
+  property :updated_at,  DateTime
+  property :deleted_at,  ParanoidDateTime
   
   has n, :posts
   
