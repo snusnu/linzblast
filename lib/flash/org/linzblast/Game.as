@@ -14,8 +14,8 @@
 		public function Game() {
 			trace("Game called");
 			
-			var stage:Stage = new Stage("1","Linz","Die europäische Kulturhaupstadt 2009","http://192.168.178.60:4000/uploads/images/1/original/poestlingberg_bg.jpg");
-			addChild(stage);
+			var gamestage:Stage = new Stage("1","Linz","Die europäische Kulturhaupstadt 2009","http://192.168.178.60:4000/uploads/images/1/original/poestlingberg_bg.jpg");
+			addChild(gamestage);
 		}
 	}
 }
