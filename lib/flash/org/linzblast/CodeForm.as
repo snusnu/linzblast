@@ -25,7 +25,7 @@
 			var variables:Object = new Object();
 			variables.game = new Object();
 			variables.game.code = codeInput.text;
-			variables.game.stage_id = codeInput.text;
+			variables.game.wall_id = codeInput.text;
 			variables._method = "POST";
 			var request:URLRequest = new URLRequest("/games.json");
 			request.contentType = "application/json"; 
