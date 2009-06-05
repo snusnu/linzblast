@@ -12,14 +12,20 @@
 	public class Game extends Sprite {
 	
 		public var stages:Object = new Object();
+		public var activeScenarioId:uint;
+		public var scenarios:Object;
 		
 		public function Game() {
 			trace("Game called");
 			
 			var gamestage:Scenario = new Scenario("1","Linz","Die europäische Kulturhaupstadt 2009","http://192.168.178.60:4000/uploads/images/1/original/poestlingberg_bg.jpg");
 			addChild(gamestage);
+
+			activeScenarioId = 1;
+			
 			loadScenarios();
-			var codeForm:CodeForm = new CodeForm();
+			
+			var codeForm:CodeForm = new CodeForm(activeScenarioId);
 			addChild(codeForm);
 			codeForm.x = stage.width;
 			trace("stage.width = " + stage.width);
@@ -34,7 +40,7 @@
 			loader.load(request);
 		}
 		
-		private function listScenarios(event:Event):Object {
+		private function listScenarios(event:Event):void {
 			var loader:URLLoader = URLLoader(event.target);
 			var scenarios:Object = JSON.decode(loader.data);
 
@@ -47,7 +53,7 @@
 				
 			}
 			
-			return scenarios	
+			this.scenarios = scenarios;
 		}
 	}
 }

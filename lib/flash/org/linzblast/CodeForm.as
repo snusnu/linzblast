@@ -13,7 +13,11 @@
 	
 	public class CodeForm extends MovieClip {
 		
-		public function CodeForm() {
+		var stage_id = null;
+		
+		public function CodeForm(stage_id:uint) {
+			this.stage_id = stage_id;
+			trace(stage_id);
 			codeSubmitButton.addEventListener(MouseEvent.CLICK, onButtonClick);
 		}
 		
@@ -25,7 +29,7 @@
 			var variables:Object = new Object();
 			variables.game = new Object();
 			variables.game.code = codeInput.text;
-			variables.game.stage_id = codeInput.text;
+			variables.game.stage_id = stage_id;
 			variables._method = "POST";
 			var request:URLRequest = new URLRequest("/games.json");
 			request.contentType = "application/json"; 
