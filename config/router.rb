@@ -28,8 +28,9 @@
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
 
+  resource  :stage, :controller => 'stage'
   resources :games
-  resources :stages
+  resources :walls
   resources :posts
   resources :styles
   
@@ -43,7 +44,7 @@ Merb::Router.prepare do
 
     namespace :admin do
 
-      resource  :dashboard
+      resource  :dashboard, :controller => 'dashboard'
 
       resources :games
       resources :posts
