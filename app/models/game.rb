@@ -33,7 +33,7 @@ class Game
   # validation
   
   def valid?(context = :default)
-    stage.access_restricted ? !code.nil? : true
+    (stage.access_restricted ? !code.nil? : true) && super
   end
 
 

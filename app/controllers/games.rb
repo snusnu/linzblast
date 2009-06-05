@@ -28,20 +28,30 @@ class Games < Application
 
   def create
     @game = Game.new(params[:game])
-    if @game.save
-      redirect resource(@game, :edit)
+    case params[:format]
+    when 'json'
+      if @game.save
+        display @game, :status => OK.status
+      else
+        display @game, :status => Unauthenticated.status
+      end
     else
-      render :new
+      render :layout => false, :status => UnsupportedMediaType.status
     end
   end
   
   def update
     @game = Game.get(params[:id])
     raise NotFound unless @game
-    if @game.update(params[:game])
-      redirect resource(@game, :edit)
+    case params[:format]
+    when 'json'
+      if @game.update(params[:game])
+        display @game, :status => OK.status
+      else
+        display @game, :status => Unauthenticated.status
+      end
     else
-      render :new
+      render :layout => false, :status => UnsupportedMediaType.status
     end
   end
 
