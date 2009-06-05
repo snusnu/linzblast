@@ -4,8 +4,9 @@
 	<thead>
 	  <tr>
 	    <th>id</th>
-	    <th>body</th>
+	    <th>wall</th>
 	    <th>style</th>
+	    <th>body</th>
 	    <th>background color</th>
 	    <th>text color</th>
 	    <th>created</th>
@@ -19,8 +20,9 @@
 		<% @posts.each do |post| %>
 		  <tr>
 		    <td><%=h post.id %></td>
-		    <td><%=h post.body %></td>
+		    <td><%=h post.wall_name %></td>
 		    <td><%=h post.style_name %></td>
+		    <td><%=h post.body %></td>
 		    <td><%=h post.background_color %></td>
 		    <td><%=h post.text_color %></td>
 		    <td class="date"><%=h post.created_at.formatted(:dmy) %></td>

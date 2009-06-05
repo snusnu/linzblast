@@ -1,0 +1,14 @@
+<h3>showing wall</h3>
+
+<label>name</label>
+<p><%=h @wall.name %></p>
+
+<label>description</label>
+<p><%=h @wall.description %></p>
+
+<label>access restricted</label>
+<p><%=h @wall.access_restricted.inspect %></p>
+
+<img src="<%= @wall.image.url %>" alt="<%= @wall.name %>" />
+ 
+<%= link_to 'all walls', resource(:admin, :walls) %>

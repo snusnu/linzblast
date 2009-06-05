@@ -1,4 +1,4 @@
-<h3>all stages</h3>
+<h3>all walls</h3>
  
 <table class="resources">
 	<thead>
@@ -13,10 +13,10 @@
 		</tr>
 	</tfoot>
 	<tbody>
-	<% @stages.each do |stage| %>
+	<% @walls.each do |wall| %>
 	  <tr>
-	    <td><%=h stage.name %></td>
-	    <td><%=h stage.description %></td>
+	    <td><%=h wall.name %></td>
+	    <td><%=h wall.description %></td>
 	  </tr>
 	<% end %>
 	</tbody>

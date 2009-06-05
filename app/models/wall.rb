@@ -1,4 +1,4 @@
-class Stage
+class Wall
   
   include DataMapper::Resource
   
