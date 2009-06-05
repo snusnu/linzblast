@@ -1,28 +1,28 @@
-class Stages < Application
+class Walls < Application
 
   layout :application
   
   provides :html, :json
   
   def index
-    @stages = Stage.all
-    display @stages
+    @walls = Wall.all
+    display @walls
   end
 
   def new
-    @stage = Stage.new
-    display @stage
+    @wall = Wall.new
+    display @wall
   end
   
   def show
-    @stage = Stage.get params[:id]
-    display @stage
+    @wall = Wall.get params[:id]
+    display @wall
   end
   
   def create
-    @stage = Stage.new(params[:stage])
-    if @stage.save
-      redirect resource(:admin, :stages)
+    @wall = Wall.new(params[:wall])
+    if @wall.save
+      redirect resource(:admin, :walls)
     else
       render :new
     end
@@ -30,11 +30,11 @@ class Stages < Application
 
   def upload
     only_provides :html
-    @stage = Stage.new(params[:stage])
-    @stage.image = params[:fileData]
+    @wall = Wall.new(params[:wall])
+    @wall.image = params[:fileData]
     ## If the image belongs to a user, uncomment this line
     ## @image.user_id = session.user.id
-    if @stage.save
+    if @wall.save
       return 'success'
     else
       return ''

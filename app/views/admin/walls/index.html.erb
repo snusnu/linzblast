@@ -1,0 +1,36 @@
+<h3>walls</h3>
+ 
+<table class="resources">
+	<thead>
+	  <tr>
+	    <th>id</th>
+	    <th>name</th>
+	    <th>description</th>
+	    <th>access restricted</th>
+	    <th>created</th>
+	    <th>updated</th>
+			<th>action</th>
+	  </tr>
+	</thead>
+  <tfoot>
+  	<tr>
+  		<td></td>
+  	</tr>
+  </tfoot>
+	<tbody>
+	<% @walls.each do |wall| %>
+	  <tr>
+	    <td><%=h wall.id %></td>
+	    <td><%=h wall.name %></td>
+	    <td><%=h wall.description %></td>
+	    <td><%=h wall.access_restricted.inspect %></td>
+	    <td class="date"><%=h wall.created_at.formatted(:dmy) %></td>
+	    <td class="date"><%=h wall.updated_at.formatted(:dmy) %></td>
+	 
+	    <td class="action"><%= link_to 'show', resource(:admin, wall) %></td>
+	  </tr>
+	<% end %>
+	</tbody>
+</table>
+ 
+<%= link_to 'new wall', resource(:admin, :walls, :new) %>
