@@ -13,7 +13,11 @@
 	
 	public class CodeForm extends MovieClip {
 		
-		public function CodeForm() {
+		var stage_id = null;
+		
+		public function CodeForm(stage_id:uint) {
+			this.stage_id = stage_id;
+			trace(stage_id);
 			codeSubmitButton.addEventListener(MouseEvent.CLICK, onButtonClick);
 		}
 		
