@@ -24,16 +24,16 @@ package {
 		
 		// interactive objects
 		
-		private var codeForm:CodeForm  = null;
+		private var _codeForm:CodeForm  = null;
 
-		private var hudWall:HUDWall    = null;
-		private var hudStyle:HUDStyle  = null;
+		private var _hudWall:HUDWall    = null;
+		private var _hudStyle:HUDStyle  = null;
 		
-		private var currentWall:Wall   = null;
-		private var currentStyle:Style = null;
+		private var _currentWall:Wall   = null;
+		private var _currentStyle:Style = null;
 			
-		private var wallSelector:WallSelector   = null;
-		private var styleSelector:StyleSelector = null;
+		private var _wallSelector:WallSelector   = null;
+		private var _styleSelector:StyleSelector = null;
 		
 		
 		
@@ -51,6 +51,14 @@ package {
 		
 		// called from CodeForm event listener
 		public function start() {
+      // TODO implement
+		}
+		
+		public function stop() {
+      // TODO implement
+		}
+		
+		public function post() {
       // TODO implement
 		}
 		
@@ -107,22 +115,25 @@ package {
 		  
 		  this._wallsData  = gameElements.walls;
 		  this._stylesData = gameElements.styles;
-		  this.hudWall    = new HUDWall(this);
-			this.hudStyle   = new HUDStyle(this);
+		  this._hudWall    = new HUDWall(this);
+			this._hudStyle   = new HUDStyle(this);
 			
 			// set default wall and style
 			this._currentWallData  = defaultWallData;
 			this._currentStyleData = defaultStyleData;
 			
 			// initialize codeForm
-			this.codeForm = new CodeForm(this);
+			this._codeForm = new CodeForm(this);
+			
+			this._currentWall = new Wall(this, currentWallData);
+			addChild(this._currentWall);
 		  
 		  // setup codeForm
-			addChild(this.codeForm);
+			addChild(this._codeForm);
 			
 		  // setup HUD display
-		  addChild(this.hudWall);
-		  addChild(this.hudStyle);
+		  addChild(this._hudWall);
+		  addChild(this._hudStyle);
 		}
 
 	}
