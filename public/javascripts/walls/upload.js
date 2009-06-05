@@ -15,7 +15,7 @@ $(document).ready(function() {
   
   $('#image-file').fileUpload ({
     uploader    : '/javascripts/jquery-uploadify/uploader.swf',
-    script      : '/admin/stages/upload',
+    script      : '/admin/walls/upload',
     cancelImg   : '/javascripts/jquery-uploadify/cancel.png',
     auto        : false,
     fileDataName: 'fileData',
@@ -27,7 +27,7 @@ $(document).ready(function() {
     buttonText  : 'Search',
     buttonImg   : '/javascripts/jquery-uploadify/upload_button.png',
     onAllComplete: function(){
-      location.href="/admin/stages"
+      location.href="/admin/walls"
     }
   });
 

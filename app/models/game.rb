@@ -6,7 +6,7 @@ class Game
   
   property :id,          Serial
   
-  property :stage_id,    Integer, :nullable => false
+  property :wall_id,     Integer, :nullable => false
   
   property :nr_of_posts, Integer, :nullable => false, :default => 0
   
@@ -16,7 +16,7 @@ class Game
   
   # associations
   
-  belongs_to :stage
+  belongs_to :wall
   
   
   # virtual attributes
@@ -33,7 +33,7 @@ class Game
   # validation
   
   def valid?(context = :default)
-    (stage.access_restricted ? !code.nil? : true) && super
+    (wall.access_restricted ? !code.nil? : true) && super
   end
 
 
@@ -59,7 +59,7 @@ class Game
   DEFAULT_TO_JSON_OPTIONS = {
     :only => [ :id, :created_at, :updated_at ],
     :methods => [ :posts_left?, :available_styles ],
-    :relationships => { :stage => {} }
+    :relationships => { :wall => {} }
   }
   
   def to_json(*)
@@ -73,7 +73,7 @@ class Game
   private
     
   def stop_game_if_necessary
-    if stage.access_restricted? && !posts_left?
+    if wall.access_restricted? && !posts_left?
       code.destroy
     end
   end

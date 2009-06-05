@@ -6,7 +6,7 @@ class Post
   
   property :id,               Serial
   
-  property :stage_id,         Integer, :nullable => false
+  property :wall_id,          Integer, :nullable => false
   property :style_id,         Integer, :nullable => false
   
   property :body,             String,  :nullable => false, :length => (1..160)
@@ -25,7 +25,7 @@ class Post
   
   # associations
   
-  belongs_to :stage
+  belongs_to :wall
   belongs_to :style
   
   # delegations

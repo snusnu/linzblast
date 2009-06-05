@@ -30,15 +30,15 @@ Merb::Router.prepare do
 
   resources :games
   resources :stages
-  resources :styles
   resources :posts
+  resources :styles
   
   authenticate do
 
     # support multiple file uploads to the images controller
 
-    with(:controller => "admin/stages") do
-      match('/admin/stages/upload').to(:action => "upload").fixatable
+    with(:controller => "admin/walls") do
+      match('/admin/walls/upload').to(:action => "upload").fixatable
     end
 
     namespace :admin do
@@ -49,7 +49,7 @@ Merb::Router.prepare do
       resources :posts
       resources :codes
       resources :styles
-      resources :stages
+      resources :walls
       resources :code_generations do
         resources :codes
       end
@@ -61,5 +61,5 @@ Merb::Router.prepare do
   # Adds the required routes for merb-auth using the password slice
   slice(:merb_auth_slice_password, :name_prefix => nil, :path_prefix => "")
   
-  match('/').to(:controller => 'stages', :action =>'index')
+  match('/').to(:controller => 'walls', :action =>'index')
 end
