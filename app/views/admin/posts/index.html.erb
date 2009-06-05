@@ -3,11 +3,12 @@
 <table class="resources">
 	<thead>
 	  <tr>
+	    <th>id</th>
 	    <th>body</th>
 	    <th>style</th>
 	    <th>background color</th>
 	    <th>text color</th>
-	    <th>created at</th>
+	    <th>created</th>
 			<th>action</th>
 	  </tr>
 	</thead>
@@ -17,11 +18,13 @@
 	<tbody>
 		<% @posts.each do |post| %>
 		  <tr>
+		    <td><%=h post.id %></td>
 		    <td><%=h post.body %></td>
 		    <td><%=h post.style_name %></td>
 		    <td><%=h post.background_color %></td>
 		    <td><%=h post.text_color %></td>
-		    <td class="date"><%=h post.created_at %></td>
+		    <td class="date"><%=h post.created_at.formatted(:dmy) %></td>
+		    <td class="date"><%=h post.updated_at.formatted(:dmy) %></td>
 		 
 		    <td class="action"><%= link_to 'show', resource(:admin, post) %></td>
 		  </tr>

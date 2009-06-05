@@ -3,12 +3,13 @@
 <table class="resources">
   <thead>
 		<tr>
+	    <th>id</th>
 	    <th>generator</th>
 	    <th>styles</th>
 	    <th>secret</th>
 	    <th>nr of posts</th>
-	    <th>created at</th>
-	    <th>used on</th>
+	    <th>created</th>
+	    <th>used</th>
 	  </tr>
 	</thead>
 	<tfoot>
@@ -19,12 +20,13 @@
   <tbody>
 	<% @codes.each do |code| %>
 	  <tr>
+	    <td><%=h code.id %></td>
 	    <td><%=h code.generator_name %></td>
 	    <td><%= style_links(code) %></td>
 	    <td><%=h code.secret %></td>
 	    <td class="number"><%=h code.nr_of_posts %></td>
-	    <td class="date"><%=h code.created_at %></td>
-	    <td class="date"><%=h code.deleted_at %></td>
+	    <td class="date"><%=h code.created_at.formatted(:dmy) %></td>
+	    <td class="date"><%=h code.deleted_at.formatted(:dmy) if code.deleted_at %></td>
 	  </tr>
 	<% end %>
 	</tbody>

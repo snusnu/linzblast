@@ -20,6 +20,7 @@ class Stage
 
   property :created_at,         DateTime
   property :updated_at,         DateTime
+  property :deleted_at,         ParanoidDateTime
 
   # associations
   

@@ -3,10 +3,11 @@
 <table class="resources">
 	<thead>
 	  <tr>
+	    <th>id</th>
 	    <th>user</th>
 	    <th>styles</th>
 	    <th>amount</th>
-	    <th>created at</th>
+	    <th>created</th>
 			<th>action</th>
 	  </tr>
 	</thead>
@@ -18,10 +19,11 @@
 	<tbody>
 		<% @code_generations.each do |code_generation| %>
 		  <tr>
+		    <td><%=h code_generation.id %></td>
 		    <td><%=h code_generation.user_name %></td>
 		    <td><%= style_links(code_generation) %></td>
 		    <td class="number"><%=h code_generation.amount %></td>
-		    <td class="date"><%=h code_generation.created_at %></td>
+		    <td class="date"><%=h code_generation.created_at.formatted(:dmy) %></td>
 		    
 		    <td class="action"><%= link_to 'show', resource(:admin, code_generation, :codes) %></td>
 		  </tr>
