@@ -28,7 +28,7 @@
 
 		
 		// Constructor
-		public function Stage(
+		public function Scenario(
 			id:String = "",
 			label:String = "",
 			description:String = "",
@@ -55,12 +55,12 @@
 			
 			init();
 
-			trace("Stage " + label + ", Beschreibung: " + description);
+			trace("Scenario " + label + ", Beschreibung: " + description);
 		}
 		
 		private function init():void {
 			trace(backgroundImage);
-			// Load Background and place on Stage
+			// Load Background and place on Scenario
 			canvas = loadBackgroundImage(backgroundImage);
 			addChild(canvas);
 			trace(getChildIndex(canvas));
