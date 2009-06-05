@@ -1,6 +1,6 @@
 module Admin
   
-  class Dashboards < Application
+  class Dashboard < Application
 
     layout :dashboard
     
