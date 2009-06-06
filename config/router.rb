@@ -41,6 +41,10 @@ Merb::Router.prepare do
     with(:controller => "admin/walls") do
       match('/admin/walls/upload').to(:action => "upload").fixatable
     end
+    
+    with(:controller => "admin/styles") do
+      match('/admin/styles/upload').to(:action => "upload").fixatable
+    end
 
     namespace :admin do
 

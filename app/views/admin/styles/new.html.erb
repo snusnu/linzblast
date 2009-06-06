@@ -1,9 +1,15 @@
+<% require_js(
+  'jquery-uploadify/jquery.uploadify',
+  'styles/upload'
+)
+%>
+
 <h3>add a style</h3>
 
 <div id="form-container">
 
   <%= form_for(@style, :action => resource(:admin, :styles)) do %>
-    
+  
     <fieldset>
 
       <legend><span>details</span></legend>
@@ -27,6 +33,11 @@
       <p>
         <%= text_field :ttl, :label => "ttl" %>
       </p>
+      
+      <%= partial 'admin/shared/forms/image', 
+        :image_names => [ :image, :symbol_image, :crosshair_image ], 
+        :upload_allowed => true 
+      %>
 
     </fieldset>
     

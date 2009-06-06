@@ -14,5 +14,9 @@
 
 <label>ttl</label>
 <p><%=h @style.ttl %></p>
+
+<img src="<%= @style.image.url %>" alt="<%= @style.name %>" />
+<img src="<%= @style.symbol_image.url %>" alt="<%= @style.name %>" />
+<img src="<%= @style.crosshair_image.url %>" alt="<%= @style.name %>" />
  
 <%= link_to 'all styles', resource(:admin, :styles) %>
