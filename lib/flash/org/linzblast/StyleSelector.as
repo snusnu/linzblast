@@ -10,8 +10,9 @@ package {
 	
 	public class StyleSelector extends Sprite {
 	  
-	  private var gameStage:Game  = null;
+	  private var gameStage:Game    = null;
 	  private var hudStyle:HUDStyle = null;
+	  private var gui:Carousel      = null;
 	  
 	  private var _currentStyleData  = null;
 	  
@@ -19,6 +20,7 @@ package {
 	  public function StyleSelector(gameStage:Game, hudStyle:HUDStyle) {
 	    this.gameStage = gameStage;
 	    this.hudStyle  = hudStyle;
+	    this.gui       = new Carousel();
 		}
 		
 		public function get currentStyleData() {
@@ -34,9 +36,15 @@ package {
 		
 		public function previous() {
 		  
+		}		
+		
+		public function show() {
+		  gameStage.addChild(gui);
+      gui.x = 0;
+      gui.y = 0;
 		}
-		
-		
+
+
 		// private helpers
 		
 		// called by styleSelector event listener

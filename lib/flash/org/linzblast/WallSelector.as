@@ -10,8 +10,9 @@ package {
 	
 	public class WallSelector extends Sprite {
 	  
-	  private var gameStage:Game = null;
-	  private var hudWall:HUDWall  = null;
+	  private var gameStage:Game  = null;
+	  private var hudWall:HUDWall = null;
+	  private var gui:Carousel    = null;
 	  
 	  private var _currentWallData  = null;
 	  
@@ -19,6 +20,7 @@ package {
 	  public function WallSelector(gameStage:Game, hudWall:HUDWall) {
 	    this.gameStage = gameStage;
 	    this.hudWall   = hudWall;
+	    this.gui       = new Carousel();
 		}
 		
 		public function get currentWallData() {
@@ -27,6 +29,12 @@ package {
 		
 		
 		// user interaction support
+		
+		public function show() {
+		  gameStage.addChild(gui);
+      gui.x = 0;
+      gui.y = 0;
+		}
 		
 		public function next() {
 		  
