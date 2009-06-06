@@ -18,7 +18,7 @@
 	* Just a test of the OBO_3DCarousel class
 	* @author Devon O.
 	*/
-	public class CarouselTest extends MovieClip {
+	public class Carousel extends MovieClip {
 		
 		// on stage of .fla
 		public var right_mc:MovieClip;
@@ -32,7 +32,14 @@
 		private var _numImages:int;
 		private var _currentImage:int = 0;
 		
-		public function CarouselTest():void {
+		private var _gameStage = null;
+		private var _data      = null;
+		
+		public function Carousel(gameStage:Game, data):void {
+		  
+		  _gameStage = gameStage;
+		  _data      = data;
+		  
 			_carousel = new OBO_3DCarousel(700, 300, 220);
 			_carousel.useBlur = true;
 			_carousel.y = 150;
@@ -43,8 +50,8 @@
 			left_mc.addEventListener(MouseEvent.CLICK, leftClickHandler);
 			
 			// Add Keyboard Event Listeners
-			stage.addEventListener(KeyboardEvent.KEY_UP, rightKeyHandler);
-			stage.addEventListener(KeyboardEvent.KEY_UP, leftKeyHandler);
+			_gameStage.stage.addEventListener(KeyboardEvent.KEY_UP, rightKeyHandler);
+			_gameStage.stage.addEventListener(KeyboardEvent.KEY_UP, leftKeyHandler);
 			
 			loading_txt.text = "loading xml";
 			var uloader:URLLoader = new URLLoader();
