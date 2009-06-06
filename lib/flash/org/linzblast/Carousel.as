@@ -14,6 +14,8 @@
 	import flash.net.URLRequest;
 	import flash.text.TextField;
 	
+	import com.adobe.serialization.json.*; 
+	
 	/**
 	* Just a test of the OBO_3DCarousel class
 	* @author Devon O.
@@ -28,17 +30,18 @@
 		public static const XML_URL:String = "images.xml";
 		
 		private var _carousel:OBO_3DCarousel;
-		private var _imageList:XMLList;
-		private var _numImages:int;
 		private var _currentImage:int = 0;
+		private var _numImages:int;
 		
 		private var _gameStage = null;
 		private var _data      = null;
 		
-		public function Carousel(gameStage:Game, data):void {
+		public function Carousel(gameStage:Game, carouselData):void {
 		  
 		  _gameStage = gameStage;
-		  _data      = data;
+		  _data      = carouselData;
+		  
+		  _numImages = _data.length
 		  
 			_carousel = new OBO_3DCarousel(700, 300, 220);
 			_carousel.useBlur = true;
@@ -53,32 +56,24 @@
 			_gameStage.stage.addEventListener(KeyboardEvent.KEY_UP, rightKeyHandler);
 			_gameStage.stage.addEventListener(KeyboardEvent.KEY_UP, leftKeyHandler);
 			
-			loading_txt.text = "loading xml";
-			var uloader:URLLoader = new URLLoader();
-			uloader.addEventListener(Event.COMPLETE, xmlHandler);
-			uloader.addEventListener(IOErrorEvent.IO_ERROR, xmlHandler);
-			uloader.load(new URLRequest(XML_URL));
+			loadImages();
+
 		}
 		
-		private function xmlHandler(event:*):void {
-			event.currentTarget.removeEventListener(Event.COMPLETE, xmlHandler);
-			event.currentTarget.removeEventListener(IOErrorEvent.IO_ERROR, xmlHandler);
-			if (event is IOErrorEvent) {
-				loading_txt.text = "could not load xml file";
-			} else {
-				var xml:XML = new XML(event.currentTarget.data);
-				_imageList = xml..image;
-				_numImages = _imageList.length();
-				loadImage();
+		private function loadImages():void {
+		  trace(JSON.encode(_data))
+		  for(var entry:Object in _data) {
+			  trace(JSON.encode(_data[entry].image_url))
+			  loadImage(_data[entry].image_url)
 			}
 		}
 		
-		private function loadImage():void {
+		private function loadImage(imageUrl):void {
 			loading_txt.text = "loading image " + (_currentImage + 1).toString() + " / " + _numImages.toString();
 			var loader:Loader = new Loader();
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, imageHandler);
 			loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, imageHandler);
-			loader.load(new URLRequest(_imageList[_currentImage].toString()));
+			loader.load(new URLRequest(imageUrl));
 		}
 		
 		private function imageHandler(event:*):void {
@@ -91,11 +86,11 @@
 				_carousel.addItem(image);
 			}
 			
-			if (++_currentImage < _numImages){
-				loadImage();
-			} else {
-				loading_txt.text = "complete";
-			}
+/*      if (++_currentImage < _numImages){
+        loadImage();
+      } else {
+        loading_txt.text = "complete";
+      }*/
 		}
 		
 		private function rightClickHandler(event:MouseEvent):void {
