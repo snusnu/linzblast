@@ -42,7 +42,7 @@ package {
 		}
 		
 		public function initialize() {
-  		var request:URLRequest = new URLRequest("http://localhost:4000/stage.json");
+  		var request:URLRequest = new URLRequest("/stage.json");
   		request.method = URLRequestMethod.GET;
   		var loader:URLLoader = new URLLoader();
   		loader.addEventListener(Event.COMPLETE, initializeElements);
