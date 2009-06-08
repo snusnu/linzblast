@@ -7,30 +7,13 @@
     <link rel="stylesheet" href="/stylesheets/yui/base-min.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="/stylesheets/application.css" type="text/css" media="screen" charset="utf-8" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js" />
-    <script type="text/javascript">
-      swfobject.registerObject("myId", "9.0.0", "expressInstall.swf");
-    </script>
+		<%= include_required_js %>
   </head>
   <body>
     <%#= message[:notice] %>
     
     <div id="wrapper">
-    <object id="game" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1000" height="645">
-      <param name="movie" value="linzblast.swf" />
-      <param name="allowFullScreen" value="true" />
-      <!--[if !IE]>-->
-      <object type="application/x-shockwave-flash" data="linzblast.swf" width="1000" height="645">
-      <param name="allowFullScreen" value="true" />
-      <!--<![endif]-->
-        <p>No Flash!</p>
-      <!--[if !IE]>-->
-      </object>
-      <!--<![endif]-->
-    </object>
+    	<%= catch_content :for_layout %>
     </div>
-
-
-    
-    <%= catch_content :for_layout %>
   </body>
 </html>
