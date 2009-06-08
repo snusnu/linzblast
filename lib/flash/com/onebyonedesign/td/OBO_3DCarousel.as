@@ -81,12 +81,15 @@
 		// READ-ONLY
 		public function get numItems():int { return _numItems; }
 		
-		public function addItem(image:DisplayObject):void {
+		
+		public function get items():Array { return _items; }
+		
+		public function addItem(image:DisplayObject, associatedData):TDCarouselItem {
 			_numItems = _items.length + 1;
 			_targetRotation = -(90 - (360 / _numItems));
 			_zRotation = _targetRotation;
 			_angleStep = (2 * Math.PI) / _numItems;
-			var item:TDCarouselItem = new TDCarouselItem(image);
+			var item:TDCarouselItem = new TDCarouselItem(image, associatedData);
 			_items.push(item);
 			var i:int = _items.length;
 			while (i--) {
@@ -103,6 +106,8 @@
 			
 			// if at least one item, go ahead and init the sucker
 			if (_numItems == 1) initCarousel();
+			
+			return item;
 		}
 		
 		public function kill():void {

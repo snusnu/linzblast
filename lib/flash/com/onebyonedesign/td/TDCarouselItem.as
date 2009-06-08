@@ -19,25 +19,19 @@
 		private var _orgZPos:Number;
 		private var _orgYPos:Number;
 		private var _data:BitmapData;
+		private var _associatedData;
 		
 		private var _zpos:Number;
 		
-		public function TDCarouselItem(image:DisplayObject):void {
+		public function TDCarouselItem(image:DisplayObject, associatedData):void {
 			_data = new BitmapData(image.width, image.height, true, 0x00FFFFFF);
 			_data.draw(image);
+			_associatedData = associatedData;
 			var bmp:Bitmap = new Bitmap(_data, "auto", true);
 			bmp.x -= bmp.width * .5;
 			bmp.y -= bmp.height * .5;
 			updateDisplay();
 			addChild(bmp);
-			
-			// Listen to Mouse Click on Image
-			addEventListener(MouseEvent.CLICK, onItemMouseClick);
-		}
-		
-		// Handle Mouse Click on Image and trace instance name
-		private function onItemMouseClick(event:MouseEvent):void {
-			trace("carousel image has been clicked " + event.target.name);
 		}
 		
 		internal function updateDisplay():void {
@@ -49,6 +43,10 @@
 			y = _orgYPos * scaleRatio;
 			scaleX = scaleY = scaleRatio;
 		}
+		
+		// make the associated data accessible
+		public function get associatedData() { return _associatedData; }
+		
 		
 		internal function get angle():Number { return _angle; }
 		
