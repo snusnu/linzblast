@@ -39,37 +39,9 @@ class Style
 
   include Paperclip::Resource
   
-  DM_PAPERCLIP_OPTIONS = {
-    :default_url => "/uploads/images/:attachment/missing_:style.png",
-    :url => "/uploads/images/:id/:style/:basename.:extension",
-    :path => ":merb_root/public/uploads/images/:id/:style/:basename.:extension",
-    :styles => {:small => "90x90#" }
-  }
-
-  has_attached_file :image, DM_PAPERCLIP_OPTIONS
-  has_attached_file :symbol_image, DM_PAPERCLIP_OPTIONS
-  has_attached_file :crosshair_image, DM_PAPERCLIP_OPTIONS
-  
-  extend DataMapper::Chainable
-  
-  # chainable do
-  #   
-  #   def image(*args)
-  #     puts "YYYYYYYYYYYYY image: " + args.inspect
-  #     super
-  #   end
-  # 
-  #   def symbol_image(*args)
-  #     puts "YYYYYYYYYYYYsymbol_image: " + args.inspect
-  #     super
-  #   end
-  # 
-  #   def crosshair_image(*args)
-  #     puts "YYYYYYYYYYYYYYYYcrosshair_image: " + args.inspect
-  #     super
-  #   end
-  # 
-  # end
+  has_attached_file :image
+  has_attached_file :symbol_image
+  has_attached_file :crosshair_image
   
   
   BASE_RADIUS = 10

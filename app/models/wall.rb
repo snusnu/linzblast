@@ -30,11 +30,7 @@ class Wall
 
   include Paperclip::Resource
 
-  has_attached_file :image,
-    :default_url => "/uploads/images/:attachment/missing_:style.png",
-    :url => "/uploads/images/:id/:style/:basename.:extension",
-    :path => ":merb_root/public/uploads/images/:id/:style/:basename.:extension",
-    :styles => {:small => "90x90#" }
+  has_attached_file :image
 
 
   # JSON export
