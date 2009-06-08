@@ -61,9 +61,7 @@
 		}
 		
 		private function loadImages():void {
-		  trace(JSON.encode(_data))
 		  for(var entry:Object in _data) {
-			  trace(JSON.encode(_data[entry].image_url))
 			  loadImage(_data[entry].image_url)
 			}
 		}

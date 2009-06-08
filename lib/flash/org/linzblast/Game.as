@@ -116,9 +116,6 @@ package {
 		  this._wallsData  = gameElements.walls;
 		  this._stylesData = gameElements.styles;
 		  
-		  trace("wallsData  = " + JSON.encode(_wallsData));
-		  trace("stylesData = " + JSON.encode(_stylesData));
-		  
 		  this._hudWall    = new HUDWall(this);
 			this._hudStyle   = new HUDStyle(this);
 			
