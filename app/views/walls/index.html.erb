@@ -1,23 +1,17 @@
-<h3>all walls</h3>
- 
-<table class="resources">
-	<thead>
-	  <tr>
-	    <th>name</th>
-	    <th>description</th>
-	  </tr>
-	</thead>
-	<tfoot>
-		<tr>
-			<td></td>
-		</tr>
-	</tfoot>
-	<tbody>
-	<% @walls.each do |wall| %>
-	  <tr>
-	    <td><%=h wall.name %></td>
-	    <td><%=h wall.description %></td>
-	  </tr>
-	<% end %>
-	</tbody>
-</table>
+<% require_js(
+  'walls/index'
+)
+%>
+
+<object id="game" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1000" height="645">
+  <param name="movie" value="/linzblast.swf" />
+  <param name="allowFullScreen" value="true" />
+  <!--[if !IE]>-->
+  <object type="application/x-shockwave-flash" data="/linzblast.swf" width="1000" height="645">
+  <param name="allowFullScreen" value="true" />
+  <!--<![endif]-->
+    <p>No Flash!</p>
+  <!--[if !IE]>-->
+  </object>
+  <!--<![endif]-->
+</object>
