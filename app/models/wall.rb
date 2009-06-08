@@ -13,10 +13,10 @@ class Wall
 
   # dm-paperclip properties
 
-  property :image_file_name,    String
-  property :image_content_type, String
-  property :image_file_size,    Integer
-  property :image_updated_at,   DateTime
+  property :wall_image_file_name,    String
+  property :wall_image_content_type, String
+  property :wall_image_file_size,    Integer
+  property :wall_image_updated_at,   DateTime
 
   property :created_at,         DateTime
   property :updated_at,         DateTime
@@ -30,14 +30,14 @@ class Wall
 
   include Paperclip::Resource
 
-  has_attached_file :image
+  has_attached_file :wall_image, :styles => { :small => "200x200#", :medium => "400x400#" }
 
 
   # JSON export
 
   DEFAULT_TO_JSON_OPTIONS = {
     :only => [ :name, :description, :access_restricted ],
-    :methods => [ :image_url ],
+    :methods => [ :original_image_url, :medium_image_url ],
     :relationships => { :posts => {} }
   }
 
@@ -45,8 +45,12 @@ class Wall
     super(DEFAULT_TO_JSON_OPTIONS)
   end
   
-  def image_url
-    image.url
+  def original_image_url
+    wall_image.url
+  end
+
+  def medium_image_url
+    wall_image.url(:medium)
   end
 
 end

@@ -20,20 +20,20 @@ class Style
   
   # dm-paperclip properties
 
-  property :image_file_name,    String
-  property :image_content_type, String
-  property :image_file_size,    Integer
-  property :image_updated_at,   DateTime
+  property :style_image_file_name,    String
+  property :style_image_content_type, String
+  property :style_image_file_size,    Integer
+  property :style_image_updated_at,   DateTime
   
-  property :symbol_image_file_name,    String
-  property :symbol_image_content_type, String
-  property :symbol_image_file_size,    Integer
-  property :symbol_image_updated_at,   DateTime
+  property :style_symbol_image_file_name,    String
+  property :style_symbol_image_content_type, String
+  property :style_symbol_image_file_size,    Integer
+  property :style_symbol_image_updated_at,   DateTime
   
-  property :crosshair_image_file_name,    String
-  property :crosshair_image_content_type, String
-  property :crosshair_image_file_size,    Integer
-  property :crosshair_image_updated_at,   DateTime
+  property :style_crosshair_image_file_name,    String
+  property :style_crosshair_image_content_type, String
+  property :style_crosshair_image_file_size,    Integer
+  property :style_crosshair_image_updated_at,   DateTime
 
   property :created_at,  DateTime
   property :updated_at,  DateTime
@@ -45,9 +45,9 @@ class Style
 
   include Paperclip::Resource
   
-  has_attached_file :image
-  has_attached_file :symbol_image
-  has_attached_file :crosshair_image
+  has_attached_file :style_image
+  has_attached_file :style_symbol_image
+  has_attached_file :style_crosshair_image
   
   
   BASE_RADIUS = 10
@@ -60,15 +60,15 @@ class Style
 
   DEFAULT_TO_JSON_OPTIONS = {
     :only => [ :name, :description, :impact, :distortion, :ttl ],
-    :methods => [ :image_url ]
+    :methods => [ :original_image_url ]
   }
 
   def to_json(*)
     super(DEFAULT_TO_JSON_OPTIONS)
   end
 
-  def image_url
-    image.url
+  def original_image_url
+    style_image.url
   end
 
 end

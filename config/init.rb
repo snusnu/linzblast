@@ -29,7 +29,6 @@ Merb::BootLoader.before_app_loads do
   # dm-paperclip setup
   Paperclip::Attachment.default_options[:url]    = "/uploads/images/:attachment/:id/:style/:filename"
   Paperclip::Attachment.default_options[:path]   = ":merb_root/public:url"
-  Paperclip::Attachment.default_options[:styles] = {:small => "90x90#" }
 
 end
  

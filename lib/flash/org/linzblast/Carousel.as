@@ -33,13 +33,15 @@
 		private var _currentImage:int = 0;
 		private var _numImages:int;
 		
-		private var _gameStage = null;
-		private var _data      = null;
+		private var _gameStage  = null;
+		private var _data       = null;
+		private var _imageName = null;
 		
-		public function Carousel(gameStage:Game, carouselData):void {
+		public function Carousel(gameStage:Game, carouselData, imageName):void {
 		  
 		  _gameStage = gameStage;
 		  _data      = carouselData;
+		  _imageName = imageName;
 		  
 		  _numImages = _data.length
 		  
@@ -62,7 +64,7 @@
 		
 		private function loadImages():void {
 		  for(var entry:Object in _data) {
-			  loadImage(_data[entry].image_url)
+			  loadImage(_data[entry][_imageName])
 			}
 		}
 		

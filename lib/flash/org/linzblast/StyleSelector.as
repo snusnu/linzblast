@@ -20,7 +20,7 @@ package {
 	  public function StyleSelector(gameStage:Game, hudStyle:HUDStyle) {
 	    this.gameStage = gameStage;
 	    this.hudStyle  = hudStyle;
-	    this.gui       = new Carousel(gameStage, gameStage.stylesData);
+	    this.gui       = new Carousel(gameStage, gameStage.stylesData, 'original_image_url');
 		}
 		
 		public function get currentStyleData() {

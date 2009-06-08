@@ -20,7 +20,7 @@ package {
 	  public function WallSelector(gameStage:Game, hudWall:HUDWall) {
 	    this.gameStage = gameStage;
 	    this.hudWall   = hudWall;
-	    this.gui       = new Carousel(gameStage, gameStage.wallsData);
+	    this.gui       = new Carousel(gameStage, gameStage.wallsData, 'medium_image_url');
 		}
 		
 		public function get currentWallData() {

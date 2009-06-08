@@ -29,7 +29,7 @@ namespace :db do
       :name => 'Linz',
       :description => 'Linz',
       :access_restricted => true,
-      :image => File.new("#{Merb.root}/public/linzblast/walls/poestlingberg.jpg")
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/poestlingberg.jpg")
     )
     
     # styles
@@ -44,9 +44,9 @@ namespace :db do
       :impact          => 10,
       :distortion      => 10,
       :ttl             => 3600,
-      :image           => File.new("#{Merb.root}/public/linzblast/weapons_big/aec.png"),
-      :symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/aec.png"),
-      :crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/aec.png")
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/aec.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/aec.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/aec.png")
     )
     
     dom = Style.create(
@@ -59,9 +59,9 @@ namespace :db do
       :impact          => 10,
       :distortion      => 10,
       :ttl             => 3600,
-      :image           => File.new("#{Merb.root}/public/linzblast/weapons_big/dom.png"),
-      :symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/dom.png"),
-      :crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/dom.png")
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/dom.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/dom.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/dom.png")
     )
     
     bruckner = Style.create(
@@ -74,9 +74,9 @@ namespace :db do
       :impact          => 10,
       :distortion      => 10,
       :ttl             => 3600,
-      :image           => File.new("#{Merb.root}/public/linzblast/weapons_big/bruckner.png"),
-      :symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/bruckner.png"),
-      :crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/bruckner.png")
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/bruckner.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/bruckner.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/bruckner.png")
     )
     
     schloss = Style.create(
@@ -89,9 +89,9 @@ namespace :db do
       :impact          => 10,
       :distortion      => 10,
       :ttl             => 3600,
-      :image           => File.new("#{Merb.root}/public/linzblast/weapons_big/schloss.png"),
-      :symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/schloss.png"),
-      :crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/schloss.png")
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/schloss.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/schloss.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/schloss.png")
     )
     
     sparka = Style.create(
@@ -104,9 +104,9 @@ namespace :db do
       :impact          => 10,
       :distortion      => 10,
       :ttl             => 3600,
-      :image           => File.new("#{Merb.root}/public/linzblast/weapons_big/sparka.png"),
-      :symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/sparka.png"),
-      :crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/sparka.png")
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/sparka.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/sparka.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/sparka.png")
     )
     
     termilator = Style.create(
@@ -119,9 +119,9 @@ namespace :db do
       :impact          => 10,
       :distortion      => 10,
       :ttl             => 3600,
-      :image           => File.new("#{Merb.root}/public/linzblast/weapons_big/termilator.png"),
-      :symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/termilator.png"),
-      :crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/termilator.png")
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/termilator.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/termilator.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/termilator.png")
     )
     
     
