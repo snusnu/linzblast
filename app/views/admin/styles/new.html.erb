@@ -33,7 +33,23 @@
       <p>
         <%= text_field :ttl, :label => "ttl" %>
       </p>
-      
+
+      <p>
+        <%= text_field :type, :label => "type" %>
+      </p>
+
+      <p>
+        <%= text_field :manufacturer, :label => "manufacturer" %>
+      </p>
+
+      <p>
+        <%= text_field :series, :label => "series" %>
+      </p>
+
+      <p>
+        <%= text_field :range, :label => "range" %>
+      </p>
+
       <%= partial 'admin/shared/forms/image', 
         :image_names => [ :image, :symbol_image, :crosshair_image ], 
         :upload_allowed => true 

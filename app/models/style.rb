@@ -3,14 +3,20 @@ class Style
   include BulletHole
   include DataMapper::Resource
   
-  property :id,          Serial
+  property :id,           Serial
+
+  property :name,         String, :nullable => false, :length => (1..80)
+  property :description,  Text
+
+  property :impact,       Integer, :nullable => false
+  property :distortion,   Integer, :nullable => false
+  property :ttl,          Integer, :nullable => false
   
-  property :name,        String, :nullable => false, :length => (1..80)
-  property :description, Text
+  property :type,         String
+  property :manufacturer, String
+  property :series,       String
+  property :range,        String
   
-  property :impact,      Integer, :nullable => false
-  property :distortion,  Integer, :nullable => false
-  property :ttl,         Integer, :nullable => false
   
   # dm-paperclip properties
 
