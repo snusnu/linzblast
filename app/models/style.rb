@@ -49,5 +49,20 @@ class Style
   def generate_container
     random_polygon(BASE_RADIUS, self.impact, self.distortion)
   end
-  
+
+  # JSON export
+
+  DEFAULT_TO_JSON_OPTIONS = {
+    :only => [ :name, :description, :impact, :distortion, :ttl ],
+    :methods => [ :image_url ]
+  }
+
+  def to_json(*)
+    super(DEFAULT_TO_JSON_OPTIONS)
+  end
+
+  def image_url
+    image.url
+  end
+
 end
