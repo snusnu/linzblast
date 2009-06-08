@@ -32,7 +32,7 @@ module Admin
     def upload
       @style = Style.get(params[:id])
       if @style.respond_to?(params[:image_name])
-        @style.send(params[:image_name], params[:fileData])
+        @style.send("#{params[:image_name]}=", params[:fileData])
         return 'success' if @style.save
       end
       return '' # be explicit
