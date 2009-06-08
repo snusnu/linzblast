@@ -32,8 +32,6 @@ module Admin
       only_provides :html
       @wall = Wall.new(params[:wall])
       @wall.image = params[:fileData]
-      ## If the image belongs to a user, uncomment this line
-      ## @image.user_id = session.user.id
       if @wall.save
         return 'success'
       else
