@@ -46,6 +46,41 @@ namespace :db do
       :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_main_square_bw.jpg")
     )
     
+    Wall.create(
+      :name => 'bridge day',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_bridge_day.jpg")
+    )
+    
+    Wall.create(
+      :name => 'brucknerhaus',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_brucknerhaus.jpg")
+    )
+    
+    Wall.create(
+      :name => 'churches',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_churches.jpg")
+    )
+    
+    Wall.create(
+      :name => 'hauptplatz day',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_hauptplatz_day.jpg")
+    )
+    
+    Wall.create(
+      :name => 'lentia',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_lentia.jpg")
+    )
+    
     # styles
     
     aec = Style.create(
