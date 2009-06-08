@@ -104,6 +104,26 @@ package {
 		public function get stylesData() {
 		  return this._stylesData;
 		}
+
+
+
+		public function set wallSelector(wallSelector) {
+		  this._wallSelector = wallSelector;
+		}
+		
+		public function set styleSelector(styleSelector) {
+		  this._styleSelector = styleSelector;
+		}
+		
+				
+		
+		public function get wallSelector() {
+		  return this._wallSelector;
+		}
+		
+		public function get styleSelector() {
+		  return this._styleSelector;
+		}
 		
 		
 		// helpers

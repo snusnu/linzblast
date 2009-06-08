@@ -20,7 +20,7 @@ package {
 	  public function WallSelector(gameStage:Game, hudWall:HUDWall) {
 	    this.gameStage = gameStage;
 	    this.hudWall   = hudWall;
-	    this.gui       = new Carousel(gameStage, gameStage.wallsData, 'medium_image_url');
+	    this.gui       = new Carousel(gameStage, gameStage.wallsData, 'medium_image_url', 'wall');
 		}
 		
 		public function get currentWallData() {
@@ -34,6 +34,10 @@ package {
 		  gameStage.addChild(gui);
       gui.x = 0;
       gui.y = 0;
+		}
+		
+		public function hide() {
+		  gameStage.removeChild(gui);
 		}
 		
 		public function next() {

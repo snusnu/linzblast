@@ -20,7 +20,7 @@ package {
 	  public function StyleSelector(gameStage:Game, hudStyle:HUDStyle) {
 	    this.gameStage = gameStage;
 	    this.hudStyle  = hudStyle;
-	    this.gui       = new Carousel(gameStage, gameStage.stylesData, 'original_image_url');
+	    this.gui       = new Carousel(gameStage, gameStage.stylesData, 'original_image_url', 'style');
 		}
 		
 		public function get currentStyleData() {
@@ -42,6 +42,10 @@ package {
 		  gameStage.addChild(gui);
       gui.x = 0;
       gui.y = 0;
+		}
+		
+		public function hide() {
+		  gameStage.removeChild(gui);
 		}
 
 
