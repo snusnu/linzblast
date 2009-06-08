@@ -69,11 +69,14 @@ package {
 		// called from WallSelector event listener
 		public function set currentWallData(currentWallData) {
 		  this._currentWallData = currentWallData;
+		  this._hudWall.currentWallData = currentWallData;
+		  this._currentWall.wallData = currentWallData;
 		}
 		
 		// called from StyleSelector event listener
 		public function set currentStyleData(currentStyleData) {
 		  this._currentStyleData = currentStyleData;
+		  this._hudStyle.currentStyleData = currentStyleData;
 		}
 		
 		
@@ -135,7 +138,7 @@ package {
 		  
 		  this._wallsData  = gameElements.walls;
 		  this._stylesData = gameElements.styles;
-		  
+
 		  this._hudWall    = new HUDWall(this);
 			this._hudStyle   = new HUDStyle(this);
 			

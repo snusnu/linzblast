@@ -60,7 +60,7 @@ class Style
 
   DEFAULT_TO_JSON_OPTIONS = {
     :only => [ :name, :description, :impact, :distortion, :ttl ],
-    :methods => [ :original_image_url ]
+    :methods => [ :original_image_url, :symbol_image_url, :crosshair_image_url ]
   }
 
   def to_json(*)
@@ -69,6 +69,14 @@ class Style
 
   def original_image_url
     style_image.url
+  end
+  
+  def symbol_image_url
+    style_symbol_image.url
+  end
+  
+  def crosshair_image_url
+    style_crosshair_image.url
   end
 
 end
