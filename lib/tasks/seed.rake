@@ -110,7 +110,7 @@ namespace :db do
       :ttl             => 3600,
       :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/dom.png"),
       :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/dom.png"),
-      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/dom.png")
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/mitra.png")
     )
     
     bruckner = Style.create(
@@ -140,7 +140,7 @@ namespace :db do
       :ttl             => 3600,
       :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/schloss.png"),
       :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/schloss.png"),
-      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/schloss.png")
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/wappen.png")
     )
     
     sparka = Style.create(
@@ -170,7 +170,7 @@ namespace :db do
       :ttl             => 3600,
       :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/termilator.png"),
       :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/termilator.png"),
-      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/termilator.png")
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/raika.png")
     )
     
     
