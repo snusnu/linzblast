@@ -21,6 +21,8 @@ package {
 		private var _currentWallData   = null;
 		private var _currentStyleData  = null;
 		
+		private var _running           = false;
+		
 		
 		// interactive objects
 		
@@ -51,15 +53,17 @@ package {
 		
 		// called from CodeForm event listener
 		public function start() {
-      // TODO implement
+      _running = true;
 		}
 		
 		public function stop() {
-      // TODO implement
+      _running = false;
 		}
 		
 		public function post() {
-      // TODO implement
+		  if(_running) {
+        // TODO implement
+      }
 		}
 		
 		
@@ -158,6 +162,10 @@ package {
 		  // setup HUD display
 		  addChild(this._hudWall);
 		  addChild(this._hudStyle);
+		}
+		
+		private function createPost(event:Event) {
+		  
 		}
 
 	}
