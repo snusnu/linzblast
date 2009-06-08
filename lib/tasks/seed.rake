@@ -25,11 +25,25 @@ namespace :db do
     
     # walls
     
-    poestlingberg = Wall.create(
-      :name => 'Linz',
+    Wall.create(
+      :name => 'nights',
       :description => 'Linz',
       :access_restricted => true,
-      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/poestlingberg.jpg")
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_bridge_night.jpg")
+    )
+    
+    Wall.create(
+      :name => 'roofs',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_center_roof.jpg")
+    )
+    
+    Wall.create(
+      :name => 'main',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_main_square_bw.jpg")
     )
     
     # styles
