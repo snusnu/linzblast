@@ -36,7 +36,7 @@ class Wall
   # JSON export
 
   DEFAULT_TO_JSON_OPTIONS = {
-    :only => [ :name, :description, :access_restricted ],
+    :only => [ :id, :name, :description, :access_restricted ],
     :methods => [ :original_image_url, :medium_image_url ],
     :relationships => { :posts => {} }
   }

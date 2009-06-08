@@ -59,7 +59,7 @@ class Style
   # JSON export
 
   DEFAULT_TO_JSON_OPTIONS = {
-    :only => [ :name, :description, :impact, :distortion, :ttl ],
+    :only => [ :id, :name, :description, :impact, :distortion, :ttl ],
     :methods => [ :original_image_url, :symbol_image_url, :crosshair_image_url ]
   }
 
