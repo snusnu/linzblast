@@ -26,7 +26,7 @@
         <%= check_box :access_restricted, :label => "access restricted" %>
       </p>
 
-      <%= partial 'admin/shared/forms/image', :upload_allowed => true %>
+      <%= partial 'admin/shared/forms/image', :image_names => [ :image ], :upload_allowed => true %>
 
     </fieldset>
 

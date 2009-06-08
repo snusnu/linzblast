@@ -1,6 +1,7 @@
 html, body {
-	background-color: #2e2e2e;
-	color: #fff; 
+	background-color: #000;
+	color: #fff;
+	font-family: "Courier New", Courier, monospace;
 }
 
 body {
@@ -9,5 +10,130 @@ body {
 }
 
 #wrapper {
-  position: absolute;
+   width: 1000px;
+   margin: 0 auto;
+	 margin-top: 40px;
 }
+
+#game {
+	width: 1000px;
+}
+
+#info-container {
+	position: relative;
+	width: 1000px;
+	height: 645px;
+	margin-top: 40px;
+	background-color: #fff;
+	color: #000;
+}
+
+#tl {
+	position: absolute;
+	left: 15px;
+	top: 15px;
+}
+
+#tm {
+  position: absolute;
+	top: 15px;
+	left: 270px;
+}
+
+#tr {
+	position: absolute;
+	left:830px;
+	top: 15px;
+}
+
+#br {
+	position: absolute;
+	left:756px;
+	top:523px;
+}
+
+#bm {
+	position: absolute;
+	left:363px;
+	top:575px;
+}
+
+#bl {
+	position: absolute;
+	top:495px;
+	left: 15px;
+}
+
+#mm {
+	position: absolute;
+	left: 384px;
+	top: 250px;
+}
+
+#i-ml {
+	position: absolute;
+	left: 15px;
+	top: 185px;
+}
+
+#i-mt {
+	position: absolute;
+	left: 0px;
+	width: 100%;
+	top: 125px;
+	text-align: center;
+}
+
+#i-mm {
+	position: absolute;
+	left: 0px;
+	width: 100%;
+	top:185px;
+	text-align: center;
+}
+
+#i-mb {
+	position: absolute;
+	left: 0px;
+	width: 100%;
+	top: 535px;
+	text-align: center;
+}
+
+#i-mbb {
+	position: absolute;
+	left: 0px;
+	width: 100%;
+	top: 625px;
+	text-align: center;
+}
+
+#i-lb {
+	position: absolute;
+	left: 190px;
+	top: 494px;
+	text-align: left;
+}
+
+#i-rb {
+	position: absolute;
+	right: 268px;
+	top: 494px;
+	text-align: left;
+}
+
+
+
+
+#i-mr {
+	position: absolute;
+	right: 15px;
+	top: 185px;
+}
+
+p, ul li {
+	margin-bottom: 0.5em;
+}
+
+
+

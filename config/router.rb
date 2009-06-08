@@ -28,8 +28,9 @@
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
 
+  resource  :stage, :controller => 'stage'
   resources :games
-  resources :stages
+  resources :walls
   resources :posts
   resources :styles
   
@@ -40,10 +41,14 @@ Merb::Router.prepare do
     with(:controller => "admin/walls") do
       match('/admin/walls/upload').to(:action => "upload").fixatable
     end
+    
+    with(:controller => "admin/styles") do
+      match('/admin/styles/upload').to(:action => "upload").fixatable
+    end
 
     namespace :admin do
 
-      resource  :dashboard
+      resource  :dashboard, :controller => 'dashboard'
 
       resources :games
       resources :posts

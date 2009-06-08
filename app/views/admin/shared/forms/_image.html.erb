@@ -1,7 +1,9 @@
 <% if upload_allowed %>
+  <% image_names.each do |image_name| %>
   <p>
-    <label for="image-file">file</label>
-    <input id="image-file" type="file"/>
+    <label for="<%= image_name %>-file"><%= image_name %> file</label>
+    <input id="<%= image_name %>-file" type="file"/>
   </p>
+  <% end %>
   <input type="hidden" name="session_id" id="session-id" value="<%= session.session_id %>" />
 <% end %>

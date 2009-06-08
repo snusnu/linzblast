@@ -25,7 +25,11 @@ Merb::BootLoader.before_app_loads do
   Date.add_format(:hm,  "%H:%M")
   Date.add_format(:dmy, "%d/%m/%Y")
   Date.add_format(:dmyhm, "%d/%m/%Y :: %H:%M")
-  
+
+  # dm-paperclip setup
+  Paperclip::Attachment.default_options[:url]    = "/uploads/images/:attachment/:id/:style/:filename"
+  Paperclip::Attachment.default_options[:path]   = ":merb_root/public:url"
+
 end
  
 Merb::BootLoader.after_app_loads do

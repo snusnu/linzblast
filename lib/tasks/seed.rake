@@ -23,15 +23,121 @@ namespace :db do
       :salt                  => '4d0a6015f1638ae1500122a3205b9439a601e04f'
     )
     
+    # walls
+    
+    Wall.create(
+      :name => 'nights',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_bridge_night.jpg")
+    )
+    
+    Wall.create(
+      :name => 'roofs',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_center_roof.jpg")
+    )
+    
+    Wall.create(
+      :name => 'main',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_main_square_bw.jpg")
+    )
+    
     # styles
     
-    domblasta = Style.create(
-      :name        => 'domblasta',
-      :description => 'domblasta',
-      :impact      => 10,
-      :distortion  => 10,
-      :ttl         => 3600
+    aec = Style.create(
+      :name            => 'aec-transistor-schaltbild',
+      :description     => 'domblasta',
+      :type            => 'rAECer',
+      :series          => 'ledmonster',
+      :manufacturer    => 'WAFTL & KUNST',
+      :range           => '40 caves',
+      :impact          => 10,
+      :distortion      => 10,
+      :ttl             => 3600,
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/aec.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/aec.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/aec.png")
     )
+    
+    dom = Style.create(
+      :name            => 'neuer dom - bischofsmütze',
+      :description     => 'domblaster',
+      :type            => 'domblaster',
+      :series          => 'holymary',
+      :manufacturer    => 'VATKINSON',
+      :range           => '8 emporen',
+      :impact          => 10,
+      :distortion      => 10,
+      :ttl             => 3600,
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/dom.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/dom.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/dom.png")
+    )
+    
+    bruckner = Style.create(
+      :name            => 'brucknerhaus - brucknerkonterfei',
+      :description     => 'brucknerhaus',
+      :type            => 'brucknerhaubitze',
+      :series          => 'donaulauf',
+      :manufacturer    => 'ANATOL BRUCKNOV',
+      :range           => '19 kulturmeilen',
+      :impact          => 10,
+      :distortion      => 10,
+      :ttl             => 3600,
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/bruckner.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/bruckner.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/bruckner.png")
+    )
+    
+    schloss = Style.create(
+      :name            => 'schlossmuseum - stadtwappen',
+      :description     => 'schlossmuseum',
+      :type            => 'dobuschkov',
+      :series          => 'nordflügel',
+      :manufacturer    => 'V.E.R.WALTER',
+      :range           => '290 amtswege',
+      :impact          => 10,
+      :distortion      => 10,
+      :ttl             => 3600,
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/schloss.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/schloss.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/schloss.png")
+    )
+    
+    sparka = Style.create(
+      :name            => 'sparkasse - lentia',
+      :description     => 'sparka',
+      :type            => 'sparka',
+      :series          => 'blueblasta',
+      :manufacturer    => 'AEG & ZINS',
+      :range           => '69 prozent',
+      :impact          => 10,
+      :distortion      => 10,
+      :ttl             => 3600,
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/sparka.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/sparka.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/sparka.png")
+    )
+    
+    termilator = Style.create(
+      :name            => 'bahnhofsterminal - wissensturm',
+      :description     => 'termilator',
+      :type            => 'termilator',
+      :series          => 'endstation',
+      :manufacturer    => 'KNARRINGER',
+      :range           => '960 sumsis',
+      :impact          => 10,
+      :distortion      => 10,
+      :ttl             => 3600,
+      :style_image           => File.new("#{Merb.root}/public/linzblast/weapons_big/termilator.png"),
+      :style_symbol_image    => File.new("#{Merb.root}/public/linzblast/weapons_small/termilator.png"),
+      :style_crosshair_image => File.new("#{Merb.root}/public/linzblast/crosshairs/termilator.png")
+    )
+    
     
     # style_collections
     
@@ -42,7 +148,32 @@ namespace :db do
     
     StyleCollectionMembership.create(
       :style_collection => all_styles,
-      :style => domblasta
+      :style => aec
+    )
+    
+    StyleCollectionMembership.create(
+      :style_collection => all_styles,
+      :style => dom
+    )
+    
+    StyleCollectionMembership.create(
+      :style_collection => all_styles,
+      :style => bruckner
+    )
+    
+    StyleCollectionMembership.create(
+      :style_collection => all_styles,
+      :style => sparka
+    )
+    
+    StyleCollectionMembership.create(
+      :style_collection => all_styles,
+      :style => termilator
+    )
+    
+    StyleCollectionMembership.create(
+      :style_collection => all_styles,
+      :style => schloss
     )
     
   end

@@ -20,12 +20,22 @@ module Admin
     end
     
     def create
+      only_provides :json
       @style = Style.new(params[:style])
       if @style.save
-        redirect resource(:admin, :styles)
+        display @style.id
       else
         render :new
       end
+    end
+    
+    def upload
+      @style = Style.get(params[:id])
+      if @style.respond_to?(params[:image_name])
+        @style.send("#{params[:image_name]}=", params[:fileData])
+        return 'success' if @style.save
+      end
+      return '' # be explicit
     end
 
   end

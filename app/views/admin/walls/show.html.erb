@@ -9,6 +9,6 @@
 <label>access restricted</label>
 <p><%=h @wall.access_restricted.inspect %></p>
 
-<img src="<%= @wall.image.url %>" alt="<%= @wall.name %>" />
+<img src="<%= @wall.wall_image.url %>" alt="<%= @wall.name %>" />
  
 <%= link_to 'all walls', resource(:admin, :walls) %>
