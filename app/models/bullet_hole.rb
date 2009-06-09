@@ -18,11 +18,11 @@ module BulletHole
   end
   
   def random_stepsize(radius, impact, distortion, rad)
-    0.324 * (1 + rand)
+    0.024 * (1 + rand / impact)
   end
     
   def random_scatter(radius, impact, distortion, rad)
-    (rand * 1000) % (rand * distortion) * (rand(2) == 0 ? -1 : 1)
+    (rand * 1000) % (rand * distortion * 5) * (rand(2) == 0 ? -1 : 1)
   end
   
   def x_coordinate(rad)

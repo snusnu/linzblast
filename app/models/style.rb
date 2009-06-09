@@ -50,7 +50,7 @@ class Style
   has_attached_file :style_crosshair_image
   
   
-  BASE_RADIUS = 10
+  BASE_RADIUS = 80
   
   def generate_container
     random_polygon(BASE_RADIUS, self.impact, self.distortion)

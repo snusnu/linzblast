@@ -10,6 +10,8 @@ package {
 	import flash.ui.Mouse;
 	import flash.net.*;
 	import flash.events.* ;
+  import flash.filters.*;
+  import flash.media.*;
 	
 	// as3corelib json include
 	import com.adobe.serialization.json.*; 
@@ -25,7 +27,8 @@ package {
 		private var _currentWallData   = null;
 		private var _currentStyleData  = null;
 		
-		private var _running           = false;
+		private var _accessCode        = false;
+		private var _gameId            = null;
 		
 		// cache all images
 	  private var _crosshairImages:Object  = null;
@@ -33,6 +36,8 @@ package {
 		
 		
 		// interactive objects
+		
+		private var _gun:GunSound    = null;
 		
 		private var cursor:Sprite    = null;
 		
@@ -62,30 +67,46 @@ package {
 		}
 		
 		// called from CodeForm event listener
-		public function start() {
-      _running = true;
-      //removeChild(_codeForm);
+		public function start(accessCode) {
+		  _accessCode = accessCode;
+		  addEventListener(MouseEvent.CLICK, onMouseClick);
 		}
 		
 		public function stop() {
-      _running = false;
-      //addChild(_codeForm);
+      _accessCode = null;
+      removeEventListener(MouseEvent.CLICK, onMouseClick);
 		}
 		
 		public function post() {
-		  if(_running) {
+		  if(_accessCode) {
         createPost();
       }
 		}
 		
-		
+		// mouse listener
+		public function onMouseClick(event:MouseEvent) {
+      if (mouseY < 480) {
+        var channel:SoundChannel = _gun.play();
+	      createPost();
+      }
+		}
+
+
 		// setters
 		
+		public function set currentWall(currentWall) {
+		  if (contains(_currentWall)) {
+		    removeChild(_currentWall);
+		  }
+		  _currentWall = currentWall;
+		  addChild(_currentWall);
+		}
 		
 		// called from WallSelector event listener
 		public function set currentWallData(currentWallData) {
 		  this._currentWallData = currentWallData;
 		  this._hudWall.currentWallData = currentWallData;
+		  this._currentWall.wallData = currentWallData;
 		}
 		
 		// called from StyleSelector event listener
@@ -105,6 +126,11 @@ package {
 		
 		
 		// getters
+
+		public function get gameId() {
+		  return this._gameId;
+		}
+		
 
 		public function get defaultWallData() {
 		  return this._wallsData[0];
@@ -134,6 +160,13 @@ package {
 
 
 
+    // setters
+    
+		public function set gameId(gameId) {
+		  this._gameId = gameId;
+		}
+		    
+
 		public function set wallSelector(wallSelector) {
 		  this._wallSelector = wallSelector;
 		}
@@ -160,6 +193,8 @@ package {
 		  
 		  var gameElements:Object = JSON.decode(URLLoader(event.target).data);
 		  
+		  _gun = new GunSound(); 
+		  
 		  this._wallsData  = gameElements.walls;
 		  this._stylesData = gameElements.styles;
 		  
@@ -175,6 +210,8 @@ package {
 			
 			// initialize codeForm
 			this._codeForm = new CodeForm(this);
+			this._codeForm.x = 410;
+			this._codeForm.y = stage.stageHeight - 150;
   		
   		// make the wall
 			this._currentWall = new Wall(this, currentWallData);
@@ -182,6 +219,10 @@ package {
 			
 			// make cursor
       this.cursor = new Sprite();
+      
+      var glow:GlowFilter = new GlowFilter(0xffff00, 1, 10, 10);
+      cursor.filters = [glow];
+      
   		//this.cursor.addChild(currentStyleData.crosshair_symbol_image);
   		addEventListener(MouseEvent.MOUSE_MOVE, followCursor);
   		addChild(cursor);
@@ -197,7 +238,7 @@ package {
 		
 		private function createPost() {
 		  // setup the request
-			var request:URLRequest = new URLRequest("/games.json");
+			var request:URLRequest = new URLRequest("/games/" + _gameId + ".json");
 			request.contentType = "application/json";
 			request.method = URLRequestMethod.POST;
 			request.data = JSON.encode(this.postData());
@@ -212,20 +253,31 @@ package {
 		// build the post body content
 		private function postData() {
 		  var postData:Object = new Object();
-			postData.game = new Object();
-			postData.game.wall_id = _currentWallData.id;
-			postData._method = "POST";
-			return postData;
+			
+			postData._method            = "PUT";
+		  postData.id                 = _gameId;
+      postData.game               = new Object();
+		  postData.game.code          = _accessCode;
+			postData.game.wall_id       = _currentWallData.id;
+      postData.game.post          = new Object();
+			postData.game.post.wall_id  = _currentWallData.id;
+			postData.game.post.style_id = _currentStyleData.id;
+      postData.game.post.body     = _codeForm.body.text;
+      postData.game.post.x_coord  = mouseX - _currentWall.canvas.x;
+      postData.game.post.y_coord  = mouseY;
+      
+      return postData;
 		}
 
 		private function updateWall(event:Event) {
 		  if (event is IOErrorEvent) {
         trace("error creating post");
       } else {
+		    
 		    var newPost:Object = JSON.decode(URLLoader(event.target).data);
-  		  trace(JSON.encode(newPost));
 
-  		  // TODO implement
+  		  _currentWall.renderPost(newPost);
+  		  _currentWallData.posts.push(newPost);
       }
 		}
 		

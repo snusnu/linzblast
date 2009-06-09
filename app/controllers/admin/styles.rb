@@ -16,6 +16,13 @@ module Admin
     
     def show
       @style = Style.get params[:id]
+      raise NotFound unless @style
+      display @style
+    end
+    
+    def edit
+      @style = Style.get params[:id]
+      raise NotFound unless @style
       display @style
     end
     

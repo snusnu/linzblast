@@ -11,8 +11,8 @@ class Post
   
   property :body,             String,  :nullable => false, :length => (1..160)
   
-  property :text_color,       String,  :length => 6, :default => "FFFFFF"
-  property :background_color, String,  :length => 6, :default => "FFFFFF"
+  property :text_color,       String,  :length => 8, :default => "0xFFFFFF"
+  property :background_color, String,  :length => 8, :default => "0xf5bb0a"
   
   property :x_coord,          Integer, :nullable => false
   property :y_coord,          Integer, :nullable => false

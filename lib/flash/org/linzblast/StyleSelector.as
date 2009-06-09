@@ -16,12 +16,16 @@ package {
 	  
 	  private var _currentStyleData  = null;
 	  
+	  private var _isVisible           = false;
+	  
 	  
 	  public function StyleSelector(gameStage:Game, hudStyle:HUDStyle) {
 	    this.gameStage = gameStage;
 	    this.hudStyle  = hudStyle;
 	    this.gui       = new Carousel(gameStage, gameStage.stylesData, 'original_image_url', 'style');
 		}
+		
+		public function get isVisible() { return _isVisible; }
 		
 		public function get currentStyleData() {
 		  return this._currentStyleData;
@@ -42,10 +46,12 @@ package {
 		  gameStage.addChild(gui);
       gui.x = 0;
       gui.y = 0;
+      _isVisible = true;
 		}
 		
 		public function hide() {
 		  gameStage.removeChild(gui);
+		  _isVisible = false;
 		}
 
 

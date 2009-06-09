@@ -16,12 +16,16 @@ package {
 	  
 	  private var _currentWallData  = null;
 	  
+	  private var _isVisible          = false;
+	  
 	  
 	  public function WallSelector(gameStage:Game, hudWall:HUDWall) {
 	    this.gameStage = gameStage;
 	    this.hudWall   = hudWall;
 	    this.gui       = new Carousel(gameStage, gameStage.wallsData, 'medium_image_url', 'wall');
 		}
+		
+		public function get isVisible() { return _isVisible; }
 		
 		public function get currentWallData() {
 		  return this._currentWallData;
@@ -34,10 +38,12 @@ package {
 		  gameStage.addChild(gui);
       gui.x = 0;
       gui.y = 0;
+      _isVisible = true;
 		}
 		
 		public function hide() {
 		  gameStage.removeChild(gui);
+		  _isVisible = false;
 		}
 		
 		public function next() {
@@ -55,8 +61,10 @@ package {
 		
 		// called by wallSelector event listener
 		private function setCurrentWall(event:Event) {
+		  trace("XXXXX: WallSelector#setCurrentWall")
 		  var wallData = null;
 		  this._currentWallData = wallData;
+		  this.gameStage.currentWall = this;
 		}
 		
   }
