@@ -37,14 +37,17 @@ class Wall
 
   DEFAULT_TO_JSON_OPTIONS = {
     :only => [ :id, :name, :description, :access_restricted ],
-    :methods => [ :original_image_url, :medium_image_url, :symbol_image_url ],
-    :relationships => { :posts => {} }
+    :methods => [ :recent_posts, :original_image_url, :medium_image_url, :symbol_image_url ]
   }
 
   def to_json(*)
     super(DEFAULT_TO_JSON_OPTIONS)
   end
   
+  def recent_posts
+    posts.all(:limit => 15, :order => [ :created_at.desc ]).reverse
+  end
+
   def original_image_url
     wall_image.url
   end

@@ -278,7 +278,7 @@ package {
 
 		    if (newPost) {
     		  _currentWall.renderPost(newPost);
-    		  _currentWallData.posts.push(newPost);
+    		  _currentWallData.recent_posts.push(newPost);
   		  }
       }
 		}
