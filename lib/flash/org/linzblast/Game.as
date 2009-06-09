@@ -265,6 +265,8 @@ package {
 		    var newPost:Object = JSON.decode(URLLoader(event.target).data);
 
   		  // TODO implement
+  		  
+  		  _currentWall.renderPost(newPost);
       }
 		}
 		
