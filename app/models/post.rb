@@ -16,7 +16,6 @@ class Post
   
   property :x_coord,          Integer, :nullable => false
   property :y_coord,          Integer, :nullable => false
-  property :dest_x,           Integer, :nullable => false
   
   property :polygon,          Object
   

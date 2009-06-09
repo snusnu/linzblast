@@ -249,9 +249,8 @@ package {
 			postData.game.post.wall_id  = _currentWallData.id;
 			postData.game.post.style_id = _currentStyleData.id;
       postData.game.post.body     = _codeForm.body.text;
-      postData.game.post.x_coord  = mouseX;
+      postData.game.post.x_coord  = mouseX - _currentWall.canvas.x;
       postData.game.post.y_coord  = mouseY;
-      postData.game.post.dest_x   = 1;
       
       trace("postData = " + JSON.encode(postData));
       
