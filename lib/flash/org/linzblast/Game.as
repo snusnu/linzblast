@@ -196,8 +196,8 @@ package {
 			
 			// initialize codeForm
 			this._codeForm = new CodeForm(this);
-			this._codeForm.x = stage.stageWidth / 2 + 10;
-			this._codeForm.y = stage.stageHeight - 60;
+			this._codeForm.x = 410;
+			this._codeForm.y = stage.stageHeight - 150;
   		
   		// make the wall
 			this._currentWall = new Wall(this, currentWallData);
@@ -248,7 +248,7 @@ package {
       postData.game.post          = new Object();
 			postData.game.post.wall_id  = _currentWallData.id;
 			postData.game.post.style_id = _currentStyleData.id;
-      postData.game.post.body     = "linzblast";
+      postData.game.post.body     = _codeForm.body.text;
       postData.game.post.x_coord  = mouseX;
       postData.game.post.y_coord  = mouseY;
       postData.game.post.dest_x   = 1;
