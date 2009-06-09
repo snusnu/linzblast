@@ -276,8 +276,10 @@ package {
 		    
 		    var newPost:Object = JSON.decode(URLLoader(event.target).data);
 
-  		  _currentWall.renderPost(newPost);
-  		  _currentWallData.posts.push(newPost);
+		    if (newPost) {
+    		  _currentWall.renderPost(newPost);
+    		  _currentWallData.posts.push(newPost);
+  		  }
       }
 		}
 		

@@ -9,7 +9,7 @@ class Post
   property :wall_id,          Integer, :nullable => false
   property :style_id,         Integer, :nullable => false
   
-  property :body,             String,  :nullable => false, :length => (1..160)
+  property :body,             String,  :nullable => false, :length => (1..160), :unique => true, :unique_index => true
   
   property :text_color,       String,  :length => 8, :default => "0xFFFFFF"
   property :background_color, String,  :length => 8, :default => "0xf5bb0a"
