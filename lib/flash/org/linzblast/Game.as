@@ -76,7 +76,6 @@ package {
 		public function set currentWallData(currentWallData) {
 		  this._currentWallData = currentWallData;
 		  this._hudWall.currentWallData = currentWallData;
-		  this._currentWall.wallData = currentWallData;
 		}
 		
 		// called from StyleSelector event listener

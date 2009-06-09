@@ -30,14 +30,14 @@ class Wall
 
   include Paperclip::Resource
 
-  has_attached_file :wall_image, :styles => { :small => "200x200#", :medium => "400x400#" }
+  has_attached_file :wall_image, :styles => { :small => "150x125#", :medium => "400x400#" }
 
 
   # JSON export
 
   DEFAULT_TO_JSON_OPTIONS = {
     :only => [ :id, :name, :description, :access_restricted ],
-    :methods => [ :original_image_url, :medium_image_url ],
+    :methods => [ :original_image_url, :medium_image_url, :symbol_image_url ],
     :relationships => { :posts => {} }
   }
 
@@ -51,6 +51,10 @@ class Wall
 
   def medium_image_url
     wall_image.url(:medium)
+  end
+  
+  def symbol_image_url
+    wall_image.url(:small)
   end
 
 end
