@@ -10,6 +10,7 @@ package {
 	import flash.ui.Mouse;
 	import flash.net.*;
 	import flash.events.* ;
+  import flash.filters.*;
 	
 	// as3corelib json include
 	import com.adobe.serialization.json.*; 
@@ -25,7 +26,8 @@ package {
 		private var _currentWallData   = null;
 		private var _currentStyleData  = null;
 		
-		private var _running           = false;
+		private var _accessCode        = false;
+		private var _gameId            = null;
 		
 		// cache all images
 	  private var _crosshairImages:Object  = null;
@@ -62,18 +64,16 @@ package {
 		}
 		
 		// called from CodeForm event listener
-		public function start() {
-      _running = true;
-      //removeChild(_codeForm);
+		public function start(accessCode) {
+		  _accessCode = accessCode;
 		}
 		
 		public function stop() {
-      _running = false;
-      //addChild(_codeForm);
+      _accessCode = null;
 		}
 		
 		public function post() {
-		  if(_running) {
+		  if(_accessCode) {
         createPost();
       }
 		}
@@ -106,6 +106,11 @@ package {
 		
 		// getters
 
+		public function get gameId() {
+		  return this._gameId;
+		}
+		
+
 		public function get defaultWallData() {
 		  return this._wallsData[0];
 		}
@@ -133,6 +138,13 @@ package {
 		}
 
 
+
+    // setters
+    
+		public function set gameId(gameId) {
+		  this._gameId = gameId;
+		}
+		    
 
 		public function set wallSelector(wallSelector) {
 		  this._wallSelector = wallSelector;
@@ -175,6 +187,8 @@ package {
 			
 			// initialize codeForm
 			this._codeForm = new CodeForm(this);
+			this._codeForm.x = stage.stageWidth / 2 + 10;
+			this._codeForm.y = stage.stageHeight - 60;
   		
   		// make the wall
 			this._currentWall = new Wall(this, currentWallData);
@@ -182,6 +196,10 @@ package {
 			
 			// make cursor
       this.cursor = new Sprite();
+      
+      var glow:GlowFilter = new GlowFilter(0xffff00, 1, 10, 10);
+      cursor.filters = [glow];
+      
   		//this.cursor.addChild(currentStyleData.crosshair_symbol_image);
   		addEventListener(MouseEvent.MOUSE_MOVE, followCursor);
   		addChild(cursor);
@@ -212,9 +230,18 @@ package {
 		// build the post body content
 		private function postData() {
 		  var postData:Object = new Object();
-			postData.game = new Object();
-			postData.game.wall_id = _currentWallData.id;
-			postData._method = "POST";
+			postData._method = "PUT";
+		  postData.id                 = _gameId;
+		  postData.code               = _accessCode;
+      postData.game               = new Object();
+			postData.game.wall_id       = _currentWallData.id;
+      postData.game.post          = new Object();
+			postData.game.post.wall_id  = _currentWallData.id;
+			postData.game.post.style_id = _currentStyleData.id;
+      postData.game.post.body     = "linzblast";
+      postData.game.post.x_coord  = mouseX;
+      postData.game.post.y_coord  = mouseY;
+      postData.game.post.dest_x   = _currentWall.destinationX();
 			return postData;
 		}
 
@@ -223,7 +250,6 @@ package {
         trace("error creating post");
       } else {
 		    var newPost:Object = JSON.decode(URLLoader(event.target).data);
-  		  trace(JSON.encode(newPost));
 
   		  // TODO implement
       }
