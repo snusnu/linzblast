@@ -30,6 +30,8 @@ class Post
   
   # delegations
   
+  delegate :name,        :to => :wall, :prefix => true
+  
   delegate :name,        :to => :style, :prefix => true
   delegate :description, :to => :style, :prefix => true
   delegate :impact,      :to => :style, :prefix => true
