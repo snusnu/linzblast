@@ -54,15 +54,17 @@ package {
 		// called from CodeForm event listener
 		public function start() {
       _running = true;
+      //removeChild(_codeForm);
 		}
 		
 		public function stop() {
       _running = false;
+      //addChild(_codeForm);
 		}
 		
 		public function post() {
 		  if(_running) {
-        // TODO implement
+        createPost();
       }
 		}
 		
@@ -164,8 +166,38 @@ package {
 		  addChild(this._hudStyle);
 		}
 		
-		private function createPost(event:Event) {
-		  
+		private function createPost() {
+		  // setup the request
+			var request:URLRequest = new URLRequest("/games.json");
+			request.contentType = "application/json";
+			request.method = URLRequestMethod.POST;
+			request.data = JSON.encode(this.postData());
+			var loader:URLLoader = new URLLoader();
+
+			// add listener that changes the gameStage
+			loader.addEventListener(Event.COMPLETE, updateWall);
+			loader.addEventListener(IOErrorEvent.IO_ERROR, updateWall);
+			loader.load(request);
+		}
+
+		// build the post body content
+		private function postData() {
+		  var postData:Object = new Object();
+			postData.game = new Object();
+			postData.game.wall_id = _currentWallData.id;
+			postData._method = "POST";
+			return postData;
+		}
+
+		private function updateWall(event:Event) {
+		  if (event is IOErrorEvent) {
+        trace("error creating post");
+      } else {
+		    var newPost:Object = JSON.decode(URLLoader(event.target).data);
+  		  trace(JSON.encode(newPost));
+
+  		  // TODO implement
+      }
 		}
 
 	}
