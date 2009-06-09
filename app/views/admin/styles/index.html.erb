@@ -11,7 +11,8 @@
 	    <th>ttl</th>
 			<th>created</th>
 			<th>updated</th>
-			<th>action</th>
+			<th>show</th>
+			<th>edit</th>
 	  </tr>
 	</thead>
 	<tfoot>
@@ -32,6 +33,7 @@
 	    <td class="date"><%=h style.updated_at.formatted(:dmy) %></td>
 	 
 	    <td class="action"><%= link_to 'show', resource(:admin, style) %></td>
+	    <td class="action"><%= link_to 'edit', resource(:admin, style, :edit) %></td>
 	  </tr>
 	<% end %>
 	</tbody>

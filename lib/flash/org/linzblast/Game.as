@@ -11,6 +11,7 @@ package {
 	import flash.net.*;
 	import flash.events.* ;
   import flash.filters.*;
+  import flash.media.*;
 	
 	// as3corelib json include
 	import com.adobe.serialization.json.*; 
@@ -35,6 +36,8 @@ package {
 		
 		
 		// interactive objects
+		
+		private var _gun:GunSound    = null;
 		
 		private var cursor:Sprite    = null;
 		
@@ -81,20 +84,29 @@ package {
 		}
 		
 		// mouse listener
-		private function onMouseClick(event:MouseEvent) {
-		  if (mouseY < 480) {
-		    createPost();
-	    }
+		public function onMouseClick(event:MouseEvent) {
+      if (mouseY < 480) {
+        var channel:SoundChannel = _gun.play();
+	      createPost();
+      }
 		}
 
 
 		// setters
 		
+		public function set currentWall(currentWall) {
+		  if (contains(_currentWall)) {
+		    removeChild(_currentWall);
+		  }
+		  _currentWall = currentWall;
+		  addChild(_currentWall);
+		}
 		
 		// called from WallSelector event listener
 		public function set currentWallData(currentWallData) {
 		  this._currentWallData = currentWallData;
 		  this._hudWall.currentWallData = currentWallData;
+		  this._currentWall.wallData = currentWallData;
 		}
 		
 		// called from StyleSelector event listener
@@ -181,6 +193,8 @@ package {
 		  
 		  var gameElements:Object = JSON.decode(URLLoader(event.target).data);
 		  
+		  _gun = new GunSound(); 
+		  
 		  this._wallsData  = gameElements.walls;
 		  this._stylesData = gameElements.styles;
 		  
@@ -223,7 +237,6 @@ package {
 		}
 		
 		private function createPost() {
-		  trace("createPost")
 		  // setup the request
 			var request:URLRequest = new URLRequest("/games/" + _gameId + ".json");
 			request.contentType = "application/json";
@@ -240,6 +253,7 @@ package {
 		// build the post body content
 		private function postData() {
 		  var postData:Object = new Object();
+			
 			postData._method            = "PUT";
 		  postData.id                 = _gameId;
       postData.game               = new Object();
@@ -252,20 +266,18 @@ package {
       postData.game.post.x_coord  = mouseX - _currentWall.canvas.x;
       postData.game.post.y_coord  = mouseY;
       
-      trace("postData = " + JSON.encode(postData));
-      
-			return postData;
+      return postData;
 		}
 
 		private function updateWall(event:Event) {
 		  if (event is IOErrorEvent) {
         trace("error creating post");
       } else {
+		    
 		    var newPost:Object = JSON.decode(URLLoader(event.target).data);
 
-  		  // TODO implement
-  		  
   		  _currentWall.renderPost(newPost);
+  		  _currentWallData.posts.push(newPost);
       }
 		}
 		

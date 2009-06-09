@@ -1,0 +1,64 @@
+<% require_js(
+  'jquery-uploadify/jquery.uploadify',
+  'styles/upload'
+)
+%>
+
+<h3>edit style</h3>
+
+<div id="form-container">
+
+  <%= form_for(@style, :action => resource(:admin, @style)) do %>
+  
+    <fieldset>
+
+      <legend><span>details</span></legend>
+
+      <p>
+        <%= text_field :name, :label => "name" %>
+      </p>
+
+      <p>
+        <%= text_area :description, :label => "description" %>
+      </p>
+
+      <p>
+        <%= text_field :impact, :label => "impact" %>
+      </p>
+      
+      <p>
+        <%= text_field :distortion, :label => "distortion" %>
+      </p>
+      
+      <p>
+        <%= text_field :ttl, :label => "ttl" %>
+      </p>
+
+      <p>
+        <%= text_field :type, :label => "type" %>
+      </p>
+
+      <p>
+        <%= text_field :manufacturer, :label => "manufacturer" %>
+      </p>
+
+      <p>
+        <%= text_field :series, :label => "series" %>
+      </p>
+
+      <p>
+        <%= text_field :range, :label => "range" %>
+      </p>
+
+      <%= partial 'admin/shared/forms/image', 
+        :image_names => [ :image, :symbol_image, :crosshair_image ], 
+        :upload_allowed => true 
+      %>
+
+    </fieldset>
+    
+    <%= submit "add" %>
+
+  <% end =%>
+  
+</div>
