@@ -40,13 +40,13 @@ class Game
   # public api
 
   def update(attributes, context = :default)
-    attributes.delete(:nr_of_posts) # no playin around
     if post = attributes.delete(:post)
-      Post.create(post)
+      po = Post.create(post)
     end
+    self.code = attributes[:code]
     self.nr_of_posts += 1
-    stop_game_if_necessary
-    super
+    stop_if_necessary
+    super({})
   end
   
   def available_styles
@@ -72,7 +72,7 @@ class Game
 
   private
     
-  def stop_game_if_necessary
+  def stop_if_necessary
     if wall.access_restricted? && !posts_left?
       code.destroy
     end

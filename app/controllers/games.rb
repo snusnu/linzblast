@@ -45,8 +45,10 @@ class Games < Application
     raise NotFound unless @game
     case params[:format]
     when 'json'
-      if @game.update(params[:game])
-        display @game, :status => OK.status
+      if post = Post.create(params[:game][:post])
+        @game.code = params[:game][:code]
+        @game.nr_of_posts += 1
+        display post, :status => OK.status
       else
         display @game, :status => Unauthenticated.status
       end

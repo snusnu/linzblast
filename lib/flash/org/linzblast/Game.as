@@ -66,10 +66,12 @@ package {
 		// called from CodeForm event listener
 		public function start(accessCode) {
 		  _accessCode = accessCode;
+		  addEventListener(MouseEvent.CLICK, onMouseClick);
 		}
 		
 		public function stop() {
       _accessCode = null;
+      removeEventListener(MouseEvent.CLICK, onMouseClick);
 		}
 		
 		public function post() {
@@ -78,7 +80,14 @@ package {
       }
 		}
 		
-		
+		// mouse listener
+		private function onMouseClick(event:MouseEvent) {
+		  if (mouseY < 480) {
+		    createPost();
+	    }
+		}
+
+
 		// setters
 		
 		
@@ -214,8 +223,9 @@ package {
 		}
 		
 		private function createPost() {
+		  trace("createPost")
 		  // setup the request
-			var request:URLRequest = new URLRequest("/games.json");
+			var request:URLRequest = new URLRequest("/games/" + _gameId + ".json");
 			request.contentType = "application/json";
 			request.method = URLRequestMethod.POST;
 			request.data = JSON.encode(this.postData());
@@ -230,10 +240,10 @@ package {
 		// build the post body content
 		private function postData() {
 		  var postData:Object = new Object();
-			postData._method = "PUT";
+			postData._method            = "PUT";
 		  postData.id                 = _gameId;
-		  postData.code               = _accessCode;
       postData.game               = new Object();
+		  postData.game.code          = _accessCode;
 			postData.game.wall_id       = _currentWallData.id;
       postData.game.post          = new Object();
 			postData.game.post.wall_id  = _currentWallData.id;
@@ -241,7 +251,10 @@ package {
       postData.game.post.body     = "linzblast";
       postData.game.post.x_coord  = mouseX;
       postData.game.post.y_coord  = mouseY;
-      postData.game.post.dest_x   = _currentWall.destinationX();
+      postData.game.post.dest_x   = 1;
+      
+      trace("postData = " + JSON.encode(postData));
+      
 			return postData;
 		}
 
