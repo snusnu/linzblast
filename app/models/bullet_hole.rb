@@ -5,57 +5,42 @@ module BulletHole
   def random_polygon(radius, impact, distortion)
     rad, poly = 0, []
     while rad <= 2 * PI
-      poly << random_point(radius, impact, distortion, rad)
-      rad += random_stepsize(radius, impact, distortion, rad)
+      poly << point(radius, impact, distortion, rad)
+      rad  += stepsize(radius, impact, distortion, rad)
     end
     poly
   end
     
-  def random_point(radius, impact, distortion, rad)
-    x = x_coordinate(rad) * radius + random_scatter(radius, impact, distortion, rad)
-    y = y_coordinate(rad) * radius + random_scatter(radius, impact, distortion, rad)
+  def point(radius, impact, distortion, rad)
+    x = x_coordinate(rad) * radius(radius, impact, distortion, rad) + rand * 3
+    y = y_coordinate(rad) * radius(radius, impact, distortion, rad) + rand * 3
     [ x, y ]
   end
   
-  def random_stepsize(radius, impact, distortion, rad)
-    0.024 * (1 + rand / impact)
+  def stepsize(radius, impact, distortion, rad)
+    0.04 * (rand * impact)
   end
-    
-  def random_scatter(radius, impact, distortion, rad)
-    (rand * 1000) % (rand * distortion * 5) * (rand(2) == 0 ? -1 : 1)
+  
+  # rad could be used to make more square like forms
+  def radius(radius, impact, distortion, rad)
+    radius + impact + (rand * distortion) * ((rand * 10).to_i % 2 == 0 ? 1 : -1)
   end
   
   def x_coordinate(rad)
-    return  0 if rad == PI/2 || rad == 3*PI/2
-    return  1 if rad == 0    || rad == 2*PI 
-    return -1 if rad == PI
-    if rad > 0 && rad < PI/2
+    if rad < PI
       cos(rad)
-    elsif rad > PI/2 && rad < PI
-      -cos(PI/2 - rad)
-    elsif rad > PI && rad < 3*PI/2
-      -cos(PI/2 - rad)
-    elsif rad > 3*PI/2 && rad < 2*PI
-      cos(rad - 2*PI)
     else
-      raise "[x_coord]: Implement periodic cos behaviour"
+      rad = PI - (PI - rad)
+      cos(rad)
     end
   end
   
   def y_coordinate(rad)
-    return  0 if rad == PI   || rad == 2*PI
-    return  1 if rad == PI/2
-    return -1 if rad == 3*PI/2
-    if rad >= 0 && rad < PI/2
+    if rad < PI
       sin(rad)
-    elsif rad > PI/2 && rad < PI
-      sin(PI/2 - rad)
-    elsif rad > PI && rad < 3*PI/2
-      sin(PI/2 - rad)
-    elsif rad > 3*PI/2 && rad < 2*PI
-      -sin(rad - 2*PI)
     else
-      raise "[y_coord]: Implement periodic sin behaviour"
+      rad = PI - (PI - rad)
+      sin(rad)
     end
   end
   
