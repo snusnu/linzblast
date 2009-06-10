@@ -8,16 +8,6 @@ module Admin
       @posts = Post.all
       display @posts
     end
-
-    def new
-      @post = Post.new
-      display @post
-    end
-    
-    def show
-      @post = Post.get params[:id]
-      display @post
-    end
     
     def create
       @post = Post.new(params[:post])
