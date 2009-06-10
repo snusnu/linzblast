@@ -211,6 +211,15 @@ namespace :db do
       :style => schloss
     )
     
+    # codes
+    
+    CodeGeneration.create(
+      :user => snusnu,
+      :style_collection => all_styles,
+      :amount => 50,
+      :nr_of_posts => 10
+    )
+    
   end
   
 end
