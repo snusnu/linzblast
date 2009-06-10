@@ -7,7 +7,6 @@
 	    <th>code</th>
 	    <th>created</th>
 	    <th>updated</th>
-			<th>action</th>
 	  </tr>
 	</thead>
   <tfoot>
@@ -20,8 +19,6 @@
 	    <td><%=h game.code %></td>
 	    <td class="date"><%=h game.created_at.formatted(:dmy) %></td>
 	    <td class="date"><%=h game.updated_at.formatted(:dmy) %></td>
-	
-	    <td class="action"><%= link_to 'show', resource(:admin, game) %></td>
 	  </tr>
 	<% end %>
 	</tbody>
