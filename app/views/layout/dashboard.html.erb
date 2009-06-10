@@ -36,10 +36,10 @@
 				    <dl>
 				      <dt>Listings</dt>
 							<dd><%= link_to 'code generations', resource(:admin, :code_generations) %></dd>
-							<dd><%= link_to 'codes', resource(:admin, :codes) %></dd>
-							<dd><%= link_to 'games', resource(:admin, :games) %></dd>
-							<dd><%= link_to 'walls', resource(:admin, :walls) %></dd>
-							<dd><%= link_to 'posts', resource(:admin, :posts) %></dd>
+							<dd><%= link_to "codes (#{Code.count})", resource(:admin, :codes) %></dd>
+							<dd><%= link_to "games (#{Game.count})", resource(:admin, :games) %></dd>
+							<dd><%= link_to "walls (#{Wall.count})", resource(:admin, :walls) %></dd>
+							<dd><%= link_to "posts (#{Post.count})", resource(:admin, :posts) %></dd>
 							<dd><%= link_to 'styles', resource(:admin, :styles) %></dd>
 							<dt>new stuff</dt>
 							<dd><%= link_to 'code generation', resource(:admin, :code_generations, :new) %></dd>
