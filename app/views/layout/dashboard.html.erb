@@ -22,30 +22,28 @@
       	<div id="header">
           <a id="sidebar-toggle" href="#"></a>
           <h1><span>linzblast</span></h1>
-          <h2><a href="/admin/dashboard">Dashboard</a> [<a href="/logout">Sign out</a>]</h2>
+          <h2><a href="/admin/dashboard">dashboard</a> [<a href="/logout">sign out</a>]</h2>
         
           <dl>
-            <dt>Signed in as</dt>
+            <dt>signed in as</dt>
             <dd><%= session.user ? session.user.email : 'anonymous' %></dd>
           </dl>
         </div>
 				
 				<div id="actions-container">
 				  <div id="pane-company">
-				    <h3><a href="#pane-actions">Actions</a></h3>
+				    <h3><a href="#pane-actions">actions</a></h3>
 				    <dl>
-				      <dt>Listings</dt>
-							<dd><%= link_to 'code generations', resource(:admin, :code_generations) %></dd>
-							<dd><%= link_to "codes (#{Code.count})", resource(:admin, :codes) %></dd>
+				      <dt>listings</dt>
+							<dd><%= link_to "codes (#{Code.count})", resource(:admin, :code_generations) %></dd>
 							<dd><%= link_to "games (#{Game.count})", resource(:admin, :games) %></dd>
 							<dd><%= link_to "walls (#{Wall.count})", resource(:admin, :walls) %></dd>
 							<dd><%= link_to "posts (#{Post.count})", resource(:admin, :posts) %></dd>
 							<dd><%= link_to 'styles', resource(:admin, :styles) %></dd>
 							<dt>new stuff</dt>
-							<dd><%= link_to 'code generation', resource(:admin, :code_generations, :new) %></dd>
+							<dd><%= link_to 'codes', resource(:admin, :code_generations, :new) %></dd>
 							<dd><%= link_to 'wall', resource(:admin, :walls, :new) %></dd>
 							<dd><%= link_to 'style', resource(:admin, :styles, :new) %></dd>
-							<dd><%= link_to 'post', resource(:admin, :posts, :new) %></dd>
 				    </dl>
 				  </div>
 				</div>
