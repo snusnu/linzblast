@@ -39,6 +39,22 @@ module Admin
       end
     end
 
+    def delete
+      @wall = Wall.get params[:id]
+      raise NotFound unless @wall
+      display @wall
+    end
+
+    def destroy
+      @wall = Wall.get params[:id]
+      raise NotFound unless @wall
+      if @wall.destroy
+        redirect resource(:admin, :walls)
+      else
+        raise InternalServerError
+      end
+    end
+
   end
   
 end

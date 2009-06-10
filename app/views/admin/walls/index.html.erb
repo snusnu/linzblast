@@ -6,10 +6,10 @@
 	    <th>id</th>
 	    <th>name</th>
 	    <th>description</th>
-	    <th>access restricted</th>
+	    <th>restricted</th>
 	    <th>created</th>
-	    <th>updated</th>
-			<th>action</th>
+	    <th>show</th>
+			<th>delete</th>
 	  </tr>
 	</thead>
   <tfoot>
@@ -25,12 +25,10 @@
 	    <td><%=h wall.description %></td>
 	    <td><%=h wall.access_restricted.inspect %></td>
 	    <td class="date"><%=h wall.created_at.formatted(:dmy) %></td>
-	    <td class="date"><%=h wall.updated_at.formatted(:dmy) %></td>
 	 
 	    <td class="action"><%= link_to 'show', resource(:admin, wall) %></td>
+	    <td class="action"><%= delete_button resource(:admin, wall) %></td>
 	  </tr>
 	<% end %>
 	</tbody>
 </table>
- 
-<%= link_to 'new wall', resource(:admin, :walls, :new) %>

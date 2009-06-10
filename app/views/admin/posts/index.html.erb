@@ -7,10 +7,8 @@
 	    <th>wall</th>
 	    <th>style</th>
 	    <th>body</th>
-	    <th>background color</th>
-	    <th>text color</th>
 	    <th>created</th>
-			<th>action</th>
+			<th>delete</th>
 	  </tr>
 	</thead>
   <tfoot>
@@ -20,18 +18,12 @@
 		<% @posts.each do |post| %>
 		  <tr>
 		    <td><%=h post.id %></td>
-		    <td><%=h post.wall_name %></td>
-		    <td><%=h post.style_name %></td>
+		    <td><%= link_to post.wall_name, resource(:admin, post.wall) %></td>
+		    <td><%= link_to post.style_name, resource(:admin, post.style) %></td>
 		    <td><%=h post.body %></td>
-		    <td><%=h post.background_color %></td>
-		    <td><%=h post.text_color %></td>
 		    <td class="date"><%=h post.created_at.formatted(:dmy) %></td>
-		    <td class="date"><%=h post.updated_at.formatted(:dmy) %></td>
-		 
-		    <td class="action"><%= link_to 'show', resource(:admin, post) %></td>
+		    <td class="action"><%= delete_button resource(:admin, post) %></td>
 		  </tr>
 		<% end %>
 </tbody>
 </table>
- 
-<%= link_to 'new post', resource(:admin, :posts, :new) %>

@@ -18,6 +18,22 @@ module Admin
       end
     end
 
+    def delete
+      @post = Post.get params[:id]
+      raise NotFound unless @post
+      display @post
+    end
+
+    def destroy
+      @post = Post.get params[:id]
+      raise NotFound unless @post
+      if @post.destroy
+        redirect resource(:admin, :posts)
+      else
+        raise InternalServerError
+      end
+    end
+
   end
   
 end
