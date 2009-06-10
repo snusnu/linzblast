@@ -14,7 +14,7 @@ module BulletHole
   def point(radius, impact, distortion, rad)
     x = x_coordinate(rad) * radius(radius, impact, distortion, rad) + rand * 3
     y = y_coordinate(rad) * radius(radius, impact, distortion, rad) + rand * 3
-    [ x, y ]
+    [ x.round, y.round ]
   end
   
   def stepsize(radius, impact, distortion, rad)
