@@ -1,6 +1,7 @@
 <% require_js(
   'jquery-uploadify/jquery.uploadify',
-  'styles/upload'
+  'upload',
+  'styles/new'
 )
 %>
 
@@ -51,7 +52,7 @@
       </p>
 
       <%= partial 'admin/shared/forms/image', 
-        :image_names => [ :image, :symbol_image, :crosshair_image ], 
+        :image_names => [ :style_image, :style_symbol_image, :style_crosshair_image ], 
         :upload_allowed => true 
       %>
 

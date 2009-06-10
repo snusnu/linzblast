@@ -31,7 +31,7 @@ module Admin
     def upload
       only_provides :html
       @wall = Wall.new(params[:wall])
-      @wall.image = params[:fileData]
+      @wall.wall_image = params[:fileData]
       if @wall.save
         return 'success'
       else

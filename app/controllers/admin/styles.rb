@@ -26,6 +26,17 @@ module Admin
       display @style
     end
     
+    def update
+      only_provides :json
+      @style = Style.get params[:id]
+      raise NotFound unless @style
+      if @style.update(stripped_style_params)
+        display @style.id
+      else
+        render :edit
+      end
+    end
+    
     def create
       only_provides :json
       @style = Style.new(params[:style])
@@ -43,6 +54,16 @@ module Admin
         return 'success' if @style.save
       end
       return '' # be explicit
+    end
+    
+    private
+    
+    def stripped_style_params
+      return params unless params[:style]
+      params[:style].delete(:style_image_name)
+      params[:style].delete(:style_symbol_image_name)
+      params[:style].delete(:style_crosshair_image_name)
+      params
     end
 
   end
