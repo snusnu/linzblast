@@ -17,7 +17,7 @@ class Post
   property :x_coord,          Integer, :nullable => false
   property :y_coord,          Integer, :nullable => false
   
-  property :polygon,          Object
+  property :polygon,          String,  :length => (0..1024)
   
   property :created_at,       DateTime
   property :updated_at,       DateTime
@@ -45,7 +45,7 @@ class Post
   # before save hook
   def initialize_style_container
     if new?
-      self.polygon = style.generate_container
+      self.polygon = style.generate_container.to_json
     end
   end
   
