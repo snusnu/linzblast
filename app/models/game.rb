@@ -5,14 +5,20 @@ class Game
   # properties
   
   property :id,          Serial
-  
+
+  property :wall_id,     Integer, :nullable => false
+
   property :nr_of_posts, Integer, :nullable => false, :default => 0
   
   property :created_at,  DateTime
   property :updated_at,  DateTime
   property :deleted_at,  ParanoidDateTime
   
-  
+  # associations
+
+  belongs_to :wall
+
+
   # virtual attributes
   
   def code=(secret)
