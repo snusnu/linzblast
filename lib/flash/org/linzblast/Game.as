@@ -40,6 +40,8 @@ package {
 		private var _gun:GunSound    = null;
 		
 		private var cursor:Sprite    = null;
+    
+    private var _fullscreenButton:FullscreenButton    = null;
 		
 		private var _codeForm:CodeForm  = null;
 
@@ -210,8 +212,8 @@ package {
 			
 			// initialize codeForm
 			this._codeForm = new CodeForm(this);
-			this._codeForm.x = 410;
-			this._codeForm.y = stage.stageHeight - 150;
+			this._codeForm.x = 305;
+			this._codeForm.y = stage.stageHeight - 100;
   		
   		// make the wall
 			this._currentWall = new Wall(this, currentWallData);
@@ -219,6 +221,11 @@ package {
 			
 			// make cursor
       this.cursor = new Sprite();
+      
+      // init fullscreen button | Flash plugin does not support Textinput in fullscreen mode
+      //this._fullscreenButton = new FullscreenButton();
+			//addChild(this._fullscreenButton);
+      
       
       var glow:GlowFilter = new GlowFilter(0xffff00, 1, 10, 10);
       cursor.filters = [glow];

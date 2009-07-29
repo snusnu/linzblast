@@ -17,13 +17,20 @@
 	  
 	  public function CodeForm(gameStage:Game) {
 	    this.gameStage = gameStage;
-	    this.codeSubmitButton.addEventListener(MouseEvent.CLICK, submitCode);
 	    
+      this.codeSubmitButton.addEventListener(MouseEvent.CLICK, submitCode);
+      
+      this.body.addEventListener(Event.CHANGE,countChars);
+	    this.body.maxChars = 162;
+      
 	    var bodyFormat:TextFormat = new TextFormat;
       
       bodyFormat.bold = true;
-      bodyFormat.font = "Courier";
-      bodyFormat.size = 18;
+      bodyFormat.font = "Courier New";
+      bodyFormat.size = 14;
+      
+      body.setStyle("textFormat", bodyFormat);
+      codeInput.setStyle("textFormat", bodyFormat);
       
       //body.backgroundColor   = "0xFFFFFF";
       //body.textColor         = "0xFFFF00";
@@ -74,5 +81,13 @@
         this.gameStage.start(codeInput.text);
       }
 		}
+    
+    // build the post body content
+		private function countChars(event:Event) {
+      trace("body.length: " + body.length);
+      textcounter.setCharCounter(body.length);
+      trace("countChars fired");
+		}
+    
 	}
 }
