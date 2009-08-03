@@ -33,6 +33,7 @@
       this.gui             = new HudStyleDisplay();
       this._images         = new Object();
       this._currentImageId = gameStage.defaultStyleData.id;
+
       
       initializeGui();
 		}
@@ -44,13 +45,11 @@
       // Don't show the Style e Label  on the gui
       //this.gui.styleName.text = currentStyleData.name;
 		  
-		  if(this.gui.contains(_images[_currentImageId])) {
-		    this.gui.removeChild(_images[_currentImageId])
-		  }
-		  
+      this.gui.removeChildAt(1);
+      
 		  _currentImageId = currentStyleData.id
 		  var currentImage = _images[_currentImageId];
-		  
+      
 		  gui.addChild(currentImage);
 		  currentImage.x = 0;
 		  currentImage.y = 32;
