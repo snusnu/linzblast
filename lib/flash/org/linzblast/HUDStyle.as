@@ -40,7 +40,9 @@
 		// called by styleSelector event listener
 		public function set currentStyleData(currentStyleData) {
 		  this._currentStyleData = currentStyleData;
-		  this.gui.styleName.text = currentStyleData.name;
+		  
+      // Don't show the Style e Label  on the gui
+      //this.gui.styleName.text = currentStyleData.name;
 		  
 		  if(this.gui.contains(_images[_currentImageId])) {
 		    this.gui.removeChild(_images[_currentImageId])
@@ -51,7 +53,7 @@
 		  
 		  gui.addChild(currentImage);
 		  currentImage.x = 0;
-		  currentImage.y = 50;
+		  currentImage.y = 32;
 		}
 		
 		public function get currentStyleData() {
@@ -60,7 +62,7 @@
 		
 		private function initializeGui() {
       gui.x = 20;
-      gui.y = gameStage.stage.stageHeight - 200;
+      gui.y = gameStage.stage.stageHeight - 123;
       gui.addEventListener(MouseEvent.CLICK, showStyleSelector);
       this.gameStage.styleSelector = styleSelector;
 		  addChild(gui);

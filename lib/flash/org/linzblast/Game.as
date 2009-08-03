@@ -227,7 +227,7 @@ package {
 			//addChild(this._fullscreenButton);
       
       
-      var glow:GlowFilter = new GlowFilter(0xffff00, 1, 10, 10);
+      var glow:GlowFilter = new GlowFilter(0xF5BA0A, 1, 10, 10);
       cursor.filters = [glow];
       
   		//this.cursor.addChild(currentStyleData.crosshair_symbol_image);

@@ -5,6 +5,7 @@
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
 	import flash.display.Loader;
+  import flash.filters.*;
 	import flash.ui.Mouse;
 	import flash.net.*;
 	import flash.events.*;
@@ -42,7 +43,8 @@
 		public function set currentWallData(currentWallData) {
 		  this._currentWallData = currentWallData;
 		  
-		  this.gui.wallName.text = currentWallData.name;
+		  // Don't show wallName
+      //this.gui.wallName.text = currentWallData.name;
 		  
 		  if(this.gui.contains(_images[_currentImageId])) {
 		    this.gui.removeChild(_images[_currentImageId])
@@ -65,6 +67,16 @@
 		  addChild(gui);
       gui.x = gameStage.stage.stageWidth - 20;
       gui.y = 444;
+      
+      var frame = new Sprite;
+      frame.graphics.lineStyle(6,0xF5BA0A);
+      frame.graphics.beginFill(0xF5BA0A);
+      frame.graphics.drawRoundRect(0,0,160,140,15);
+      frame.graphics.endFill();
+      gui.addChild(frame);
+      frame.x -= 155;
+      frame.y = 42;
+      
       gui.addEventListener(MouseEvent.CLICK, showWallSelector);
       this.gameStage.wallSelector = wallSelector;
       loadImages();
@@ -110,8 +122,17 @@
 			bmp.y -= bmp.height * .5;
 			
 			_images[associatedData.id] = bmp;
+
+      // Convert Image to Grayscale
+      var matrix:Array = [0.3, 0.59, 0.11, 0, 0,
+                      0.3, 0.59, 0.11, 0, 0,
+                      0.3, 0.59, 0.11, 0, 0,
+                      0, 0, 0, 1, 0];
+                      
+      var grayscaleFilter:ColorMatrixFilter = new ColorMatrixFilter(matrix);
+      bmp.filters = [grayscaleFilter];
 			
-			if(gui.numChildren == 1) {
+			if(gui.numChildren == 2) {
 			  var currentImage = _images[associatedData.id]
 			  gui.addChild(currentImage);
 			  currentImage.x = currentImage.width * -1;
