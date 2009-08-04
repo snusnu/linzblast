@@ -12,6 +12,7 @@ package {
 	import flash.events.* ;
   import flash.filters.*;
   import flash.media.*;
+  
 	
 	// as3corelib json include
 	import com.adobe.serialization.json.*; 
@@ -135,7 +136,7 @@ package {
 		
 
 		public function get defaultWallData() {
-		  return this._wallsData[0];
+      return this._wallsData[0];
 		}
 		
 		public function get defaultStyleData() {
@@ -186,8 +187,7 @@ package {
 		public function get styleSelector() {
 		  return this._styleSelector;
 		}
-		
-		
+    
 		// helpers
 		
 		// store game info in game stage

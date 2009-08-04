@@ -5,6 +5,7 @@
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
 	import flash.display.Loader;
+  import flash.display.LoaderInfo;
   import flash.filters.*;
 	import flash.ui.Mouse;
 	import flash.net.*;
@@ -34,7 +35,7 @@
       
       this._images         = new Object();
       this._currentImageId = gameStage.defaultWallData.id;
-      
+
       initializeGui();
 		}
 		
@@ -42,7 +43,7 @@
 		// called by wallSelector event listener
 		public function set currentWallData(currentWallData) {
 		  this._currentWallData = currentWallData;
-		  
+      
 		  // Don't show wallName
       //this.gui.wallName.text = currentWallData.name;
 		  
@@ -61,7 +62,6 @@
 		public function get currentWallData() {
 		  return this._currentWallData;
 		}
-		
 		
 		private function initializeGui() {
 		  addChild(gui);
@@ -132,9 +132,10 @@
       var grayscaleFilter:ColorMatrixFilter = new ColorMatrixFilter(matrix);
       bmp.filters = [grayscaleFilter];
 			
-			if(gui.numChildren == 2) {
+      if(gui.numChildren == 2 && associatedData.id == 1) {
 			  var currentImage = _images[associatedData.id]
-			  gui.addChild(currentImage);
+			  
+        gui.addChild(currentImage);
 			  currentImage.x = currentImage.width * -1;
   		  currentImage.y = 50;
 			}
