@@ -99,7 +99,7 @@
 		public function renderPost(post) {
 		  
 		  var sprite = new Sprite();
-	    sprite.graphics.lineStyle(4);
+	    sprite.graphics.lineStyle(2);
 	    
 	    // post.polygon is a json encoded array
 	    var polygon = JSON.decode(post.polygon);
