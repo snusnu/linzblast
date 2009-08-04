@@ -30,7 +30,7 @@ class Wall
 
   include Paperclip::Resource
 
-  has_attached_file :wall_image, :styles => { :small => "150x125#", :medium => "400x400#" }
+  has_attached_file :wall_image, :styles => { :small => "150x70#", :medium => "400x400#" }
 
 
   # JSON export

@@ -56,7 +56,7 @@
 		  
 		  gui.addChild(currentImage);
 		  currentImage.x = currentImage.width * -1;
-		  currentImage.y = 50;
+		  currentImage.y = 103;
 		}
 		
 		public function get currentWallData() {
@@ -71,11 +71,11 @@
       var frame = new Sprite;
       frame.graphics.lineStyle(6,0xF5BA0A);
       frame.graphics.beginFill(0xF5BA0A);
-      frame.graphics.drawRoundRect(0,0,160,140,15);
+      frame.graphics.drawRoundRect(0,0,156,76,10);
       frame.graphics.endFill();
       gui.addChild(frame);
-      frame.x -= 155;
-      frame.y = 42;
+      frame.x -= 153;
+      frame.y = 100;
       
       gui.addEventListener(MouseEvent.CLICK, showWallSelector);
       this.gameStage.wallSelector = wallSelector;
@@ -137,7 +137,7 @@
 			  
         gui.addChild(currentImage);
 			  currentImage.x = currentImage.width * -1;
-  		  currentImage.y = 50;
+  		  currentImage.y = 103;
 			}
 		}
 		
