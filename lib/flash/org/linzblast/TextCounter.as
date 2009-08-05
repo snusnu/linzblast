@@ -9,13 +9,12 @@ package  {
 	  
 	  public function TextCounter() {
 	    this.gameStage = gameStage;
-      this.nrofchars.text = "blabla" + "/" + maxChars;
+      this.nrofchars.text = "0" + "/" + maxChars;
       setCharCounter(0);
 	    
 	  }
     
     public function setCharCounter(chars:Number) {
-      trace("setCharCounter fired");
       this.nrofchars.text = chars + "/" + maxChars;
 		}
   

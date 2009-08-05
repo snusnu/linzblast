@@ -72,6 +72,7 @@
 		private function setCurrentGameInfo(event:Event) {
 		  if (event is IOErrorEvent) {
         trace("Unauthenticated");
+        var msg = new FlashMessage(gameStage,"INVALID CODE",3000);
       } else {
 		    var gameInfo:Object = JSON.decode(URLLoader(event.target).data);
   		  this.gameStage.gameId           = gameInfo.id;
