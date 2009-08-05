@@ -85,9 +85,7 @@
     
     // build the post body content
 		private function countChars(event:Event) {
-      trace("body.length: " + body.length);
       textcounter.setCharCounter(body.length);
-      trace("countChars fired");
 		}
     
 	}
