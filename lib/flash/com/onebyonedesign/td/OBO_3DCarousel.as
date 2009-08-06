@@ -136,7 +136,7 @@
 				if (_useBlur) {
 					if (!isNaN(item.zpos)){
 						// play with this blur amount - to taste
-						_blur.blurX = _blur.blurY = int(((item.zpos - _zpos) + 200) / 20);
+						_blur.blurX = _blur.blurY = int(((item.zpos - _zpos) + 300) / 20);
 						item.filters = [_blur];
 					}
 				}

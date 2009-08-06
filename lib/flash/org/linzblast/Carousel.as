@@ -48,7 +48,7 @@
 		  
 		  _numImages = _data.length
 		  
-			_carousel = new OBO_3DCarousel(700, 300, 220);
+			_carousel = new OBO_3DCarousel(700, 300, 400);
 			_carousel.useBlur = true;
 			_carousel.y = 150;
 			_carousel.x = 550;
