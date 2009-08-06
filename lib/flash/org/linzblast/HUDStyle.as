@@ -113,7 +113,7 @@
 			  var currentImage = _images[associatedData.id]
 			  gui.addChild(currentImage);
 			  currentImage.x = 0;
-  		  currentImage.y = 50;
+  		  currentImage.y = 32;
 			}
 		}
 		
