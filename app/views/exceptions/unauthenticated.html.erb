@@ -1,21 +1,20 @@
-<h3>Login</h3>
- 
-<div>
- 
   <%= error_messages_for session.authentication %>
   <% @login_param = Merb::Authentication::Strategies::Basic::Base.login_param %>
   <% @password_param = Merb::Authentication::Strategies::Basic::Base.password_param %>
-  
-  <form action="<%= slice_url(:merb_auth_slice_password, :perform_login) %>" method="POST" accept-charset="utf-8">
-   <input type="hidden" name="_method" value="PUT" />
-   <div class="formRow">
-   <label><%= @login_param.to_s.capitalize %>: <input type="text" name="<%= @login_param.to_s %>" value="" id="<%= @login_param.to_s %>"></label>
-   </div> <!-- close: formRow -->
-   <div class="formRow">
-   <label><%= @password_param.to_s.capitalize %>:<input type="password" name="<%= @password_param.to_s %>" value="" id="<%= @password_param.to_s %>"></label>
-   </div> <!-- close: formRow -->
-   <div class="formRow">
-   <input type="submit" name="Submit" value="Log In" id="Submit">
-   </div> <!-- close: formRow -->
-  </form>
-</div>
+
+  <div id="login" class="">
+    <form id="login-form" action="/login" method="post">
+      <input type="hidden" value="PUT" name="_method"/>
+      <p>
+        <label for="email">Benutzername (E-Mail)</label>
+        <input id="email" name="email" type="text"/>
+      </p>
+      <p>
+        <label for="password">Passwort</label>
+        <input id="password" name="password"type="password"/>
+      </p>
+      <p id="login-submit">
+        <input type="submit" value="Anmelden" class="ui-state-default ui-corner-all" />
+      </p>
+    </form>
+  </div>

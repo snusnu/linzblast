@@ -3,6 +3,8 @@ class MerbAuthSlicePassword::Sessions < MerbAuthSlicePassword::Application
   after :redirect_after_login,  :only => :update, :if => lambda { !(300..399).include?(status) }
   after :redirect_after_logout, :only => :destroy
   
+  layout :authentication
+  
   # @overwritable
   def redirect_after_login
     message[:auth_status] = 'success logged-in'
