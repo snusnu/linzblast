@@ -21,6 +21,7 @@
       this.codeSubmitButton.addEventListener(MouseEvent.CLICK, submitCode);
       
       this.body.addEventListener(Event.CHANGE,countChars);
+      this.body.addEventListener(Event.CHANGE,stripLineBreaks);
 	    this.body.maxChars = 162;
       
 	    var bodyFormat:TextFormat = new TextFormat;
@@ -83,10 +84,17 @@
       }
 		}
     
-    // build the post body content
+    // count the chars in the text area
 		private function countChars(event:Event) {
       textcounter.setCharCounter(body.length);
 		}
+    
+    // strip line breaks from the textarea
+    private function stripLineBreaks(event:Event) {
+      body.text = body.text.replace("\r", "");
+		}
+    
+    
     
 	}
 }
