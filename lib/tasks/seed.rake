@@ -25,6 +25,37 @@ namespace :db do
     
     # walls
     
+     Wall.create(
+      :name => 'rudolf underground',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_rudolf_underground.jpg")
+    )
+    
+     Wall.create(
+      :name => 'ars night',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_aec_night.jpg")
+    )
+    
+     Wall.create(
+      :name => 'steel dawn',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_voest_dawn.jpg")
+    )
+    
+     Wall.create(
+      :name => 'steel night',
+      :description => 'Linz',
+      :access_restricted => true,
+      :wall_image => File.new("#{Merb.root}/public/linzblast/walls/linz_voest_night.jpg")
+    )
+    
+    
+    #
+    
     Wall.create(
       :name => 'nights',
       :description => 'Linz',
