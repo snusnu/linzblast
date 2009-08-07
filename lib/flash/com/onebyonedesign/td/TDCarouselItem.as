@@ -4,6 +4,9 @@
 	import flash.display.BitmapData;
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
+  import flash.text.TextField;
+  import flash.text.TextFormat;
+  import flash.text.StyleSheet;
 	import flash.events.MouseEvent;
 	
 	/**
@@ -20,6 +23,10 @@
 		private var _orgYPos:Number;
 		private var _data:BitmapData;
 		private var _associatedData;
+    
+    // style data
+    private var _propsTable:TextField;
+    private var _propsStyle:StyleSheet;
 		
 		private var _zpos:Number;
 		
@@ -30,8 +37,61 @@
 			var bmp:Bitmap = new Bitmap(_data, "auto", true);
 			bmp.x -= bmp.width * .5;
 			bmp.y -= bmp.height * .5;
+      
+      _propsTable = new TextField();
+      _propsTable.multiline = true;
+      
+      _propsStyle = new StyleSheet;
+      
+      var propLabel:Object = new Object();
+      propLabel.fontSize = "18";
+      var body:Object = new Object();
+      body.color = "#F5BA0A";
+      body.fontFamily = "Courier New";
+      body.fontSize = "24";
+      body.fontWeight = "bold";
+      
+      if (_associatedData.distortion) {
+        body.textAlign = "right";
+      } else {
+       body.textAlign = "center";
+      }
+      
+      _propsStyle.setStyle(".label", propLabel);
+      _propsStyle.setStyle("body", body);
+     
+      _propsTable.styleSheet = _propsStyle;
+      
+      // check if wall or style
+      if (_associatedData.distortion) {
+
+        _propsTable.width = 500;
+        _propsTable.height = 350;
+        _propsTable.x -= 10;
+        _propsTable.y = 70;
+
+        _propsTable.htmlText = "<body>" +
+                                "<span class='label'>name</span><br>" + _associatedData.name +
+                                "<br><span class='label'>type</span><br>" + _associatedData.type +
+                                "<br><span class='label'>series</span><br>" + _associatedData.series +
+                                "<br><span class='label'>manufacturer</span><br>" + _associatedData.manufacturer +
+                                "<br><span class='label'>range</span><br>" + _associatedData.range +
+                                "</body>";
+
+      } else {
+      
+        _propsTable.width = 400;
+        _propsTable.height = 60;
+        _propsTable.x -= _propsTable.width * .5;
+        _propsTable.y = 225;
+
+        _propsTable.htmlText = "<body>" + _associatedData.name + "</body>";
+
+      }
+      
 			updateDisplay();
 			addChild(bmp);
+      addChild(_propsTable);
 		}
 		
 		internal function updateDisplay():void {
